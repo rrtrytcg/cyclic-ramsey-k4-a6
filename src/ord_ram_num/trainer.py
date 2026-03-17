@@ -71,7 +71,7 @@ def train(graph_order: int, pattern_graph_list: List[str], ramsey_score_type: Ra
             print(solution.adjacency_matrix_colors)
 
             output_file_name = "_".join(pattern_graph_list) + f"__{graph_order:02}.txt"
-            with open(f"results/{output_file_name}", "a") as opened_file:
+            with open(f"lower_bounds/{output_file_name}", "a") as opened_file:
                 output_bitmask = " ".join([str(item) for item in solution.bitmask_out[-1]])
                 opened_file.write(output_bitmask + "\n")
 
@@ -84,7 +84,7 @@ def train(graph_order: int, pattern_graph_list: List[str], ramsey_score_type: Ra
 
 if __name__ == "__main__":
     train(
-        graph_order=11,
-        pattern_graph_list=["c4m", "c4m"],
+        graph_order=10,
+        pattern_graph_list=["c4m", "c4c"],
         ramsey_score_type=RamseyScoreType.ORDERED,
     )
