@@ -5,24 +5,45 @@ import torch.nn as nn
 import torch.optim as optim
 from rlgt.agents import DeepCrossEntropyAgent, ExponentialRandomActionMechanism
 from rlgt.environments import LinearBuildEnvironment
-from rlgt.graphs import CycleGraph, Graph, GraphFormat, PathGraph
+from rlgt.graphs import CompleteGraph, CycleGraph, Graph, GraphFormat, PathGraph, StarGraph
 
 from score_computation import RamseyScoreType, compute_ramsey_score
 
 
 all_graphs: Dict[str, Graph] = {
+    "k3": CompleteGraph({GraphFormat.BITMASK_OUT}, 3),
+    "k4": CompleteGraph({GraphFormat.BITMASK_OUT}, 4),
+    "k5": CompleteGraph({GraphFormat.BITMASK_OUT}, 5),
+    "k6": CompleteGraph({GraphFormat.BITMASK_OUT}, 6),
+    "k7": CompleteGraph({GraphFormat.BITMASK_OUT}, 7),
+    "k8": CompleteGraph({GraphFormat.BITMASK_OUT}, 8),
     "p3m": PathGraph({GraphFormat.BITMASK_OUT}, 3),
     "p4m": PathGraph({GraphFormat.BITMASK_OUT}, 4),
     "p5m": PathGraph({GraphFormat.BITMASK_OUT}, 5),
     "p6m": PathGraph({GraphFormat.BITMASK_OUT}, 6),
     "p7m": PathGraph({GraphFormat.BITMASK_OUT}, 7),
+    "p8m": PathGraph({GraphFormat.BITMASK_OUT}, 8),
+    "p3a": Graph.from_bitmask(np.array([[4, 4, 3]], dtype=np.uint64)),
+    "p4a": Graph.from_bitmask(np.array([[8, 12, 2, 3]], dtype=np.uint64)),
+    "p5a": Graph.from_bitmask(np.array([[16, 24, 8, 6, 3]], dtype=np.uint64)),
+    "p6a": Graph.from_bitmask(np.array([[32, 48, 24, 4, 6, 3]], dtype=np.uint64)),
+    "p7a": Graph.from_bitmask(np.array([[64, 96, 48, 16, 12, 6, 3]], dtype=np.uint64)),
+    "p8a": Graph.from_bitmask(np.array([[128, 192, 96, 48, 8, 12, 6, 3]], dtype=np.uint64)),
+    "p13a": Graph.from_bitmask(np.array([[4096, 6144, 3072, 1536, 768, 384, 128, 96, 48, 24, 12, 6, 3]], dtype=np.uint64)),
     "c3m": CycleGraph({GraphFormat.BITMASK_OUT}, 3),
     "c4m": CycleGraph({GraphFormat.BITMASK_OUT}, 4),
-    "c4b": Graph.from_bitmask(np.array([[12, 12, 3, 3]], dtype=np.uint64)),
-    "c4c": Graph.from_bitmask(np.array([[6, 9, 9, 6]], dtype=np.uint64)),
     "c5m": CycleGraph({GraphFormat.BITMASK_OUT}, 5),
     "c6m": CycleGraph({GraphFormat.BITMASK_OUT}, 6),
     "c7m": CycleGraph({GraphFormat.BITMASK_OUT}, 7),
+    "c8m": CycleGraph({GraphFormat.BITMASK_OUT}, 8),
+    "c4b": Graph.from_bitmask(np.array([[12, 12, 3, 3]], dtype=np.uint64)),
+    "c4c": Graph.from_bitmask(np.array([[6, 9, 9, 6]], dtype=np.uint64)),
+    "s3": StarGraph({GraphFormat.BITMASK_OUT}, 3),
+    "s4": StarGraph({GraphFormat.BITMASK_OUT}, 4),
+    "s5": StarGraph({GraphFormat.BITMASK_OUT}, 5),
+    "s6": StarGraph({GraphFormat.BITMASK_OUT}, 6),
+    "s7": StarGraph({GraphFormat.BITMASK_OUT}, 7),
+    "s8": StarGraph({GraphFormat.BITMASK_OUT}, 8),
 }
 
 
@@ -77,14 +98,14 @@ def train(graph_order: int, pattern_graph_list: List[str], ramsey_score_type: Ra
 
             break
 
-        if agent.step_count >= 1000:
+        if agent.step_count >= 1500:
             print("Restarting...")
             agent.reset()
 
 
 if __name__ == "__main__":
     train(
-        graph_order=10,
-        pattern_graph_list=["c4m", "c4c"],
+        graph_order=25,
+        pattern_graph_list=["p13a", "p13a"],
         ramsey_score_type=RamseyScoreType.ORDERED,
     )
