@@ -2,6 +2,9 @@
 
 #include "graphs.hpp"
 
+#include <memory>
+#include <sstream>
+
 namespace SubgraphCounting {
 
 class SubgraphStateSimple {
@@ -132,6 +135,63 @@ public:
   }
 
   uint64_t get() const { return m_count; }
+};
+
+class CNFState {
+  // Arguments
+  int m_big_n;
+  AdjGraph m_small;
+
+  // State
+  uint8_t m_map[64];
+  uint64_t m_len = 0;
+
+  std::shared_ptr<std::ostringstream> m_cnf;
+
+public:
+  // First argument (big graph) is unused
+  CNFState(AdjGraph big, AdjGraph small)
+      : m_big_n(big.n), m_small(small),
+        m_cnf(std::make_shared<std::ostringstream>()) {}
+
+  bool push(uint8_t x) {
+    auto y = m_len;
+    // Vertex y is mapped to x in the big graph.
+
+    m_map[y] = x;
+    m_len++;
+
+    if (m_len == m_small.n) {
+      // New graph, add constraint
+
+      auto go = [&](int sign) {
+        int edge_idx = 0;
+        for (uint8_t i = 0; i < m_small.n; i++) {
+          for (uint8_t j = i + 1; j < m_small.n; j++) {
+            int x = m_map[i];
+            int y = m_map[j];
+            int edge_idx = x * m_big_n - x * (x + 1) / 2 + y - x;
+            if ((m_small.adj[i] >> j) & 1) {
+              *m_cnf << sign * edge_idx << ' ';
+            }
+          }
+        }
+        *m_cnf << "0\n";
+      };
+
+      // Ban small graph from big
+      go(1);
+
+      // Ban small graph from big complement
+      go(-1);
+    }
+
+    return true;
+  }
+
+  void pop() { m_len--; }
+
+  std::string get() const { return std::move(m_cnf->str()); }
 };
 
 } // namespace SubgraphCounting

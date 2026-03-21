@@ -34,7 +34,7 @@ public:
     }
   }
 
-  uint64_t get() const { return m_state.get(); }
+  auto get() const { return m_state.get(); }
 };
 
 template <class State> class VariationGenerator {
@@ -63,7 +63,7 @@ public:
     }
   }
 
-  uint64_t get() const { return m_state.get(); }
+  auto get() const { return m_state.get(); }
 };
 
 template <class State> class UnorderedCombinationGenerator {
@@ -98,7 +98,7 @@ public:
     }
   }
 
-  uint64_t get() const { return m_state.get(); }
+  auto get() const { return m_state.get(); }
 };
 
 template <class State> class IncreasingSequenceGenerator {
@@ -129,7 +129,7 @@ public:
     }
   }
 
-  uint64_t get() const { return m_state.get(); }
+  auto get() const { return m_state.get(); }
 };
 
 template <class State> class CircularSequenceGenerator {
@@ -177,7 +177,7 @@ public:
     }
   }
 
-  uint64_t get() const { return m_state.get(); }
+  auto get() const { return m_state.get(); }
 };
 
 } // namespace SubgraphCounting
