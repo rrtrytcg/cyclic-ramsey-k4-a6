@@ -81,11 +81,13 @@ int main(int argc, char** argv) {
       complete(big_n), small_1, 1);
     content += solve_graph<IncreasingSequenceGenerator, CNFState>(
       complete(big_n), small_2, -1);
-  } else {
+  } else if (problem_mode == "cyclic") {
     content = solve_graph<CircularSequenceGenerator, CNFState>(
       complete(big_n), small_1, 1);
     content += solve_graph<CircularSequenceGenerator, CNFState>(
       complete(big_n), small_2, -1);
+  } else {
+    return 1;
   }
 
   std::ofstream outf(fname);
