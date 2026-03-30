@@ -141,6 +141,7 @@ class CNFState {
   // Arguments
   int m_big_n;
   AdjGraph m_small;
+  int m_sign;
 
   // State
   uint8_t m_map[64];
@@ -150,9 +151,9 @@ class CNFState {
 
 public:
   // First argument (big graph) is unused
-  CNFState(AdjGraph big, AdjGraph small)
-      : m_big_n(big.n), m_small(small),
-        m_cnf(std::make_shared<std::ostringstream>()) {}
+  CNFState(AdjGraph big, AdjGraph small, int sign)
+      : m_big_n(big.n), m_small(small), m_sign(sign),
+        m_cnf(std::make_shared<std::ostringstream>()){}
 
   bool push(uint8_t x) {
     auto y = m_len;
@@ -179,11 +180,8 @@ public:
         *m_cnf << "0\n";
       };
 
-      // Ban small graph from big
-      go(1);
-
-      // Ban small graph from big complement
-      go(-1);
+      // Ban small graph from big (or complement, based on sign)
+      go(m_sign);
     }
 
     return true;
