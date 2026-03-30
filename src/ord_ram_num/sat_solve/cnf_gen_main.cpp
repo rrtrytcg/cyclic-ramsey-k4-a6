@@ -74,10 +74,19 @@ int main(int argc, char** argv) {
     return print_usage();
   }
 
-  std::string content = solve_graph<IncreasingSequenceGenerator, CNFState>(
+  std::string content;
+
+  if (problem_mode == "ordered") {
+    content = solve_graph<IncreasingSequenceGenerator, CNFState>(
       complete(big_n), small_1, 1);
-  content += solve_graph<IncreasingSequenceGenerator, CNFState>(
+    content += solve_graph<IncreasingSequenceGenerator, CNFState>(
       complete(big_n), small_2, -1);
+  } else {
+    content = solve_graph<CircularSequenceGenerator, CNFState>(
+      complete(big_n), small_1, 1);
+    content += solve_graph<CircularSequenceGenerator, CNFState>(
+      complete(big_n), small_2, -1);
+  }
 
   std::ofstream outf(fname);
   outf << "p cnf " << big_n * (big_n - 1) / 2 << ' '
