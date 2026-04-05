@@ -33,20 +33,22 @@ AdjGraph get_from_args(int offs, char** argv) {
   AdjGraph small;
   int small_n = atoi(argv[offs]);
   std::string desc = argv[offs + 1];
-  if (desc == "path") {
+  if (desc == "pmon") {
     small = path(small_n);
-  } else if (desc == "alternating_path") {
+  } else if (desc == "palt") {
     small = alternating_path(small_n);
-  } else if (desc == "reverse_alternating_path") {
+  } else if (desc == "pralt") {
     small = reverse_alternating_path(small_n);
-  } else if (desc == "cycle") {
+  } else if (desc == "cmon") {
     small = cycle(small_n);
-  } else if (desc == "star") {
+  } else if (desc == "ssc") {
     small = star(small_n);
-  } else if (desc == "nested_matching") {
+  } else if (desc == "mnest") {
     small = nested_matching(small_n);
-  } else if (desc == "complete") {
+  } else if (desc == "k") {
     small = complete(small_n);
+  } else if (desc == "pqmon") {
+    small = example_path(5, small_n);
   } else {
     throw std::runtime_error{"Unknown graph type"};
   }
@@ -76,12 +78,12 @@ int main(int argc, char** argv) {
 
   std::string content;
 
-  if (problem_mode == "ordered") {
+  if (problem_mode == "ord") {
     content = solve_graph<IncreasingSequenceGenerator, CNFState>(
       complete(big_n), small_1, 1);
     content += solve_graph<IncreasingSequenceGenerator, CNFState>(
       complete(big_n), small_2, -1);
-  } else if (problem_mode == "cyclic") {
+  } else if (problem_mode == "cyc") {
     content = solve_graph<CircularSequenceGenerator, CNFState>(
       complete(big_n), small_1, 1);
     content += solve_graph<CircularSequenceGenerator, CNFState>(

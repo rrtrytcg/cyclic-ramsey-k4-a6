@@ -109,4 +109,21 @@ inline AdjGraph complete(uint8_t n) {
   return r;
 }
 
+inline AdjGraph example_path(uint8_t n, uint8_t end) {
+  AdjGraph r;
+  r.n = n;
+  for (uint8_t i = 0; i < n - 1; i++) {
+    if (i != end) {
+      r.adj[i] |= 1ull << (i + 1);
+      r.adj[i + 1] |= 1ull << i;
+    }
+  }
+  if (n - 1 != end) {
+    r.adj[n - 1] |= 1ull;
+    r.adj[0] |= 1ull << (n - 1);
+  }
+
+  return r;
+}
+
 } // namespace SubgraphCounting

@@ -1,0 +1,1 @@
+g++ -O2 cnf_gen_main.cpp -o cnf_gen_main && ./cnf_gen_main tmp.cnf $3 cyc $1 palt $2 pralt && ./kissat tmp.cnf > "../../../kissat_output/palt_pralt_cyc/palt${1}_pralt${2}_cyc_${3}.txt"

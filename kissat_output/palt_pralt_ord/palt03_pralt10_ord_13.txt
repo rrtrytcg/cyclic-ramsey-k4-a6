@@ -1,0 +1,71 @@
+c ---- [ banner ] ------------------------------------------------------------
+c
+c Kissat SAT Solver
+c 
+c Copyright (c) 2021-2024 Armin Biere University of Freiburg
+c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+c 
+c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
+c Apple clang version 17.0.0 (clang-1700.6.3.2) -W -Wall -O3 -DNDEBUG
+c Mon Mar 30 18:25:47 CEST 2026 Darwin Mac 24.6.0 arm64
+c
+c ---- [ parsing ] -----------------------------------------------------------
+c
+c opened and reading DIMACS file:
+c
+c   tmp.cnf
+c
+c parsed 'p cnf 78 572' header
+c closing input after reading 13104 bytes (13 KB)
+c finished parsing after 0.00 seconds
+c
+c ---- [ solving ] -----------------------------------------------------------
+c
+c seconds switched rate     size/glue tier1 binary    remaining
+c        MB reductions conflicts size  tier2  irredundant
+c         level restarts redundant glue  trail    variables
+c
+c *  0.00  1 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 286 286 77 100%
+c (  0.00  1 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 286 286 77 100%
+c .  0.00  1 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 286 286 77 100%
+c =  0.01  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 296 166 39 51%
+c )  0.01  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 296 166 43 56%
+c 0  0.01  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 296 166 43 56%
+c
+c ---- [ result ] ------------------------------------------------------------
+c
+s UNSATISFIABLE
+c
+c ---- [ profiling ] ---------------------------------------------------------
+c
+c           0.01   94.48 %  preprocess
+c           0.01   94.08 %  probe
+c           0.01   92.39 %  sweep
+c           0.00    1.98 %  parse
+c           0.00    1.28 %  congruence
+c           0.00    0.85 %  lucky
+c           0.00    0.23 %  backbone
+c           0.00    0.00 %  search
+c           0.00    0.00 %  simplify
+c =============================================
+c           0.01  100.00 %  total
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c conflicts:                                0                0.00 per second
+c decisions:                                0                0.00 per conflict
+c propagations:                           955           128915    per second
+c switched:                                 0                0    interval
+c
+c ---- [ glue usage ] --------------------------------------------------------
+c
+c no clauses used at all
+c
+c ---- [ resources ] ---------------------------------------------------------
+c
+c maximum-resident-set-size:       1845493760 bytes       1760 MB
+c process-time:                                              0.01 seconds
+c
+c ---- [ shutting down ] -----------------------------------------------------
+c
+c exit 20

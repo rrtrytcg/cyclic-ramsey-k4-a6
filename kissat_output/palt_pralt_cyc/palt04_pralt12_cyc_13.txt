@@ -1,0 +1,92 @@
+c ---- [ banner ] ------------------------------------------------------------
+c
+c Kissat SAT Solver
+c 
+c Copyright (c) 2021-2024 Armin Biere University of Freiburg
+c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+c 
+c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
+c Apple clang version 17.0.0 (clang-1700.6.3.2) -W -Wall -O3 -DNDEBUG
+c Mon Mar 30 18:25:47 CEST 2026 Darwin Mac 24.6.0 arm64
+c
+c ---- [ parsing ] -----------------------------------------------------------
+c
+c opened and reading DIMACS file:
+c
+c   tmp.cnf
+c
+c parsed 'p cnf 78 3016' header
+c closing input after reading 38056 bytes (37 KB)
+c finished parsing after 0.00 seconds
+c
+c ---- [ solving ] -----------------------------------------------------------
+c
+c seconds switched rate     size/glue tier1 binary     remaining
+c        MB reductions conflicts size  tier2  irredundant
+c         level restarts redundant glue  trail     variables
+c
+c *  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 108 2908 78 100%
+c (  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 108 2908 78 100%
+c .  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 108 2908 78 100%
+c f  0.02  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 332 604 223 286%
+c )  0.02  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 332 604 223 286%
+c {  0.02  2 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 332 604 223 286%
+c i  0.02  2 11 0 0 15 2 518 376 1.7 10 6 4 9 55% 338 604 208 267%
+c i  0.02  2 11 0 0 15 2 545 393 1.7 10 6 4 9 55% 340 604 207 265%
+c i  0.02  2 11 0 0 15 2 547 393 1.7 10 6 4 9 55% 341 604 206 264%
+c i  0.02  2 11 0 0 15 2 574 404 1.7 9 6 4 9 54% 344 604 166 213%
+c i  0.02  2 11 0 0 15 2 578 405 1.7 9 6 4 9 54% 346 604 165 212%
+c i  0.02  2 11 0 0 15 2 600 422 1.7 9 5 4 9 54% 347 604 164 210%
+c i  0.02  2 11 0 0 15 2 603 423 1.7 9 5 4 9 54% 347 604 154 197%
+c i  0.02  2 11 0 0 15 2 605 423 1.7 9 5 4 9 54% 347 604 119 153%
+c i  0.02  2 10 0 0 15 2 609 423 1.7 9 5 4 9 54% 350 604 107 137%
+c }  0.02  2 10 0 0 15 2 614 424 1.7 9 5 4 9 54% 352 604 64 82%
+c 0  0.02  2 10 0 0 15 2 614 424 1.7 9 5 4 9 54% 352 604 64 82%
+c
+c ---- [ result ] ------------------------------------------------------------
+c
+s UNSATISFIABLE
+c
+c ---- [ profiling ] ---------------------------------------------------------
+c
+c           0.02   83.92 %  preprocess
+c           0.02   83.82 %  probe
+c           0.01   50.72 %  sweep
+c           0.01   31.57 %  factor
+c           0.00   13.17 %  search
+c           0.00   13.16 %  focused
+c           0.00    1.50 %  parse
+c           0.00    1.17 %  congruence
+c           0.00    0.72 %  lucky
+c           0.00    0.28 %  substitute
+c           0.00    0.05 %  backbone
+c           0.00    0.00 %  simplify
+c =============================================
+c           0.02  100.00 %  total
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c conflicts:                              614            26102.11 per second
+c decisions:                             1106                1.80 per conflict
+c factored:                               145              186 %  variables
+c iterations:                              10               13 %  variables
+c propagations:                         24307          1033329    per second
+c restarts:                                15               41    interval
+c switched:                                 0                0    interval
+c
+c ---- [ glue usage ] --------------------------------------------------------
+c
+c focused glue 3   used 216 clauses 17.58% accumulated 52.64% tier1
+c focused glue 4   used 211 clauses 17.17% accumulated 69.81%
+c focused glue 5-6 used 202 clauses 16.44% accumulated 86.25%
+c focused glue 7   used  32 clauses  2.60% accumulated 88.85%
+c focused glue 8   used  46 clauses  3.74% accumulated 92.60% tier2
+c
+c ---- [ resources ] ---------------------------------------------------------
+c
+c maximum-resident-set-size:       2365587456 bytes       2256 MB
+c process-time:                                              0.02 seconds
+c
+c ---- [ shutting down ] -----------------------------------------------------
+c
+c exit 20

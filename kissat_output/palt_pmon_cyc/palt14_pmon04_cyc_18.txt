@@ -1,0 +1,87 @@
+c ---- [ banner ] ------------------------------------------------------------
+c
+c Kissat SAT Solver
+c 
+c Copyright (c) 2021-2024 Armin Biere University of Freiburg
+c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+c 
+c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
+c Apple clang version 17.0.0 (clang-1700.6.3.2) -W -Wall -O3 -DNDEBUG
+c Mon Mar 30 18:25:47 CEST 2026 Darwin Mac 24.6.0 arm64
+c
+c ---- [ parsing ] -----------------------------------------------------------
+c
+c opened and reading DIMACS file:
+c
+c   tmp.cnf
+c
+c parsed 'p cnf 153 55080' header
+c closing input after reading 2257319 bytes (2 MB)
+c finished parsing after 0.01 seconds
+c
+c ---- [ solving ] -----------------------------------------------------------
+c
+c seconds switched rate     size/glue tier1 binary       remaining
+c        MB reductions conflicts size  tier2   irredundant
+c         level restarts redundant glue  trail       variables
+c
+c *  0.01 13 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 238 54842 153 100%
+c (  0.01 13 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 238 54842 153 100%
+c .  0.01 13 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 238 54842 153 100%
+c f  0.07 18 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1008 45467 588 384%
+c )  0.07 18 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1008 45467 588 384%
+c {  0.08 18 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 1008 45467 588 384%
+c i  0.08 18 8 0 0  0 1 215 181 2.1 10 5 5 10 37% 1014 45467 587 384%
+c i  0.09 18 8 0 0  0 1 245 186 2.1 9 4 4 8 37% 1019 45467 586 383%
+c i  0.09 18 8 0 0  0 1 268 200 2.1 9 4 3 7 37% 1021 45467 539 352%
+c i  0.09 18 7 0 0  0 1 302 212 2.0 9 4 3 7 35% 1024 45467 513 335%
+c i  0.09 18 7 0 0  0 1 312 217 2.0 9 4 3 7 35% 1025 45467 470 307%
+c i  0.09 18 7 0 0  0 1 313 217 2.0 9 4 3 7 35% 1025 45467 469 307%
+c }  0.09 18 7 0 0  0 1 316 217 2.0 8 4 3 7 35% 1026 45467 440 288%
+c 0  0.09 18 7 0 0  0 1 316 217 2.0 8 4 3 7 35% 1026 45467 440 288%
+c
+c ---- [ result ] ------------------------------------------------------------
+c
+s UNSATISFIABLE
+c
+c ---- [ profiling ] ---------------------------------------------------------
+c
+c           0.06   71.50 %  preprocess
+c           0.06   71.47 %  probe
+c           0.06   65.83 %  factor
+c           0.01   12.19 %  search
+c           0.01   12.19 %  focused
+c           0.01   10.15 %  parse
+c           0.01    6.00 %  lucky
+c           0.00    2.36 %  sweep
+c           0.00    1.89 %  congruence
+c           0.00    1.32 %  substitute
+c           0.00    0.05 %  backbone
+c           0.00    0.00 %  simplify
+c =============================================
+c           0.09  100.00 %  total
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c conflicts:                              316             3550.72 per second
+c decisions:                              427                1.35 per conflict
+c factored:                               435              284 %  variables
+c iterations:                               7                5 %  variables
+c propagations:                         28210           316981    per second
+c switched:                                 0                0    interval
+c
+c ---- [ glue usage ] --------------------------------------------------------
+c
+c focused glue 3 used 116 clauses 29.22% accumulated 54.66% tier1
+c focused glue 4 used  67 clauses 16.88% accumulated 71.54%
+c focused glue 5 used  48 clauses 12.09% accumulated 83.63%
+c focused glue 6 used  27 clauses  6.80% accumulated 90.43% tier2
+c
+c ---- [ resources ] ---------------------------------------------------------
+c
+c maximum-resident-set-size:      19126026240 bytes      18240 MB
+c process-time:                                              0.09 seconds
+c
+c ---- [ shutting down ] -----------------------------------------------------
+c
+c exit 20
