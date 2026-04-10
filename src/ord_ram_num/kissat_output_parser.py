@@ -85,6 +85,28 @@ def parse_problem_folder(problem_folder: Path):
         else:
             solutions[(a, b)][1] = min(solutions[(a, b)][1], n)
 
+    for kissat_file in problem_folder.iterdir():
+        if kissat_file.is_dir():
+            continue
+        if "_ord" not in kissat_file.name and "_cyc" not in kissat_file.name:
+            continue
+        if problem_folder.name == "pqmon_pqmon" and "_cyc" in kissat_file.name:
+            continue
+
+        split_stem = kissat_file.stem.split("_")
+
+        a = int(split_stem[0][-2:])
+        b = int(split_stem[1][-2:])
+        n = int(split_stem[3])
+        result = parse_kissat_file(kissat_file, n)
+
+        if result:
+            if solutions[(a, b)][0] > n + 1:
+                kissat_file.unlink()
+        else:
+            if solutions[(a, b)][1] < n:
+                kissat_file.unlink()
+
     output_path = Path("parsed_tables") / f"{problem_folder.name}.tex"
     with open(str(output_path), "w") as opened_file:
         opened_file.write(r"\begin{table}[H]" + "\n")
