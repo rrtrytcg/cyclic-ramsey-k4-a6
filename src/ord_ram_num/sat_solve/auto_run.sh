@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 
-maxtimegen="10s"
-maxtimekis="5s"
 type1="pmon"
 type2="pmon"
 mode="cyc"
 
+maxtimegen="1m"
+maxtimekis="2m"
+
 amax=${1}
 bmax=${2}
 
-for ((a=3; a<=amax; a++)); do
-	for ((b=3; b<=bmax; b++)); do
+for ((a=8; a<=amax; a++)); do
+	nomas=false
+	for ((b=a; b<=bmax; b++)); do
 		echo "Processing a = $a, b = $b"
 		n=$(( $a > $b ? $a : $b ))
 
@@ -21,12 +23,13 @@ for ((a=3; a<=amax; a++)); do
 			fn=$(printf "%02d" "${n}")
 			outfile="../../../kissat_output/${type1}_${type2}_${mode}/${type1}${f1}_${type2}${f2}_${mode}_${fn}.txt"
 			g++ -O2 cnf_gen_main.cpp -o cnf_gen_main || exit 1
-			timeout $maxtimegen ./cnf_gen_main tmp.cnf $n $mode $a $type1 $b $type2
+			gtimeout $maxtimegen ./cnf_gen_main tmp.cnf $n $mode $a $type1 $b $type2
 			if [ $? -eq 124 ]; then
 				printf "\tTimeout (cnf_gen_main) at n = %d\n" "$n"
+				nomas=true
 				break
 			fi
-			timeout $maxtimekis ./kissat tmp.cnf > $outfile
+			gtimeout $maxtimekis ./kissat tmp.cnf > $outfile
 			if [ $? -eq 124 ]; then
 				printf "\tTimeout (kissat) at n = %d\n" "$n"
 				break
@@ -39,6 +42,10 @@ for ((a=3; a<=amax; a++)); do
 			printf "\tSatisfiable at n = %d, continuing ...\n" "$n"
 			n=$(( n + 1 ))
 		done
+
+		if [ "$nomas" = true ]; then
+			break
+		fi
 	done
 done
 
