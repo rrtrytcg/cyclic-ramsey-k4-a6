@@ -171,6 +171,9 @@ public:
           for (uint8_t j = i + 1; j < m_small.n; j++) {
             int x = m_map[i];
             int y = m_map[j];
+            if (x > y) {
+              std::swap(x, y);
+            }
             int edge_idx = x * m_big_n - x * (x + 1) / 2 + y - x;
             if ((m_small.adj[i] >> j) & 1) {
               *m_cnf << sign * edge_idx << ' ';
