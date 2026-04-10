@@ -1,8 +1,39 @@
-type1="cmon"
-type2="palt"
-mode="ord"
+#!/usr/bin/env bash
 
-g++ -O2 cnf_gen_main.cpp -o cnf_gen_main && ./cnf_gen_main tmp.cnf $3 $mode $1 $type1 $2 $type2 && ./kissat tmp.cnf > "../../../kissat_output/${type1}_${type2}_${mode}/${type1}${1}_${type2}${2}_${mode}_${3}.txt"
+maxtimegen="50s"
+maxtimekis="5s"
+type1="pmon"
+type2="pmon"
+mode="cyc"
+outfile="../../../kissat_output/${type1}_${type2}_${mode}/${type1}${1}_${type2}${2}_${mode}_${3}.txt"
+
+n=$(( $1 > $2 ? $1 : $2 ))
+
+while true; do
+	outfile="../../../kissat_output/${type1}_${type2}_${mode}/${type1}${1}_${type2}${2}_${mode}_${n}.txt"
+	g++ -O2 cnf_gen_main.cpp -o cnf_gen_main || exit 1
+	timeout $maxtimegen ./cnf_gen_main tmp.cnf $n $mode $1 $type1 $2 $type2
+	if [ $? -eq 124 ]; then
+		echo "Timeout (cnf_gen_main) at n = $n"
+		break
+	fi
+	timeout $maxtimekis ./kissat tmp.cnf > $outfile
+	if [ $? -eq 124 ]; then
+		echo "Timeout (kissat) at n = $n"
+		break
+	fi
+	result=$(cat $outfile | grep "^s ")
+	if echo "$result" | grep -q "UNSATISFIABLE"; then
+		echo "Unsatisfiable at n = $n"
+		break
+	fi
+	echo "Satisfiable at n = $n, continuing ..."
+	n=$(( n + 1 ))
+done
+
+# ./cnf_gen_main tmp.cnf $3 $mode $1 $type1 $2 $type2 && ./kissat tmp.cnf > $outfile
+
+# cat $outfile | grep "^s "
 
 # for i in {7..11}; do
 #     for j in {4..4}; do
