@@ -1,0 +1,89 @@
+c ---- [ banner ] ------------------------------------------------------------
+c
+c Kissat SAT Solver
+c 
+c Copyright (c) 2021-2024 Armin Biere University of Freiburg
+c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+c 
+c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
+c Apple clang version 17.0.0 (clang-1700.6.3.2) -W -Wall -O3 -DNDEBUG
+c Mon Mar 30 18:25:47 CEST 2026 Darwin Mac 24.6.0 arm64
+c
+c ---- [ parsing ] -----------------------------------------------------------
+c
+c opened and reading DIMACS file:
+c
+c   tmp.cnf
+c
+c parsed 'p cnf 210 3531150' header
+c closing input after reading 184937826 bytes (176 MB)
+c finished parsing after 0.51 seconds
+c
+c ---- [ solving ] -----------------------------------------------------------
+c
+c seconds  switched rate     size/glue tier1  binary         remaining
+c         MB reductions conflicts size  tier2     irredundant
+c          level restarts redundant glue  trail          variables
+c
+c *  0.51 307 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 3990 3527160 210 100%
+c (  0.67 531 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 3990 3527160 210 100%
+c .  0.67 531 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 3990 3527160 210 100%
+c f  1.22 620 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1132 3527160 401 191%
+c )  1.24 620 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 1132 3527160 401 191%
+c {  1.40 630 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 1132 3527160 401 191%
+c i  2.95 554 7 0 0  2 1 205  80 1.4 6 5 5 7 44% 1136 3527159 344 164%
+c i  3.64 471 6 0 0  2 1 292 113 1.4 6 4 5 7 44% 1141 3527158 291 139%
+c i  3.81 521 6 0 0  2 1 324 117 1.4 6 4 4 6 44% 1145 3527157 242 115%
+c i  3.83 527 6 0 0  2 1 334 117 1.4 6 4 4 6 43% 1146 3527156 197 94%
+c i  3.86 529 6 0 0  2 1 336 117 1.4 6 4 4 6 43% 1147 3527156 196 93%
+c i  3.92 533 6 0 0  2 1 340 117 1.4 6 4 4 6 43% 1148 3527156 195 93%
+c i  3.93 533 6 0 0  2 1 341 117 1.4 6 4 4 6 43% 1148 3527156 194 92%
+c i  3.94 533 6 0 0  2 1 344 117 1.4 6 4 4 6 43% 1149 3527155 155 74%
+c }  3.95 541 6 0 0  2 1 346 117 1.4 6 4 4 6 43% 1149 3527155 123 59%
+c 0  3.95 541 6 0 0  2 1 346 117 1.4 6 4 4 6 43% 1149 3527155 123 59%
+c
+c ---- [ result ] ------------------------------------------------------------
+c
+s UNSATISFIABLE
+c
+c ---- [ profiling ] ---------------------------------------------------------
+c
+c           2.55   64.46 %  search
+c           2.55   64.46 %  focused
+c           0.56   14.27 %  preprocess
+c           0.56   14.26 %  probe
+c           0.51   13.01 %  parse
+c           0.33    8.26 %  lucky
+c           0.30    7.71 %  congruence
+c           0.14    3.60 %  sweep
+c           0.08    1.93 %  substitute
+c           0.04    1.00 %  factor
+c           0.00    0.02 %  backbone
+c           0.00    0.00 %  simplify
+c =============================================
+c           3.95  100.00 %  total
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c conflicts:                              346               87.58 per second
+c decisions:                              381                1.10 per conflict
+c factored:                               191               91 %  variables
+c iterations:                               9                4 %  variables
+c propagations:                         12092             3061    per second
+c restarts:                                 2              173    interval
+c switched:                                 0                0    interval
+c
+c ---- [ glue usage ] --------------------------------------------------------
+c
+c focused glue 4 used 51 clauses 23.61% accumulated 56.48% tier1
+c focused glue 5 used 43 clauses 19.91% accumulated 76.39%
+c focused glue 6 used 30 clauses 13.89% accumulated 90.28% tier2
+c
+c ---- [ resources ] ---------------------------------------------------------
+c
+c maximum-resident-set-size:     704995393536 bytes     672336 MB
+c process-time:                             4s               3.95 seconds
+c
+c ---- [ shutting down ] -----------------------------------------------------
+c
+c exit 20

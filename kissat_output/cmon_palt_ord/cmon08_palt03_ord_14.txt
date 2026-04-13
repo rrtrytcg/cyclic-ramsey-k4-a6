@@ -27,8 +27,8 @@ c         level restarts redundant glue  trail     variables
 c
 c *  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 364 3003 91 100%
 c lucky in backward setting literals to true
-c l  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 364 3003 91 100%
-c 1  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 364 3003 91 100%
+c l  0.00  3 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 364 3003 91 100%
+c 1  0.00  3 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 364 3003 91 100%
 c
 c ---- [ result ] ------------------------------------------------------------
 c
@@ -41,8 +41,8 @@ v -81 82 -83 -84 -85 86 -87 -88 89 -90 91 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.00   55.73 %  parse
-c           0.00   27.12 %  lucky
+c           0.00   50.36 %  parse
+c           0.00   34.24 %  lucky
 c           0.00    0.00 %  search
 c           0.00    0.00 %  simplify
 c =============================================
@@ -52,7 +52,7 @@ c ---- [ statistics ] --------------------------------------------------------
 c
 c conflicts:                                0                0.00 per second
 c decisions:                                0                0.00 per conflict
-c propagations:                           268            94733    per second
+c propagations:                           268           149804    per second
 c switched:                                 0                0    interval
 c
 c ---- [ glue usage ] --------------------------------------------------------
@@ -61,7 +61,7 @@ c no clauses used at all
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:       2600468480 bytes       2480 MB
+c maximum-resident-set-size:       2801795072 bytes       2672 MB
 c process-time:                                              0.00 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------

@@ -25,16 +25,16 @@ c seconds switched rate     size/glue tier1 binary   remaining
 c        MB reductions conflicts size  tier2 irredundant
 c         level restarts redundant glue  trail   variables
 c
-c *  0.00  1 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 70 21 100%
-c (  0.00  1 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 70 21 100%
-c .  0.00  1 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 70 21 100%
-c =  0.00  1 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   2 52 17 81%
-c d  0.00  1 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 52 17 81%
-c f  0.00  1 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   7 40 20 95%
-c )  0.00  1 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   7 40 20 95%
+c *  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 70 21 100%
+c (  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 70 21 100%
+c .  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 70 21 100%
+c =  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   2 52 17 81%
+c d  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 52 17 81%
+c f  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   7 40 20 95%
+c )  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   7 40 20 95%
 c lucky in forward setting literals to false
-c l  0.00  1 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   7 40 20 95%
-c 1  0.00  1 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   7 40 20 95%
+c l  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   7 40 20 95%
+c 1  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   7 40 20 95%
 c
 c ---- [ result ] ------------------------------------------------------------
 c
@@ -43,15 +43,15 @@ v 1 2 -3 -4 -5 6 7 8 9 -10 -11 -12 -13 -14 15 16 17 -18 19 -20 21 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.00   77.15 %  preprocess
-c           0.00   75.17 %  probe
-c           0.00   64.87 %  sweep
-c           0.00    4.72 %  factor
-c           0.00    3.21 %  parse
-c           0.00    2.93 %  congruence
-c           0.00    2.74 %  lucky
-c           0.00    1.51 %  substitute
-c           0.00    0.38 %  backbone
+c           0.00   81.99 %  preprocess
+c           0.00   80.38 %  probe
+c           0.00   69.76 %  sweep
+c           0.00    5.24 %  factor
+c           0.00    2.82 %  parse
+c           0.00    2.69 %  lucky
+c           0.00    2.55 %  congruence
+c           0.00    1.61 %  substitute
+c           0.00    0.27 %  backbone
 c           0.00    0.00 %  search
 c           0.00    0.00 %  simplify
 c =============================================
@@ -62,7 +62,7 @@ c
 c conflicts:                                0                0.00 per second
 c decisions:                                0                0.00 per conflict
 c factored:                                 3               14 %  variables
-c propagations:                           181            63958    per second
+c propagations:                           181            99178    per second
 c substituted:                              1                5 %  variables
 c switched:                                 0                0    interval
 c
@@ -72,7 +72,7 @@ c no clauses used at all
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:       1560281088 bytes       1488 MB
+c maximum-resident-set-size:       1795162112 bytes       1712 MB
 c process-time:                                              0.00 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------

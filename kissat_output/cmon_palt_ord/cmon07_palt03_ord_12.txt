@@ -40,8 +40,8 @@ v -62 -63 64 -65 66 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.00   40.49 %  parse
-c           0.00   20.58 %  lucky
+c           0.00   41.48 %  parse
+c           0.00   21.11 %  lucky
 c           0.00    0.00 %  search
 c           0.00    0.00 %  simplify
 c =============================================
@@ -51,7 +51,7 @@ c ---- [ statistics ] --------------------------------------------------------
 c
 c conflicts:                                0                0.00 per second
 c decisions:                                0                0.00 per conflict
-c propagations:                           204            90828    per second
+c propagations:                           204           152809    per second
 c switched:                                 0                0    interval
 c
 c ---- [ glue usage ] --------------------------------------------------------
@@ -60,7 +60,7 @@ c no clauses used at all
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:       1778384896 bytes       1696 MB
+c maximum-resident-set-size:       1979711488 bytes       1888 MB
 c process-time:                                              0.00 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------

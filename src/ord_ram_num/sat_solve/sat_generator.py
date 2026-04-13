@@ -169,11 +169,12 @@ def generate_sat_problem(
 
 if __name__ == "__main__":
     pattern = Graph(5, [(0, 3), (0, 4), (1, 3), (1, 4), (2, 4)])
+    # pattern = AlternatingPath(7)
 
     generate_sat_problem(
         order=int(sys.argv[1]),
         pattern_1=pattern,
         pattern_2=pattern,
-        rotation=False,
-        reflection=False,
+        rotation=True,
+        reflection=True,
     )

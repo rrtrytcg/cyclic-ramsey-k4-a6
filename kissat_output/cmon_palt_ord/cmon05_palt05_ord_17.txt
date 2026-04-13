@@ -28,9 +28,9 @@ c
 c *  0.00  3 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 12376 136 100%
 c (  0.00  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 12376 136 100%
 c .  0.00  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 12376 136 100%
-c f  0.04  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 266 6843 268 197%
-c )  0.04  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 266 6843 268 197%
-c {  0.04  4 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 266 6843 268 197%
+c f  0.05  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 266 6843 268 197%
+c )  0.05  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 266 6843 268 197%
+c {  0.05  4 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 266 6843 268 197%
 c }  0.05  4 15 0 0  5 2 637 606 1.7 12 7 6 11 48% 266 6843 268 197%
 c 1  0.05  4 15 0 0  5 2 637 606 1.7 12 7 6 11 48% 266 6843 268 197%
 c
@@ -48,16 +48,16 @@ v 136 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.04   88.79 %  preprocess
-c           0.04   88.75 %  probe
-c           0.03   55.67 %  factor
-c           0.01   29.79 %  sweep
-c           0.00    7.41 %  search
-c           0.00    7.41 %  focused
-c           0.00    2.75 %  congruence
-c           0.00    2.35 %  parse
-c           0.00    1.18 %  lucky
-c           0.00    0.48 %  substitute
+c           0.04   88.35 %  preprocess
+c           0.04   88.31 %  probe
+c           0.03   55.61 %  factor
+c           0.01   29.50 %  sweep
+c           0.00    7.31 %  search
+c           0.00    7.31 %  focused
+c           0.00    2.96 %  parse
+c           0.00    2.70 %  congruence
+c           0.00    1.09 %  lucky
+c           0.00    0.45 %  substitute
 c           0.00    0.04 %  backbone
 c           0.00    0.00 %  simplify
 c =============================================
@@ -65,10 +65,10 @@ c           0.05  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
-c conflicts:                              637            12776.80 per second
+c conflicts:                              637            12491.42 per second
 c decisions:                             1091                1.71 per conflict
 c factored:                               132               97 %  variables
-c propagations:                         23805           477475    per second
+c propagations:                         23805           466810    per second
 c restarts:                                 5              127    interval
 c switched:                                 0                0    interval
 c
@@ -82,7 +82,7 @@ c focused glue 10 used  47 clauses  4.55% accumulated 91.57% tier2
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:       4143972352 bytes       3952 MB
+c maximum-resident-set-size:       4345298944 bytes       4144 MB
 c process-time:                                              0.05 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------

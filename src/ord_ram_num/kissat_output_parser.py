@@ -103,9 +103,18 @@ def parse_problem_folder(problem_folder: Path):
         if result:
             if solutions[(a, b)][0] > n + 1:
                 kissat_file.unlink()
+                output_path = Path("parsed_graphs") / kissat_file.relative_to(kissat_file.parts[0])
+                output_path = output_path.with_suffix(".g6")
+                output_path.unlink()
         else:
             if solutions[(a, b)][1] < n:
                 kissat_file.unlink()
+                output_path = Path("parsed_graphs") / kissat_file.relative_to(kissat_file.parts[0])
+                output_path = output_path.with_suffix(".g6")
+                output_path.unlink()
+
+    if max_a < 0:
+        return
 
     output_path = Path("parsed_tables") / f"{problem_folder.name}.tex"
     with open(str(output_path), "w") as opened_file:
@@ -136,7 +145,7 @@ def parse_problem_folder(problem_folder: Path):
                         opened_file.write(f" & ${sol[0]}$")
                     else:
                         assert sol[1] == float("inf")
-                        opened_file.write(r"& $\ge " + f"{sol[0]}$")
+                        opened_file.write(r" & $\ge " + f"{sol[0]}$")
 
             opened_file.write(r"\\" + "\n")
         

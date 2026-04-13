@@ -47,28 +47,28 @@ s UNSATISFIABLE
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.02   79.82 %  preprocess
-c           0.02   79.76 %  probe
-c           0.02   61.64 %  sweep
-c           0.00   17.83 %  search
-c           0.00   17.82 %  focused
-c           0.00   17.10 %  factor
-c           0.00    0.99 %  parse
-c           0.00    0.85 %  lucky
-c           0.00    0.71 %  congruence
+c           0.02   79.75 %  preprocess
+c           0.02   79.68 %  probe
+c           0.02   61.29 %  sweep
+c           0.00   17.34 %  search
+c           0.00   17.33 %  focused
+c           0.00   16.81 %  factor
+c           0.00    1.36 %  parse
+c           0.00    1.24 %  congruence
+c           0.00    1.09 %  lucky
 c           0.00    0.26 %  substitute
-c           0.00    0.02 %  backbone
+c           0.00    0.04 %  backbone
 c           0.00    0.00 %  simplify
 c =============================================
 c           0.02  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
-c conflicts:                              976            37371.73 per second
+c conflicts:                              976            37568.81 per second
 c decisions:                             1550                1.59 per conflict
 c factored:                                63               69 %  variables
 c iterations:                               8                9 %  variables
-c propagations:                         25890           991346    per second
+c propagations:                         25890           996574    per second
 c restarts:                                68               14    interval
 c switched:                                 0                0    interval
 c
@@ -80,7 +80,7 @@ c focused glue 5 used 143 clauses  9.81% accumulated 94.92% tier2
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:       2365587456 bytes       2256 MB
+c maximum-resident-set-size:       2550136832 bytes       2432 MB
 c process-time:                                              0.02 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------

@@ -1,0 +1,83 @@
+c ---- [ banner ] ------------------------------------------------------------
+c
+c Kissat SAT Solver
+c 
+c Copyright (c) 2021-2024 Armin Biere University of Freiburg
+c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+c 
+c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
+c Apple clang version 17.0.0 (clang-1700.6.3.2) -W -Wall -O3 -DNDEBUG
+c Mon Mar 30 18:25:47 CEST 2026 Darwin Mac 24.6.0 arm64
+c
+c ---- [ parsing ] -----------------------------------------------------------
+c
+c opened and reading DIMACS file:
+c
+c   tmp.cnf
+c
+c parsed 'p cnf 45 930' header
+c closing input after reading 11665 bytes (11 KB)
+c finished parsing after 0.00 seconds
+c
+c ---- [ solving ] -----------------------------------------------------------
+c
+c seconds switched rate     size/glue tier1 binary    remaining
+c        MB reductions conflicts size  tier2  irredundant
+c         level restarts redundant glue  trail    variables
+c
+c *  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 930 45 100%
+c (  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 930 45 100%
+c .  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 930 45 100%
+c f  0.02  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 120 250 105 233%
+c )  0.02  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 120 250 105 233%
+c {  0.02  2 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 120 250 105 233%
+c }  0.02  2 16 0 0  0 1 110  91 1.3 13 10 8 13 59% 120 250 105 233%
+c 1  0.02  2 16 0 0  0 1 110  91 1.3 13 10 8 13 59% 120 250 105 233%
+c
+c ---- [ result ] ------------------------------------------------------------
+c
+s SATISFIABLE
+v 1 2 3 4 -5 -6 7 8 9 10 11 12 -13 -14 15 16 17 18 19 20 21 -22 -23 24 25 26
+v 27 -28 29 -30 31 32 33 -34 -35 36 37 38 39 40 41 42 43 44 45 0
+c
+c ---- [ profiling ] ---------------------------------------------------------
+c
+c           0.02   96.45 %  preprocess
+c           0.02   96.36 %  probe
+c           0.02   91.84 %  sweep
+c           0.00    4.01 %  factor
+c           0.00    1.85 %  search
+c           0.00    1.84 %  focused
+c           0.00    0.61 %  parse
+c           0.00    0.35 %  congruence
+c           0.00    0.35 %  lucky
+c           0.00    0.09 %  substitute
+c           0.00    0.02 %  backbone
+c           0.00    0.00 %  simplify
+c =============================================
+c           0.02  100.00 %  total
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c conflicts:                              110             4908.74 per second
+c decisions:                              144                1.31 per conflict
+c factored:                                60              133 %  variables
+c propagations:                          3455           154179    per second
+c switched:                                 0                0    interval
+c
+c ---- [ glue usage ] --------------------------------------------------------
+c
+c focused glue 8     used 16 clauses  9.04% accumulated 53.11% tier1
+c focused glue 9     used 13 clauses  7.34% accumulated 60.45%
+c focused glue 10-11 used 29 clauses 16.38% accumulated 76.84%
+c focused glue 12    used 15 clauses  8.47% accumulated 85.31%
+c focused glue 13    used 12 clauses  6.78% accumulated 92.09% tier2
+c
+c ---- [ resources ] ---------------------------------------------------------
+c
+c maximum-resident-set-size:       2332033024 bytes       2224 MB
+c process-time:                                              0.02 seconds
+c
+c ---- [ shutting down ] -----------------------------------------------------
+c
+c exit 10

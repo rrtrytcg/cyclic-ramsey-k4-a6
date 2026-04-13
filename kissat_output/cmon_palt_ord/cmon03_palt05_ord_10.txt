@@ -25,9 +25,9 @@ c seconds switched rate     size/glue tier1 binary    remaining
 c        MB reductions conflicts size  tier2  irredundant
 c         level restarts redundant glue  trail    variables
 c
-c *  0.00  1 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 372 45 100%
-c (  0.00  1 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 372 45 100%
-c .  0.00  1 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 372 45 100%
+c *  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 372 45 100%
+c (  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 372 45 100%
+c .  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 372 45 100%
 c =  0.01  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%  15 286 12 27%
 c )  0.01  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%  15 286 16 36%
 c 0  0.01  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%  15 286 16 36%
@@ -38,13 +38,13 @@ s UNSATISFIABLE
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.00   94.85 %  preprocess
-c           0.00   94.47 %  probe
-c           0.00   93.22 %  sweep
-c           0.00    1.31 %  parse
-c           0.00    0.98 %  congruence
-c           0.00    0.66 %  lucky
-c           0.00    0.08 %  backbone
+c           0.01   97.17 %  preprocess
+c           0.01   96.92 %  probe
+c           0.01   96.11 %  sweep
+c           0.00    0.76 %  parse
+c           0.00    0.63 %  congruence
+c           0.00    0.40 %  lucky
+c           0.00    0.04 %  backbone
 c           0.00    0.00 %  search
 c           0.00    0.00 %  simplify
 c =============================================
@@ -54,7 +54,7 @@ c ---- [ statistics ] --------------------------------------------------------
 c
 c conflicts:                                0                0.00 per second
 c decisions:                                0                0.00 per conflict
-c propagations:                           315            45396    per second
+c propagations:                           315            46147    per second
 c switched:                                 0                0    interval
 c
 c ---- [ glue usage ] --------------------------------------------------------
@@ -63,7 +63,7 @@ c no clauses used at all
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:       1862270976 bytes       1776 MB
+c maximum-resident-set-size:       2046820352 bytes       1952 MB
 c process-time:                                              0.01 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------

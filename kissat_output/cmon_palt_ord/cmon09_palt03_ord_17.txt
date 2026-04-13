@@ -47,28 +47,28 @@ s UNSATISFIABLE
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.02   44.78 %  search
-c           0.02   44.77 %  focused
-c           0.02   38.12 %  preprocess
-c           0.02   38.08 %  probe
-c           0.01   32.65 %  sweep
-c           0.00   10.06 %  parse
-c           0.00    6.73 %  lucky
-c           0.00    2.82 %  congruence
-c           0.00    1.17 %  substitute
-c           0.00    1.15 %  factor
-c           0.00    0.27 %  backbone
+c           0.02   45.73 %  search
+c           0.02   45.73 %  focused
+c           0.02   37.94 %  preprocess
+c           0.02   37.91 %  probe
+c           0.01   32.66 %  sweep
+c           0.00    9.27 %  parse
+c           0.00    6.83 %  lucky
+c           0.00    2.75 %  congruence
+c           0.00    1.18 %  substitute
+c           0.00    1.04 %  factor
+c           0.00    0.26 %  backbone
 c           0.00    0.00 %  simplify
 c =============================================
 c           0.04  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
-c conflicts:                              939            21535.22 per second
+c conflicts:                              939            22250.13 per second
 c decisions:                             1256                1.34 per conflict
 c factored:                                49               36 %  variables
 c iterations:                               8                6 %  variables
-c propagations:                         26472           607114    per second
+c propagations:                         26472           627269    per second
 c restarts:                               133                7    interval
 c switched:                                 0                0    interval
 c
@@ -81,7 +81,7 @@ c focused glue 7 used  84 clauses  8.24% accumulated 97.74% tier2
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:      11576279040 bytes      11040 MB
+c maximum-resident-set-size:      11794382848 bytes      11248 MB
 c process-time:                                              0.04 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------

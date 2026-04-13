@@ -44,16 +44,16 @@ v 64 -65 -66 -67 -68 69 70 -71 -72 73 74 -75 76 -77 78 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.02   94.52 %  preprocess
-c           0.02   94.37 %  probe
-c           0.01   78.35 %  sweep
-c           0.00   14.29 %  factor
-c           0.00    1.71 %  parse
-c           0.00    1.45 %  search
-c           0.00    1.43 %  focused
-c           0.00    1.30 %  congruence
-c           0.00    1.23 %  lucky
-c           0.00    0.27 %  substitute
+c           0.02   94.77 %  preprocess
+c           0.02   94.67 %  probe
+c           0.01   78.90 %  sweep
+c           0.00   14.21 %  factor
+c           0.00    1.70 %  parse
+c           0.00    1.49 %  search
+c           0.00    1.48 %  focused
+c           0.00    1.21 %  congruence
+c           0.00    1.21 %  lucky
+c           0.00    0.25 %  substitute
 c           0.00    0.04 %  backbone
 c           0.00    0.00 %  simplify
 c =============================================
@@ -61,10 +61,10 @@ c           0.02  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
-c conflicts:                               50             2693.24 per second
+c conflicts:                               50             2736.88 per second
 c decisions:                               92                1.84 per conflict
 c factored:                                49               63 %  variables
-c propagations:                          2419           130299    per second
+c propagations:                          2419           132410    per second
 c switched:                                 0                0    interval
 c
 c ---- [ glue usage ] --------------------------------------------------------
@@ -75,7 +75,7 @@ c focused glue 5 used  1 clauses  1.56% accumulated 89.06% tier2
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:       2113929216 bytes       2016 MB
+c maximum-resident-set-size:       2298478592 bytes       2192 MB
 c process-time:                                              0.02 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------

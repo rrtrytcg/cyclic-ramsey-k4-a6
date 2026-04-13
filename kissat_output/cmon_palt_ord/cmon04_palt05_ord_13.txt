@@ -44,16 +44,16 @@ v -67 -68 69 -70 -71 72 -73 -74 75 76 77 78 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.02   94.36 %  preprocess
-c           0.02   94.26 %  probe
-c           0.02   79.92 %  sweep
-c           0.00   13.00 %  factor
-c           0.00    2.62 %  search
-c           0.00    2.61 %  focused
-c           0.00    1.46 %  parse
-c           0.00    1.03 %  congruence
+c           0.02   94.75 %  preprocess
+c           0.02   94.66 %  probe
+c           0.02   81.37 %  sweep
+c           0.00   11.97 %  factor
+c           0.00    2.51 %  search
+c           0.00    2.50 %  focused
+c           0.00    1.35 %  parse
+c           0.00    1.02 %  congruence
 c           0.00    0.67 %  lucky
-c           0.00    0.22 %  substitute
+c           0.00    0.21 %  substitute
 c           0.00    0.04 %  backbone
 c           0.00    0.00 %  simplify
 c =============================================
@@ -61,10 +61,10 @@ c           0.02  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
-c conflicts:                              148             6838.55 per second
+c conflicts:                              148             7116.07 per second
 c decisions:                              256                1.73 per conflict
 c factored:                                53               68 %  variables
-c propagations:                          3312           153036    per second
+c propagations:                          3312           159246    per second
 c restarts:                                 2               74    interval
 c switched:                                 0                0    interval
 c
@@ -78,7 +78,7 @@ c focused glue 9 used 12 clauses  4.65% accumulated 92.25% tier2
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:       2147483648 bytes       2048 MB
+c maximum-resident-set-size:       2365587456 bytes       2256 MB
 c process-time:                                              0.02 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------

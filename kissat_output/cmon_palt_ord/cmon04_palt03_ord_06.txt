@@ -25,10 +25,10 @@ c seconds switched rate     size/glue tier1 binary   remaining
 c        MB reductions conflicts size  tier2 irredundant
 c         level restarts redundant glue  trail   variables
 c
-c *  0.00  1 0 0 0  0 0   0   0 0.0 0 0 0 0 0%  20 15 15 100%
+c *  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%  20 15 15 100%
 c lucky in backward setting literals to true
-c l  0.00  1 0 0 0  0 0   0   0 0.0 0 0 0 0 0%  20 15 15 100%
-c 1  0.00  1 0 0 0  0 0   0   0 0.0 0 0 0 0 0%  20 15 15 100%
+c l  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%  20 15 15 100%
+c 1  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%  20 15 15 100%
 c
 c ---- [ result ] ------------------------------------------------------------
 c
@@ -37,8 +37,8 @@ v 1 -2 -3 -4 -5 6 -7 -8 -9 10 -11 -12 13 -14 15 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.00   13.81 %  parse
-c           0.00   10.00 %  lucky
+c           0.00   17.83 %  parse
+c           0.00   10.08 %  lucky
 c           0.00    0.00 %  search
 c           0.00    0.00 %  simplify
 c =============================================
@@ -48,7 +48,7 @@ c ---- [ statistics ] --------------------------------------------------------
 c
 c conflicts:                                0                0.00 per second
 c decisions:                                0                0.00 per conflict
-c propagations:                            66            33401    per second
+c propagations:                            66            52174    per second
 c switched:                                 0                0    interval
 c
 c ---- [ glue usage ] --------------------------------------------------------
@@ -57,7 +57,7 @@ c no clauses used at all
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:       1459617792 bytes       1392 MB
+c maximum-resident-set-size:       1694498816 bytes       1616 MB
 c process-time:                                              0.00 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------
