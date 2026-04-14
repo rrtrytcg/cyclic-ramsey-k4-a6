@@ -1,16 +1,18 @@
 #pragma once
 
+#include "states.hpp"
+
 #include <cstdint>
 
-namespace SubgraphCounting {
+namespace OrdRamNum {
 
 template <template <typename T> class LengthRangeGenerator,
-          class State = SubgraphStateSimple, class... ExtraArgs>
-auto solve_graph(AdjGraph big, AdjGraph small, ExtraArgs... args) {
+          class State = States::Subgraph, class... ExtraArgs>
+auto solve_graph(Graph big, Graph small, ExtraArgs... args) {
   State state(big, small, args...);
   LengthRangeGenerator<State> gen(state, small.n, big.n);
   gen.run();
   return gen.get();
 }
 
-} // namespace SubgraphCounting
+} // namespace OrdRamNum

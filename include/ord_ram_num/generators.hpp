@@ -3,9 +3,9 @@
 #include <cstdint>
 #include <utility>
 
-namespace SubgraphCounting {
+namespace OrdRamNum::Generators {
 
-template <class State> class PermutationGenerator {
+template <class State> class Permutation {
   State m_state;
   uint8_t m_n;
 
@@ -13,7 +13,7 @@ template <class State> class PermutationGenerator {
   uint64_t m_full_mask = 0;
 
 public:
-  PermutationGenerator(State state, uint8_t n)
+  Permutation(State state, uint8_t n)
       : m_state(state), m_n(n), m_full_mask((1ull << n) - 1) {}
 
   void run() {
@@ -37,7 +37,7 @@ public:
   auto get() const { return m_state.get(); }
 };
 
-template <class State> class VariationGenerator {
+template <class State> class Variation {
   State m_state;
   uint8_t m_target_len;
   uint8_t m_range;
@@ -45,7 +45,7 @@ template <class State> class VariationGenerator {
   uint64_t m_len = 0;
 
 public:
-  VariationGenerator(State state, uint8_t target_len, uint8_t range)
+  Variation(State state, uint8_t target_len, uint8_t range)
       : m_state(state), m_target_len(target_len), m_range(range) {}
 
   void run() {
@@ -66,7 +66,7 @@ public:
   auto get() const { return m_state.get(); }
 };
 
-template <class State> class UnorderedCombinationGenerator {
+template <class State> class UnorderedCombination {
   State m_state;
   uint8_t m_target_len;
   uint8_t m_range;
@@ -75,7 +75,7 @@ template <class State> class UnorderedCombinationGenerator {
   uint64_t m_mask = 0;
 
 public:
-  UnorderedCombinationGenerator(State state, uint8_t target_len, uint8_t range)
+  UnorderedCombination(State state, uint8_t target_len, uint8_t range)
       : m_state(state), m_target_len(target_len), m_range(range) {}
 
   void run() {
@@ -101,7 +101,7 @@ public:
   auto get() const { return m_state.get(); }
 };
 
-template <class State> class IncreasingSequenceGenerator {
+template <class State> class Increasing {
   State m_state;
   uint8_t m_target_len;
   uint8_t m_range;
@@ -110,7 +110,7 @@ template <class State> class IncreasingSequenceGenerator {
   uint64_t m_allowed = 0;
 
 public:
-  IncreasingSequenceGenerator(State state, uint8_t target_len, uint8_t range)
+  Increasing(State state, uint8_t target_len, uint8_t range)
       : m_state(state), m_target_len(target_len), m_range(range) {}
 
   void run() {
@@ -132,7 +132,7 @@ public:
   auto get() const { return m_state.get(); }
 };
 
-template <class State> class CircularSequenceGenerator {
+template <class State> class Cyclic {
   State m_state;
   uint8_t m_target_len;
   uint8_t m_range;
@@ -142,7 +142,7 @@ template <class State> class CircularSequenceGenerator {
   uint64_t m_allowed = 0;
 
 public:
-  CircularSequenceGenerator(State state, uint8_t target_len, uint8_t range)
+  Cyclic(State state, uint8_t target_len, uint8_t range)
       : m_state(state), m_target_len(target_len), m_range(range) {}
 
   void run() {
@@ -180,4 +180,4 @@ public:
   auto get() const { return m_state.get(); }
 };
 
-} // namespace SubgraphCounting
+} // namespace OrdRamNum::Generators

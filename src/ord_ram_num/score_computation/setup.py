@@ -13,7 +13,7 @@ extensions = [
         sources=["subgraph.pyx", "c_interface.cpp", "thread_pool.cpp"],
         libraries=[],
         library_dirs=[],
-        include_dirs=["."],
+        include_dirs=["../../../include/ord_ram_num/"],
         extra_compile_args=extra_flags
     )
 ]

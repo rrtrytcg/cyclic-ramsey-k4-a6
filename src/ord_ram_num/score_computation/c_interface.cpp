@@ -1,6 +1,6 @@
 #include "generators.hpp"
-#include "graphs.hpp"
-#include "state.hpp"
+#include "graph.hpp"
+#include "states.hpp"
 #include "utils.hpp"
 
 #include <condition_variable>
@@ -12,14 +12,14 @@ extern "C" {
 #include "c_interface.h"
 }
 
-namespace SubgraphCounting {
+namespace OrdRamNum {
 
 void pool_submit(std::function<void()> task);
 void pool_wait();
 
 extern "C" uint64_t subgraph_count(uint64_t *args) {
-  AdjGraph big;
-  AdjGraph small;
+  Graph big;
+  Graph small;
   memcpy(big.adj, args, 512);
   memcpy(small.adj, args + 64, 512);
 
@@ -32,28 +32,29 @@ extern "C" uint64_t subgraph_count(uint64_t *args) {
 
   if (!req_u && !req_v) {
     if (type == 0) {
-      return solve_graph<UnorderedCombinationGenerator>(big, small);
+      return solve_graph<Generators::UnorderedCombination>(big, small);
     } else if (type == 1) {
-      return solve_graph<IncreasingSequenceGenerator>(big, small);
+      return solve_graph<Generators::Increasing>(big, small);
     } else {
-      return solve_graph<CircularSequenceGenerator>(big, small);
+      return solve_graph<Generators::Cyclic>(big, small);
     }
   } else {
     if (type == 0) {
-      return solve_graph<UnorderedCombinationGenerator,
-                         SubgraphStateRequiredEdge>(big, small, req_u, req_v);
+      return solve_graph<Generators::UnorderedCombination,
+                         States::SubgraphRequiredEdge>(big, small, req_u,
+                                                       req_v);
     } else if (type == 1) {
-      return solve_graph<IncreasingSequenceGenerator,
-                         SubgraphStateRequiredEdge>(big, small, req_u, req_v);
+      return solve_graph<Generators::Increasing, States::SubgraphRequiredEdge>(
+          big, small, req_u, req_v);
     } else {
-      return solve_graph<CircularSequenceGenerator, SubgraphStateRequiredEdge>(
+      return solve_graph<Generators::Cyclic, States::SubgraphRequiredEdge>(
           big, small, req_u, req_v);
     }
   }
 }
 
 extern "C" void subgraph_count_batch(uint64_t *args, uint64_t *results) {
-  AdjGraph small;
+  Graph small;
   memcpy(small.adj, args, 512);
 
   auto next = args[64];
@@ -68,7 +69,7 @@ extern "C" void subgraph_count_batch(uint64_t *args, uint64_t *results) {
   std::condition_variable cv;
 
   for (uint64_t i = 0; i < num_big; i++) {
-    AdjGraph big;
+    Graph big;
     next = *(args++);
     big.n = next & 0xff;
     memcpy(big.adj, args, 512);
@@ -81,34 +82,35 @@ extern "C" void subgraph_count_batch(uint64_t *args, uint64_t *results) {
     if (!req_u && !req_v) {
       if (type == 0) {
         task = [=] {
-          results[i] = solve_graph<UnorderedCombinationGenerator>(big, small);
+          results[i] =
+              solve_graph<Generators::UnorderedCombination>(big, small);
         };
       } else if (type == 1) {
         task = [=] {
-          results[i] = solve_graph<IncreasingSequenceGenerator>(big, small);
+          results[i] = solve_graph<Generators::Increasing>(big, small);
         };
       } else {
         task = [=] {
-          results[i] = solve_graph<CircularSequenceGenerator>(big, small);
+          results[i] = solve_graph<Generators::Cyclic>(big, small);
         };
       }
     } else {
       if (type == 0) {
         task = [=] {
-          results[i] =
-              solve_graph<UnorderedCombinationGenerator,
-                          SubgraphStateRequiredEdge>(big, small, req_u, req_v);
+          results[i] = solve_graph<Generators::UnorderedCombination,
+                                   States::SubgraphRequiredEdge>(big, small,
+                                                                 req_u, req_v);
         };
       } else if (type == 1) {
         task = [=] {
           results[i] =
-              solve_graph<IncreasingSequenceGenerator,
-                          SubgraphStateRequiredEdge>(big, small, req_u, req_v);
+              solve_graph<Generators::Increasing, States::SubgraphRequiredEdge>(
+                  big, small, req_u, req_v);
         };
       } else {
         task = [=] {
           results[i] =
-              solve_graph<CircularSequenceGenerator, SubgraphStateRequiredEdge>(
+              solve_graph<Generators::Cyclic, States::SubgraphRequiredEdge>(
                   big, small, req_u, req_v);
         };
       }
@@ -131,4 +133,4 @@ extern "C" void subgraph_count_batch(uint64_t *args, uint64_t *results) {
   cv.wait(lck, [&] { return remaining == 0; });
 }
 
-} // namespace SubgraphCounting
+} // namespace OrdRamNum
