@@ -13,17 +13,9 @@ using namespace OrdRamNum;
 int print_usage() {
   std::cerr << R"(Usage: ./cnf_generator <outfile>
     <big_graph_nodes>
-    ( ordered | cyclic )
-    <small_graph_1_nodes>
-    (
-      path | alternating_path | reverse_alternating_path |
-      cycle | star | nested_matching | complete
-    )
-    <small_graph_2_nodes>
-    (
-      path | alternating_path | reverse_alternating_path |
-      cycle | star | nested_matching | complete
-    )
+    ( ord | cyc )
+    <small_graph_1_nodes> ( pmon | palt | pralt | cmon | ssc | mnest | k | pqmon )
+    <small_graph_2_nodes> ( pmon | palt | pralt | cmon | ssc | mnest | k | pqmon )
 )";
   return 1;
 }
@@ -88,6 +80,7 @@ int main(int argc, char **argv) {
     content += solve_graph<Generators::Cyclic, States::CNFWriter>(
         complete(big_n), small_2, -1);
   } else {
+    std::cerr << "unknown problem mode: " << problem_mode << '\n';
     return 1;
   }
 

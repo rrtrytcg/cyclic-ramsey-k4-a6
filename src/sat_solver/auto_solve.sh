@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+./get_binaries.sh
+
 type1="mnest"
 type2="mnest"
 mode="ord"
@@ -24,7 +26,6 @@ for ((a=4; a<=amax; a+=2)); do
 		while true; do
 			fn=$(printf "%02d" "${n}")
 			outfile="../../../kissat_output/${type1}_${type2}_${mode}/${type1}${f1}_${type2}${f2}_${mode}_${fn}.txt"
-			g++ -I../../../include/ord_ram_num -O2 cnf_generator.cpp -o cnf_generator || exit 1
 			gtimeout $maxtimegen ./cnf_generator tmp.cnf $n $mode $a $type1 $b $type2
 			if [ $? -eq 124 ]; then
 				printf "\tTimeout (cnf_generator) at n = %d\n" "$n"
@@ -66,7 +67,7 @@ done
 #             printf -v jp "%02d" "$j"
 #             printf -v kp "%02d" "$k"
 
-#             g++ -O2 cnf_generator.cpp -o cnf_generator && ./cnf_generator tmp_${ip}_${jp}_${kp}.cnf $kp $mode $ip $type1 $jp $type2 && ./kissat tmp_${ip}_${jp}_${kp}.cnf > "../../../kissat_output/${type1}_${type2}_${mode}/${type1}${ip}_${type2}${jp}_${mode}_${kp}.txt"
+#             ./cnf_generator tmp_${ip}_${jp}_${kp}.cnf $kp $mode $ip $type1 $jp $type2 && ./kissat tmp_${ip}_${jp}_${kp}.cnf > "../../kissat_output/${type1}_${type2}_${mode}/${type1}${ip}_${type2}${jp}_${mode}_${kp}.txt"
 #         done
 #     done
 # done
