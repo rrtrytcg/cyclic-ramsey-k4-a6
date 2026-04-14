@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-type1="k"
-type2="cmon"
+type1="mnest"
+type2="mnest"
 mode="ord"
 
 maxtimegen="1m"
@@ -10,11 +10,11 @@ maxtimekis="2m"
 amax=${1}
 bmax=${2}
 
-for ((a=3; a<=amax; a++)); do
+for ((a=4; a<=amax; a+=2)); do
 	nomas=false
 	nomas2=0
 
-	for ((b=3; b<=bmax; b++)); do
+	for ((b=a; b<=bmax; b+=2)); do
 		echo "Processing a = $a, b = $b"
 		n=$(( $a > $b ? $a : $b ))
 

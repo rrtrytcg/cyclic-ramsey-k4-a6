@@ -1,0 +1,90 @@
+c ---- [ banner ] ------------------------------------------------------------
+c
+c Kissat SAT Solver
+c 
+c Copyright (c) 2021-2024 Armin Biere University of Freiburg
+c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+c 
+c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
+c Apple clang version 17.0.0 (clang-1700.6.3.2) -W -Wall -O3 -DNDEBUG
+c Mon Mar 30 18:25:47 CEST 2026 Darwin Mac 24.6.0 arm64
+c
+c ---- [ parsing ] -----------------------------------------------------------
+c
+c opened and reading DIMACS file:
+c
+c   tmp.cnf
+c
+c parsed 'p cnf 190 127110' header
+c closing input after reading 4829174 bytes (5 MB)
+c finished parsing after 0.01 seconds
+c
+c ---- [ solving ] -----------------------------------------------------------
+c
+c seconds switched rate     size/glue tier1 binary        remaining
+c        MB reductions conflicts size  tier2   irredundant
+c         level restarts redundant glue  trail        variables
+c
+c *  0.01 20 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 127110 190 100%
+c (  0.02 31 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 127110 190 100%
+c .  0.02 31 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 127110 190 100%
+c )  0.04 33 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 127110 190 100%
+c {  0.05 34 0 0 0  0 0   0   0 0.0 0 0 2 6 0%   0 127110 190 100%
+c }  0.06 34 30 0 0  1 2 375 360 1.4 14 10 9 15 53%   0 127110 190 100%
+c 1  0.06 34 30 0 0  1 2 375 360 1.4 14 10 9 15 53%   0 127110 190 100%
+c
+c ---- [ result ] ------------------------------------------------------------
+c
+s SATISFIABLE
+v -1 2 -3 -4 -5 -6 7 8 9 -10 11 12 -13 14 15 16 17 18 19 20 21 22 23 24 25 26
+v 27 28 29 30 31 -32 -33 -34 -35 -36 -37 -38 -39 -40 -41 42 43 44 -45 46 47
+v -48 -49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 -66 -67 -68 -69 -70
+v 71 72 -73 74 75 76 77 78 79 80 81 -82 -83 -84 -85 86 -87 -88 89 90 91 92 93
+v 94 95 96 -97 -98 -99 -100 -101 -102 103 104 105 106 107 108 109 110 -111
+v -112 113 114 -115 116 117 -118 -119 -120 121 122 123 124 125 -126 127 128
+v -129 -130 -131 -132 133 134 135 -136 137 138 -139 -140 -141 -142 -143 144
+v 145 -146 147 148 149 150 151 152 153 -154 155 -156 -157 -158 -159 -160 -161
+v 162 -163 -164 -165 -166 -167 -168 -169 170 171 172 173 174 175 176 177 178
+v 179 180 181 182 183 184 185 186 187 188 189 190 0
+c
+c ---- [ profiling ] ---------------------------------------------------------
+c
+c           0.02   35.45 %  preprocess
+c           0.02   35.37 %  probe
+c           0.01   26.51 %  parse
+c           0.01   21.96 %  sweep
+c           0.01   19.34 %  lucky
+c           0.01   18.47 %  search
+c           0.01   18.47 %  focused
+c           0.00    5.42 %  congruence
+c           0.00    4.87 %  substitute
+c           0.00    2.96 %  factor
+c           0.00    0.13 %  backbone
+c           0.00    0.00 %  simplify
+c =============================================
+c           0.06  100.00 %  total
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c conflicts:                              375             6627.55 per second
+c decisions:                              789                2.10 per conflict
+c propagations:                         10808           191015    per second
+c restarts:                                 1              375    interval
+c switched:                                 0                0    interval
+c
+c ---- [ glue usage ] --------------------------------------------------------
+c
+c focused glue 9     used 70 clauses 15.18% accumulated 55.75% tier1
+c focused glue 10    used 51 clauses 11.06% accumulated 66.81%
+c focused glue 11-13 used 72 clauses 15.62% accumulated 82.43%
+c focused glue 14    used 21 clauses  4.56% accumulated 86.98%
+c focused glue 15    used 19 clauses  4.12% accumulated 91.11% tier2
+c
+c ---- [ resources ] ---------------------------------------------------------
+c
+c maximum-resident-set-size:      36926652416 bytes      35216 MB
+c process-time:                                              0.06 seconds
+c
+c ---- [ shutting down ] -----------------------------------------------------
+c
+c exit 10
