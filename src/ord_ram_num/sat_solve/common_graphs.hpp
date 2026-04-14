@@ -92,7 +92,7 @@ inline AdjGraph nested_matching(uint8_t n) {
   AdjGraph r;
   r.n = n;
   for (uint8_t i = 0; i < n / 2; i++) {
-    uint8_t j = i + n / 2;
+    uint8_t j = n - 1 - i;
     r.adj[i] |= 1ull << j;
     r.adj[j] |= 1ull << i;
   }
