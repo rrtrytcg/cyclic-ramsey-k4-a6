@@ -11,7 +11,7 @@
 using namespace OrdRamNum;
 
 int print_usage() {
-  std::cerr << R"(Usage: ./cnf_gen_main <outfile>
+  std::cerr << R"(Usage: ./cnf_generator <outfile>
     <big_graph_nodes>
     ( ordered | cyclic )
     <small_graph_1_nodes>

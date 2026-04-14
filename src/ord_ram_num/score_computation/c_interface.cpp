@@ -15,7 +15,6 @@ extern "C" {
 namespace OrdRamNum {
 
 void pool_submit(std::function<void()> task);
-void pool_wait();
 
 extern "C" uint64_t subgraph_count(uint64_t *args) {
   Graph big;
