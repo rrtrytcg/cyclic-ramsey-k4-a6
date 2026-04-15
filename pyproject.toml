@@ -16,7 +16,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
-packages = [{ include = "ord_ram_num", from = "src" }]
+packages = [{ include = "*", from = "src" }]
 
 [tool.poetry.group.dev.dependencies]
 black = "^25.9.0"
