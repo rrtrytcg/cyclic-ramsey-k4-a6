@@ -33,15 +33,15 @@ def parse_kissat_file(kissat_file: Path, n: int) -> bool:
         for j in range(i + 1, n):
             if "-" not in split_graph[counter]:
                 g.add_edge(i, j)
-            
-            counter +=1
+
+            counter += 1
 
     assert split_graph[counter] == "0"
 
     output_path = Path("parsed_graphs") / kissat_file.relative_to(kissat_file.parts[0])
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path = output_path.with_suffix(".g6")
-    
+
     with open(str(output_path), "w") as opened_file:
         opened_file.write(g.graph6_string())
 
@@ -50,7 +50,7 @@ def parse_kissat_file(kissat_file: Path, n: int) -> bool:
 
 def parse_problem_folder(problem_folder: Path):
     solutions = {}
-    
+
     min_a = float("inf")
     max_a = float("-inf")
     min_b = float("inf")
@@ -78,7 +78,7 @@ def parse_problem_folder(problem_folder: Path):
         if result is None:
             kissat_file.unlink()
             continue
-        
+
         if (a, b) not in solutions:
             solutions[(a, b)] = [max(a, b), float("inf")]
 
@@ -116,7 +116,7 @@ def parse_problem_folder(problem_folder: Path):
     if max_a < 0:
         return
 
-    output_path = Path("parsed_tables") / f"{problem_folder.name}.tex"
+    output_path = Path("generated_tables") / f"{problem_folder.name}.tex"
     with open(str(output_path), "w") as opened_file:
         opened_file.write(r"\begin{table}[H]" + "\n")
         opened_file.write(r"\centering" + "\n")
@@ -131,10 +131,10 @@ def parse_problem_folder(problem_folder: Path):
         opened_file.write(r"\\" + "\n")
         opened_file.write(r"\hline" + "\n")
         opened_file.write(r"\hline" + "\n")
-        
+
         for a in range(min_a, max_a + 1):
             opened_file.write(f"${a}$")
-        
+
             for b in range(min_b, max_b + 1):
                 if (a, b) not in solutions:
                     opened_file.write(" &")
@@ -148,7 +148,7 @@ def parse_problem_folder(problem_folder: Path):
                         opened_file.write(r" & $\ge " + f"{sol[0]}$")
 
             opened_file.write(r"\\" + "\n")
-        
+
         opened_file.write(r"\hline" + "\n")
         opened_file.write(r"\end{tabular}" + "\n")
         opened_file.write(r"\label{" + f"{problem_folder.name}_tab" + "}\n")
