@@ -1,0 +1,101 @@
+c ---- [ banner ] ------------------------------------------------------------
+c
+c Kissat SAT Solver
+c 
+c Copyright (c) 2021-2024 Armin Biere University of Freiburg
+c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+c 
+c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
+c gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0 -W -Wall -O3 -DNDEBUG
+c Wed Apr 15 19:05:06 CEST 2026 Linux cluster-5 6.17.0-14-generic x86_64
+c
+c ---- [ parsing ] -----------------------------------------------------------
+c
+c opened and reading DIMACS file:
+c
+c   tmp.cnf
+c
+c parsed 'p cnf 91 28028' header
+c closing input after reading 397767 bytes (388 KB)
+c finished parsing after 0.01 seconds
+c
+c ---- [ solving ] -----------------------------------------------------------
+c
+c seconds switched rate     size/glue tier1 binary      remaining
+c        MB reductions conflicts size  tier2   irredundant
+c         level restarts redundant glue  trail      variables
+c
+c *  0.01  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 28028 91 100%
+c (  0.01  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 28028 91 100%
+c .  0.01  5 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 28028 91 100%
+c f  0.42  7 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 455 5750 287 315%
+c )  0.42  7 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 455 5750 287 315%
+c {  0.42  7 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 455 5750 287 315%
+c i  0.42  7 11 0 0  0 1 129 108 1.5 9 6 6 8 43% 457 5750 280 308%
+c i  0.42  7 9 0 0  0 1 209 171 1.5 8 5 6 8 42% 459 5750 275 302%
+c i  0.42  7 8 0 0  0 1 508 395 1.7 8 5 4 7 48% 467 5750 274 301%
+c i  0.42  7 8 0 0  0 1 647 517 1.7 8 4 4 7 48% 467 5750 270 297%
+c i  0.42  7 8 0 0  0 1 649 517 1.7 8 4 4 7 48% 467 5750 267 293%
+c i  0.42  7 8 0 0  0 1 691 550 1.7 7 4 4 7 47% 469 5750 262 288%
+c i  0.43  7 8 0 0  0 1 707 554 1.7 7 4 4 7 47% 475 5750 261 287%
+c i  0.43  7 7 0 0  0 1 814 619 1.7 7 4 3 6 47% 485 5750 245 269%
+c i  0.43  7 7 0 0  0 1 862 642 1.7 7 4 3 6 46% 493 5749 235 258%
+c i  0.43  7 7 0 0  0 1 885 657 1.7 7 4 3 6 46% 497 5749 234 257%
+c i  0.43  7 7 0 0  0 1 894 657 1.7 7 4 3 6 46% 498 5749 225 247%
+c i  0.43  7 7 0 0  0 1 903 658 1.7 7 4 3 6 46% 502 5749 222 244%
+c i  0.43  7 7 0 0  0 1 905 658 1.7 7 4 3 6 46% 503 5749 221 243%
+c i  0.43  7 7 0 0  0 1 923 664 1.7 7 4 3 6 46% 509 5749 215 236%
+c
+c seconds switched rate     size/glue tier1  binary      remaining
+c        MB reductions conflicts size  tier2   irredundant
+c         level restarts redundant glue   trail      variables
+c
+c i  0.43  7 7 0 0  0 1 924 664 1.7 7 4 3 6 46% 509 5749 214 235%
+c }  0.43  7 7 0 0  0 1 926 664 1.7 7 4 3 6 46% 509 5749 121 133%
+c 0  0.43  7 7 0 0  0 1 926 664 1.7 7 4 3 6 46% 509 5749 121 133%
+c
+c ---- [ result ] ------------------------------------------------------------
+c
+s UNSATISFIABLE
+c
+c ---- [ profiling ] ---------------------------------------------------------
+c
+c           0.41   95.58 %  preprocess
+c           0.41   95.57 %  probe
+c           0.39   90.50 %  factor
+c           0.01    2.74 %  congruence
+c           0.01    2.71 %  search
+c           0.01    2.71 %  focused
+c           0.01    2.06 %  sweep
+c           0.01    1.29 %  parse
+c           0.00    0.38 %  lucky
+c           0.00    0.25 %  substitute
+c           0.00    0.01 %  backbone
+c           0.00    0.00 %  simplify
+c =============================================
+c           0.43  100.00 %  total
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c conflicts:                              926             2160.59 per second
+c decisions:                             1181                1.28 per conflict
+c factored:                               196              215 %  variables
+c iterations:                              16               18 %  variables
+c propagations:                         46142           107661    per second
+c switched:                                 0                0    interval
+c
+c ---- [ glue usage ] --------------------------------------------------------
+c
+c focused glue 3 used 346 clauses 25.78% accumulated 61.70% tier1
+c focused glue 4 used 223 clauses 16.62% accumulated 78.32%
+c focused glue 5 used 115 clauses  8.57% accumulated 86.89%
+c focused glue 6 used  85 clauses  6.33% accumulated 93.22% tier2
+c
+c ---- [ resources ] ---------------------------------------------------------
+c
+c maximum-resident-set-size:          6889472 bytes          7 MB
+c process-time:                                              0.43 seconds
+c
+c ---- [ shutting down ] -----------------------------------------------------
+c
+c exit 20
