@@ -25,7 +25,7 @@ for ((a=4; a<=amax; a+=2)); do
 	
 		while true; do
 			fn=$(printf "%02d" "${n}")
-			outfile="../../../kissat_output/${type1}_${type2}_${mode}/${type1}${f1}_${type2}${f2}_${mode}_${fn}.txt"
+			outfile="../../kissat_output/${type1}_${type2}_${mode}/${type1}${f1}_${type2}${f2}_${mode}_${fn}.txt"
 			gtimeout $maxtimegen ./cnf_generator tmp.cnf $n $mode $a $type1 $b $type2
 			if [ $? -eq 124 ]; then
 				printf "\tTimeout (cnf_generator) at n = %d\n" "$n"
