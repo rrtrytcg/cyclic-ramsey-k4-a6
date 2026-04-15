@@ -7,7 +7,7 @@ c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
 c 
 c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
 c Apple clang version 17.0.0 (clang-1700.6.3.2) -W -Wall -O3 -DNDEBUG
-c Mon Mar 30 18:25:47 CEST 2026 Darwin Mac 24.6.0 arm64
+c Wed Apr 15 15:24:49 CEST 2026 Darwin Mac 24.6.0 arm64
 c
 c ---- [ parsing ] -----------------------------------------------------------
 c
@@ -25,26 +25,21 @@ c seconds switched rate     size/glue tier1 binary    remaining
 c        MB reductions conflicts size  tier2  irredundant
 c         level restarts redundant glue  trail    variables
 c
-c *  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 168 18 100%
-c (  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 168 18 100%
-c .  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 168 18 100%
-c =  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 100 41  5 28%
-c )  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 100 41  7 39%
-c 0  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 100 41  7 39%
+c *  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 168 24 100%
+c lucky in forward setting literals to false
+c l  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 168 24 100%
+c 1  0.00  2 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 168 24 100%
 c
 c ---- [ result ] ------------------------------------------------------------
 c
-s UNSATISFIABLE
+s SATISFIABLE
+v 1 2 3 4 -5 -6 -7 -8 9 10 -11 -12 -13 -14 -15 16 17 18 19 -20 -21 22 23 24
+v -25 -26 27 28 -29 30 31 32 33 34 35 36 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.00   51.61 %  preprocess
-c           0.00   47.11 %  probe
-c           0.00   33.83 %  sweep
-c           0.00   10.71 %  congruence
-c           0.00    9.85 %  parse
-c           0.00    4.07 %  lucky
-c           0.00    0.64 %  backbone
+c           0.00   21.80 %  parse
+c           0.00    9.02 %  lucky
 c           0.00    0.00 %  search
 c           0.00    0.00 %  simplify
 c =============================================
@@ -54,7 +49,7 @@ c ---- [ statistics ] --------------------------------------------------------
 c
 c conflicts:                                0                0.00 per second
 c decisions:                                0                0.00 per conflict
-c propagations:                            99            63259    per second
+c propagations:                            24            22835    per second
 c switched:                                 0                0    interval
 c
 c ---- [ glue usage ] --------------------------------------------------------
@@ -63,9 +58,9 @@ c no clauses used at all
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:       1795162112 bytes       1712 MB
+c maximum-resident-set-size:       1728053248 bytes       1648 MB
 c process-time:                                              0.00 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------
 c
-c exit 20
+c exit 10

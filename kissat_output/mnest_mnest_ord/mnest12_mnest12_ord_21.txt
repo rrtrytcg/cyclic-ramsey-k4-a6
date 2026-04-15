@@ -7,7 +7,7 @@ c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
 c 
 c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
 c Apple clang version 17.0.0 (clang-1700.6.3.2) -W -Wall -O3 -DNDEBUG
-c Mon Mar 30 18:25:47 CEST 2026 Darwin Mac 24.6.0 arm64
+c Wed Apr 15 15:24:49 CEST 2026 Darwin Mac 24.6.0 arm64
 c
 c ---- [ parsing ] -----------------------------------------------------------
 c
@@ -16,8 +16,8 @@ c
 c   tmp.cnf
 c
 c parsed 'p cnf 210 587860' header
-c closing input after reading 15159445 bytes (14 MB)
-c finished parsing after 0.06 seconds
+c closing input after reading 15204189 bytes (14 MB)
+c finished parsing after 0.05 seconds
 c
 c ---- [ solving ] -----------------------------------------------------------
 c
@@ -25,64 +25,51 @@ c seconds switched rate     size/glue tier1 binary        remaining
 c        MB reductions conflicts size  tier2   irredundant
 c         level restarts redundant glue  trail        variables
 c
-c *  0.06 70 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 587860 105 100%
-c (  0.08 110 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 587860 105 100%
-c .  0.08 110 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 587860 105 100%
-c )  0.12 134 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 587860 105 100%
-c {  0.13 137 0 0 0  0 0   0   0 0.0 0 0 2 6 0%   0 587860 105 100%
-c i  0.24 96 15 0 0 22 1 548 274 1.6 13 8 9 15 50%   6 587860 104 99%
-c i  0.27 97 14 0 0 23 1 729 347 1.5 11 7 7 15 46%  13 587860 103 98%
-c i  0.31 98 13 0 0 23 1 808 354 1.5 11 7 7 15 45%  19 587860 102 97%
-c i  0.32 98 12 0 0 23 1 890 377 1.5 10 7 7 15 43%  23 587860 101 96%
-c i  0.33 99 12 0 0 23 1 902 377 1.5 10 7 7 15 43%  26 587859 100 95%
-c i  0.33 91 12 0 0 23 1 925 381 1.5 10 7 7 15 43%  30 587859 99 94%
-c i  0.34 92 12 0 0 23 1 933 381 1.5 10 7 7 15 43%  33 587858 98 93%
-c }  0.34 92 12 0 0 23 1 948 381 1.5 10 7 7 15 43%  35 587858 74 70%
-c 0  0.34 92 12 0 0 23 1 948 381 1.5 10 7 7 15 43%  35 587858 74 70%
+c *  0.05 69 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 587860 150 100%
+c lucky in forward setting literals to false
+c l  0.06 90 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 587860 150 100%
+c 1  0.06 90 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 587860 150 100%
 c
 c ---- [ result ] ------------------------------------------------------------
 c
-s UNSATISFIABLE
+s SATISFIABLE
+v 1 2 3 4 5 6 7 8 9 10 -11 -12 -13 -14 -15 -16 -17 -18 -19 -20 21 22 23 24 25
+v 26 27 28 -29 -30 -31 -32 -33 -34 -35 -36 -37 -38 -39 40 41 42 43 44 45 -46
+v -47 -48 -49 -50 -51 -52 -53 -54 -55 -56 -57 58 59 60 61 -62 -63 -64 -65 -66
+v -67 -68 -69 -70 -71 -72 -73 -74 75 76 -77 -78 -79 -80 -81 -82 -83 -84 -85
+v -86 -87 -88 -89 -90 91 92 93 94 95 96 97 98 99 100 -101 -102 -103 -104 -105
+v 106 107 108 109 110 111 112 113 114 -115 -116 -117 -118 -119 120 121 122 123
+v 124 125 126 127 -128 -129 -130 -131 -132 133 134 135 136 137 138 139 -140
+v -141 -142 -143 -144 145 146 147 148 149 150 -151 -152 -153 -154 -155 156 157
+v 158 159 160 -161 -162 -163 -164 165 166 167 168 169 -170 -171 -172 173 174
+v 175 176 177 -178 -179 180 181 182 183 184 -185 186 187 188 189 190 191 192
+v 193 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 210 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.20   60.61 %  search
-c           0.20   60.61 %  focused
-c           0.06   16.57 %  parse
-c           0.04   11.43 %  lucky
-c           0.04   11.35 %  preprocess
-c           0.04   11.33 %  probe
-c           0.01    3.60 %  congruence
-c           0.01    3.03 %  sweep
-c           0.01    2.62 %  substitute
-c           0.01    1.87 %  factor
-c           0.00    0.20 %  backbone
+c           0.05   86.79 %  parse
+c           0.01   12.96 %  lucky
+c           0.00    0.00 %  search
 c           0.00    0.00 %  simplify
 c =============================================
-c           0.34  100.00 %  total
+c           0.06  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
-c conflicts:                              948             2807.48 per second
-c decisions:                             1019                1.07 per conflict
-c iterations:                               8                8 %  variables
-c propagations:                         12702            37617    per second
-c restarts:                                23               41    interval
+c conflicts:                                0                0.00 per second
+c decisions:                                0                0.00 per conflict
+c propagations:                           150             2398    per second
 c switched:                                 0                0    interval
 c
 c ---- [ glue usage ] --------------------------------------------------------
 c
-c focused glue 6    used  98 clauses  9.67% accumulated 57.95% tier1
-c focused glue 7    used  80 clauses  7.90% accumulated 65.84%
-c focused glue 8-12 used 189 clauses 18.66% accumulated 84.50%
-c focused glue 13   used  45 clauses  4.44% accumulated 88.94%
-c focused glue 14   used  33 clauses  3.26% accumulated 92.20% tier2
+c no clauses used at all
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:     148730019840 bytes     141840 MB
-c process-time:                                              0.34 seconds
+c maximum-resident-set-size:      96485769216 bytes      92016 MB
+c process-time:                                              0.06 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------
 c
-c exit 20
+c exit 10

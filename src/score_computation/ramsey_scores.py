@@ -44,7 +44,9 @@ def compute_ramsey_score(
     score_batch += __call_cpp_func(zero_bitmask, zero_pattern, mode)
 
     for color_index in range(1, input_graph_batch.edge_colors):
-        current_bitmask = input_graph_batch.bitmask_out[:, -input_graph_batch.edge_colors + color_index, :]
+        current_bitmask = input_graph_batch.bitmask_out[
+            :, -input_graph_batch.edge_colors + color_index, :
+        ]
         current_pattern = pattern_graph_list[color_index].bitmask_out[-1]
 
         score_batch += __call_cpp_func(current_bitmask, current_pattern, mode)

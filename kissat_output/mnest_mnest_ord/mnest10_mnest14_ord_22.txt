@@ -1,0 +1,95 @@
+c ---- [ banner ] ------------------------------------------------------------
+c
+c Kissat SAT Solver
+c 
+c Copyright (c) 2021-2024 Armin Biere University of Freiburg
+c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+c 
+c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
+c Apple clang version 17.0.0 (clang-1700.6.3.2) -W -Wall -O3 -DNDEBUG
+c Wed Apr 15 15:24:49 CEST 2026 Darwin Mac 24.6.0 arm64
+c
+c ---- [ parsing ] -----------------------------------------------------------
+c
+c opened and reading DIMACS file:
+c
+c   tmp.cnf
+c
+c parsed 'p cnf 231 966416' header
+c closing input after reading 23539615 bytes (22 MB)
+c finished parsing after 0.08 seconds
+c
+c ---- [ solving ] -----------------------------------------------------------
+c
+c seconds switched rate     size/glue tier1 binary        remaining
+c        MB reductions conflicts size  tier2   irredundant
+c         level restarts redundant glue  trail        variables
+c
+c *  0.08 80 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 966416 191 100%
+c (  0.11 149 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 966416 191 100%
+c .  0.11 149 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 966416 191 100%
+c )  1.18 134 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 966416 191 100%
+c {  1.20 138 0 0 0  0 0   0   0 0.0 0 0 2 6 0%   0 966416 191 100%
+c -  1.42 143 27 0 1  0 1 1006 386 1.5 8 6 4 8 32%   0 966416 191 100%
+c }  1.42 143 27 1 1  0 1 1006 386 1.5 8 6 4 8 32%   0 966416 191 100%
+c [  1.42 143 0 1 1  0 0 1006 386 0.0 0 0 2 6 0%   0 966416 191 100%
+c B  1.42 143 0 1 1  0 0 1006 386 0.0 0 0 2 6 0%   0 966416 191 100%
+c i  1.57 139 13 1 1  0 1 1395 529 1.8 7 4 3 5 30%   7 966416 190 99%
+c i  1.58 141 12 1 1  0 1 1461 534 1.7 7 4 3 5 29%  10 966416 189 99%
+c i  1.60 141 11 1 1  0 1 1506 545 1.7 7 4 3 5 29%  11 966416 188 98%
+c ]  1.61 141 11 1 1  0 1 1535 553 1.7 7 4 3 5 29%  12 966416 184 96%
+c 0  1.61 141 27 1 1  0 1 1535 553 1.5 8 6 4 8 32%  12 966416 184 96%
+c
+c ---- [ result ] ------------------------------------------------------------
+c
+s UNSATISFIABLE
+c
+c ---- [ profiling ] ---------------------------------------------------------
+c
+c           1.07   66.87 %  preprocess
+c           1.07   66.87 %  probe
+c           1.01   62.69 %  factor
+c           0.41   25.28 %  search
+c           0.22   13.39 %  focused
+c           0.19   11.89 %  stable
+c           0.08    5.03 %  parse
+c           0.05    2.82 %  lucky
+c           0.04    2.24 %  congruence
+c           0.02    1.00 %  sweep
+c           0.01    0.88 %  substitute
+c           0.00    0.05 %  backbone
+c           0.00    0.05 %  reduce
+c           0.00    0.00 %  simplify
+c =============================================
+c           1.61  100.00 %  total
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c conflicts:                             1535              954.36 per second
+c decisions:                             1333                0.87 per conflict
+c iterations:                               4                2 %  variables
+c propagations:                         26814            16671    per second
+c reductions:                               1             1535    interval
+c rephased:                                 1             1535    interval
+c switched:                                 1             1535    interval
+c
+c ---- [ glue usage ] --------------------------------------------------------
+c
+c focused glue 4 used 253 clauses 19.31% accumulated 53.82% tier1
+c focused glue 5 used 231 clauses 17.63% accumulated 71.45%
+c focused glue 6 used 145 clauses 11.07% accumulated 82.52%
+c focused glue 7 used  85 clauses  6.49% accumulated 89.01%
+c focused glue 8 used  50 clauses  3.82% accumulated 92.82% tier2
+c
+c stable glue 3 used 191 clauses 23.32% accumulated 57.14% tier1
+c stable glue 4 used 182 clauses 22.22% accumulated 79.37%
+c stable glue 5 used  94 clauses 11.48% accumulated 90.84% tier2
+c
+c ---- [ resources ] ---------------------------------------------------------
+c
+c maximum-resident-set-size:     163108093952 bytes     155552 MB
+c process-time:                             2s               1.61 seconds
+c
+c ---- [ shutting down ] -----------------------------------------------------
+c
+c exit 20

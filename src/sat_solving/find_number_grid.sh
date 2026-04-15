@@ -4,7 +4,7 @@
 
 type1="mnest"
 type2="mnest"
-mode="ord"
+mode="cyc"
 
 maxtimegen="1m"
 maxtimekis="2m"
@@ -12,17 +12,17 @@ maxtimekis="2m"
 amax=${1}
 bmax=${2}
 
-for ((a=3; a<=amax; a++)); do
+for ((a=4; a<=amax; a+=2)); do
 	nomas=false
 	nomas2=0
 
-	for ((b=a; b<=bmax; b++)); do
+	for ((b=a; b<=bmax; b+=2)); do
 		echo "Processing a = $a, b = $b"
 		n=$(( $a > $b ? $a : $b ))
 
 		f1=$(printf "%02d" "${a}")
 		f2=$(printf "%02d" "${b}")
-	
+
 		while true; do
 			fn=$(printf "%02d" "${n}")
 			outfile="../../kissat_output/${type1}_${type2}_${mode}/${type1}${f1}_${type2}${f2}_${mode}_${fn}.txt"

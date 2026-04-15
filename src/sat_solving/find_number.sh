@@ -2,8 +2,8 @@
 
 ./get_binaries.sh || exit 1
 
-type1="pmon"
-type2="pmon"
+type1="mnest"
+type2="mnest"
 mode="cyc"
 
 maxtimegen="3m"

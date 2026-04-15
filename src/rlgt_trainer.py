@@ -29,7 +29,9 @@ all_graphs: Dict[str, Graph] = {
     "p6a": Graph.from_bitmask(np.array([[32, 48, 24, 4, 6, 3]], dtype=np.uint64)),
     "p7a": Graph.from_bitmask(np.array([[64, 96, 48, 16, 12, 6, 3]], dtype=np.uint64)),
     "p8a": Graph.from_bitmask(np.array([[128, 192, 96, 48, 8, 12, 6, 3]], dtype=np.uint64)),
-    "p13a": Graph.from_bitmask(np.array([[4096, 6144, 3072, 1536, 768, 384, 128, 96, 48, 24, 12, 6, 3]], dtype=np.uint64)),
+    "p13a": Graph.from_bitmask(
+        np.array([[4096, 6144, 3072, 1536, 768, 384, 128, 96, 48, 24, 12, 6, 3]], dtype=np.uint64)
+    ),
     "c3m": CycleGraph({GraphFormat.BITMASK_OUT}, 3),
     "c4m": CycleGraph({GraphFormat.BITMASK_OUT}, 4),
     "c5m": CycleGraph({GraphFormat.BITMASK_OUT}, 5),
