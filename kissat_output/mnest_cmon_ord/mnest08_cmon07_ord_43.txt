@@ -1,0 +1,72 @@
+c ---- [ banner ] ------------------------------------------------------------
+c
+c Kissat SAT Solver
+c 
+c Copyright (c) 2021-2024 Armin Biere University of Freiburg
+c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+c 
+c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
+c gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0 -W -Wall -O3 -DNDEBUG
+c Wed Apr 15 15:28:19 CEST 2026 Linux cluster-5 6.17.0-14-generic x86_64
+c
+c ---- [ parsing ] -----------------------------------------------------------
+c
+c opened and reading DIMACS file:
+c
+c   tmp.cnf
+c
+c parsed 'p cnf 903 177232627' header
+c closing input after reading 3718653440 bytes (3 GB)
+c finished parsing after 29.72 seconds
+c
+c ---- [ solving ] -----------------------------------------------------------
+c
+c seconds    switched rate     size/glue tier1 binary           remaining
+c           MB reductions conflicts size  tier2     irredundant
+c            level restarts redundant glue  trail           variables
+c
+c * 29.72 10000 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 177232627 903 100%
+c ( 42.00 12693 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 177232627 903 100%
+c . 42.00 12693 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 177232627 903 100%
+c ) 92.04 13285 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 177232627 903 100%
+c { 94.46 13471 0 0 0  0 0   0   0 0.0 0 0 2 6 0%   0 177232627 903 100%
+c caught signal 15 (SIGTERM)
+c
+c ---- [ profiling ] ---------------------------------------------------------
+c
+c          50.05   41.72 %  preprocess
+c          50.05   41.72 %  probe
+c          29.72   24.78 %  parse
+c          25.49   21.25 %  search
+c          25.49   21.25 %  focused
+c          20.64   17.21 %  congruence
+c          14.69   12.25 %  lucky
+c          14.04   11.70 %  factor
+c           8.99    7.49 %  substitute
+c           6.37    5.31 %  sweep
+c           0.00    0.00 %  backbone
+c           0.00    0.00 %  simplify
+c =============================================
+c         119.95  100.00 %  total
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c conflicts:                              590                4.92 per second
+c decisions:                              882                1.49 per conflict
+c propagations:                         52332              436    per second
+c restarts:                                 8               74    interval
+c switched:                                 0                0    interval
+c
+c ---- [ glue usage ] --------------------------------------------------------
+c
+c focused glue 7    used 51 clauses  8.96% accumulated 55.71% tier1
+c focused glue 8    used 53 clauses  9.31% accumulated 65.03%
+c focused glue 9-10 used 89 clauses 15.64% accumulated 80.67%
+c focused glue 11   used 38 clauses  6.68% accumulated 87.35%
+c focused glue 12   used 35 clauses  6.15% accumulated 93.50% tier2
+c
+c ---- [ resources ] ---------------------------------------------------------
+c
+c maximum-resident-set-size:      15072092160 bytes      14374 MB
+c process-time:                             2m             119.95 seconds
+c raising signal 15 (SIGTERM)
