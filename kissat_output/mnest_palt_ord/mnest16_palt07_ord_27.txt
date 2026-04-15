@@ -1,0 +1,117 @@
+c ---- [ banner ] ------------------------------------------------------------
+c
+c Kissat SAT Solver
+c 
+c Copyright (c) 2021-2024 Armin Biere University of Freiburg
+c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+c 
+c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
+c gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0 -W -Wall -O3 -DNDEBUG
+c Wed Apr 15 16:07:08 EEST 2026 Linux cluster-4 6.17.0-14-generic x86_64
+c
+c ---- [ parsing ] -----------------------------------------------------------
+c
+c opened and reading DIMACS file:
+c
+c   tmp.cnf
+c
+c parsed 'p cnf 351 13925925' header
+c closing input after reading 439602649 bytes (419 MB)
+c finished parsing after 3.31 seconds
+c
+c ---- [ solving ] -----------------------------------------------------------
+c
+c seconds  switched rate     size/glue tier1 binary          remaining
+c         MB reductions conflicts size  tier2    irredundant
+c          level restarts redundant glue  trail          variables
+c
+c *  3.31 897 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 13925925 336 100%
+c (  6.46 1747 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 13925925 336 100%
+c .  6.46 1747 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 13925925 336 100%
+c )  9.43 1678 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 13925925 336 100%
+c { 10.28 1688 0 0 0  0 0   0   0 0.0 0 0 2 6 0%   0 13925925 336 100%
+c - 22.31 1331 54 0 1  0 1 1002 670 1.6 25 15 11 23 54%   0 13925925 336 100%
+c } 22.31 1331 54 1 1  0 1 1002 670 1.6 25 15 11 23 54%   0 13925925 336 100%
+c [ 22.31 1331 0 1 1  0 0 1002 670 0.0 0 0 2 6 0%   0 13925925 336 100%
+c B 22.31 1331 0 1 1  0 0 1002 670 0.0 0 0 2 6 0%   0 13925925 336 100%
+c - 34.63 1523 79 1 2  0 1 2002 1547 1.4 27 19 12 30 60%   0 13925925 336 100%
+c W 36.20 1580 79 1 2  0 1 2004 1549 1.4 27 19 12 30 60%   0 13925925 336 100%
+c ] 37.97 1223 72 2 2  1 1 2155 1690 1.4 27 19 12 30 57%   0 13925925 336 100%
+c { 37.97 1223 54 2 2  1 1 2155 1690 1.6 25 15 11 23 54%   0 13925925 336 100%
+c } 50.05 1372 38 3 2 11 1 3155 2564 1.5 23 15 11 22 40%   0 13925925 336 100%
+c [ 50.05 1372 72 3 2 11 1 3155 2564 1.4 27 19 12 30 57%   0 13925925 336 100%
+c - 52.49 1374 62 3 3 11 1 3416 2611 1.4 25 18 12 28 51%   0 13925925 336 100%
+c ] 63.20 1415 47 4 3 12 1 4245 3366 1.5 24 16 12 26 41%   0 13925925 336 100%
+c { 63.20 1415 38 4 3 12 1 4245 3366 1.5 23 15 11 22 40%   0 13925925 336 100%
+c u 70.27 1494 36 4 3 12 1 4569 3649 1.5 22 15 11 22 38%   0 13925925 336 100%
+c v 72.30 1499 36 4 3 12 1 4569 3648 1.5 22 15 11 22 38%   0 13925925 336 100%
+c
+c seconds    switched rate       size/glue  tier1     binary          remaining
+c          MB reductions conflicts     size    tier2      irredundant
+c           level restarts  redundant     glue     trail          variables
+c
+c w 73.30 1499 36 4 3 12 1 4569 3647 1.5 22 15 11 22 38%   0 13925925 336 100%
+c - 80.66 1516 32 4 4 16 1 5149 3802 1.6 22 14 11 20 36%   0 13925925 336 100%
+c } 95.24 1396 27 5 4 16 1 6598 5073 1.7 21 12 10 18 35%   0 13925925 336 100%
+c [ 95.24 1396 47 5 4 16 1 6598 5073 1.5 24 16 12 26 41%   0 13925925 336 100%
+c I 95.24 1396 47 5 4 16 1 6598 5073 1.5 24 16 12 26 41%   0 13925925 336 100%
+c - 101.31 1451 44 5 5 16 1 7151 4813 1.5 23 15 11 22 39%   0 13925925 336 100%
+c - 113.05 1514 35 5 6 18 1 9387 5878 1.6 24 15 11 21 37%   0 13925925 336 100%
+c B 119.15 1524 34 5 6 18 1 10372 6743 1.6 24 15 11 21 37%   0 13925925 336 100%
+c o 119.44 1524 34 5 6 18 1 10372 6743 1.6 24 15 11 21 37%   0 13925925 336 100%
+c caught signal 15 (SIGTERM)
+c
+c ---- [ profiling ] ---------------------------------------------------------
+c
+c          98.65   82.23 %  search
+c          52.10   43.43 %  stable
+c          46.54   38.80 %  focused
+c          12.57   10.48 %  probe
+c          11.03    9.19 %  simplify
+c           7.65    6.38 %  vivify
+c           4.00    3.33 %  lucky
+c           3.31    2.76 %  parse
+c           2.98    2.48 %  preprocess
+c           2.82    2.35 %  substitute
+c           1.43    1.19 %  walking
+c           0.92    0.77 %  sweep
+c           0.75    0.63 %  congruence
+c           0.35    0.29 %  factor
+c           0.20    0.16 %  reduce
+c           0.07    0.06 %  transitive
+c           0.00    0.00 %  backbone
+c =============================================
+c         119.96  100.00 %  total
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c conflicts:                            10377               86.50 per second
+c decisions:                            12717                1.23 per conflict
+c propagations:                        237439             1979    per second
+c reductions:                               6             1730    interval
+c reordered:                                1            10377    interval
+c rephased:                                 4             2594    interval
+c restarts:                                18              576    interval
+c switched:                                 5             2075    interval
+c vivified:                                78               38 %  checks
+c walks:                                    1            10377    interval
+c
+c ---- [ glue usage ] --------------------------------------------------------
+c
+c focused glue 10    used  575 clauses  8.47% accumulated 57.57% tier1
+c focused glue 11    used  474 clauses  6.98% accumulated 64.56%
+c focused glue 12-16 used 1515 clauses 22.33% accumulated 86.88%
+c focused glue 17    used  162 clauses  2.39% accumulated 89.27%
+c focused glue 18    used  137 clauses  2.02% accumulated 91.29% tier2
+c
+c stable glue 11    used  701 clauses  6.25% accumulated 51.59% tier1
+c stable glue 12    used  574 clauses  5.12% accumulated 56.71%
+c stable glue 13-19 used 3284 clauses 29.29% accumulated 86.00%
+c stable glue 20    used  320 clauses  2.85% accumulated 88.85%
+c stable glue 21    used  275 clauses  2.45% accumulated 91.30% tier2
+c
+c ---- [ resources ] ---------------------------------------------------------
+c
+c maximum-resident-set-size:       1831317504 bytes       1746 MB
+c process-time:                             2m             119.96 seconds
+c raising signal 15 (SIGTERM)
