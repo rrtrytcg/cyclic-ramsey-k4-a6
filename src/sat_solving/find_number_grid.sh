@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-./get_binaries.sh || exit 1
-
 type1="mnest"
-type2="mnest"
+type2="cmon"
 mode="ord"
 
 maxtimegen="1m"
@@ -16,7 +14,7 @@ for ((a=4; a<=amax; a+=2)); do
 	nomas=false
 	nomas2=0
 
-	for ((b=a; b<=bmax; b+=2)); do
+	for ((b=3; b<=bmax; b+=1)); do
 		echo "Processing a = $a, b = $b"
 		n=$(( $a > $b ? $a : $b ))
 
@@ -25,14 +23,15 @@ for ((a=4; a<=amax; a+=2)); do
 	
 		while true; do
 			fn=$(printf "%02d" "${n}")
-			outfile="../../kissat_output/${type1}_${type2}_${mode}/${type1}${f1}_${type2}${f2}_${mode}_${fn}.txt"
-			gtimeout $maxtimegen ./cnf_generator tmp.cnf $n $mode $a $type1 $b $type2
+			outfile="../../../kissat_output/${type1}_${type2}_${mode}/${type1}${f1}_${type2}${f2}_${mode}_${fn}.txt"
+			g++ -O2 cnf_gen_main.cpp -o cnf_gen_main || exit 1
+			timeout $maxtimegen ./cnf_gen_main tmp.cnf $n $mode $a $type1 $b $type2
 			if [ $? -eq 124 ]; then
-				printf "\tTimeout (cnf_generator) at n = %d\n" "$n"
+				printf "\tTimeout (cnf_gen_main) at n = %d\n" "$n"
 				nomas=true
 				break
 			fi
-			gtimeout $maxtimekis ./kissat tmp.cnf > $outfile
+			timeout $maxtimekis ./kissat tmp.cnf > $outfile
 			if [ $? -eq 124 ]; then
 				printf "\tTimeout (kissat) at n = %d\n" "$n"
 				((nomas2++))
@@ -56,7 +55,7 @@ for ((a=4; a<=amax; a+=2)); do
 	done
 done
 
-# ./cnf_generator tmp.cnf $3 $mode $1 $type1 $2 $type2 && ./kissat tmp.cnf > $outfile
+# ./cnf_gen_main tmp.cnf $3 $mode $1 $type1 $2 $type2 && ./kissat tmp.cnf > $outfile
 
 # cat $outfile | grep "^s "
 
@@ -67,7 +66,8 @@ done
 #             printf -v jp "%02d" "$j"
 #             printf -v kp "%02d" "$k"
 
-#             ./cnf_generator tmp_${ip}_${jp}_${kp}.cnf $kp $mode $ip $type1 $jp $type2 && ./kissat tmp_${ip}_${jp}_${kp}.cnf > "../../kissat_output/${type1}_${type2}_${mode}/${type1}${ip}_${type2}${jp}_${mode}_${kp}.txt"
+#             g++ -O2 cnf_gen_main.cpp -o cnf_gen_main && ./cnf_gen_main tmp_${ip}_${jp}_${kp}.cnf $kp $mode $ip $type1 $jp $type2 && ./kissat tmp_${ip}_${jp}_${kp}.cnf > "../../../kissat_output/${type1}_${type2}_${mode}/${type1}${ip}_${type2}${jp}_${mode}_${kp}.txt"
 #         done
 #     done
 # done
+
