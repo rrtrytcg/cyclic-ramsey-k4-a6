@@ -121,7 +121,12 @@ def parse_problem_folder(problem_folder: Path):
         opened_file.write(r"\begin{table}[H]" + "\n")
         opened_file.write(r"\centering" + "\n")
         opened_file.write(r"\footnotesize" + "\n")
-        r_string = "r" * (max_b - min_b + 1)
+        
+        if problem_folder.name.split("_")[1] != "mnest":
+            r_string = "r" * (max_b - min_b + 1)
+        else:
+            r_string = "r" * ((max_b - min_b) // 2 + 1)
+
         opened_file.write(r"\begin{tabular}{|c||" + r_string + r"|}" + "\n")
         opened_file.write(r"\hline" + "\n")
 
@@ -133,9 +138,15 @@ def parse_problem_folder(problem_folder: Path):
         opened_file.write(r"\hline" + "\n")
 
         for a in range(min_a, max_a + 1):
+            if problem_folder.name.split("_")[0] == "mnest" and a % 2 == 1:
+                continue
+
             opened_file.write(f"${a}$")
 
             for b in range(min_b, max_b + 1):
+                if problem_folder.name.split("_")[1] == "mnest" and b % 2 == 1:
+                    continue
+
                 if (a, b) not in solutions:
                     opened_file.write(" &")
                 else:
