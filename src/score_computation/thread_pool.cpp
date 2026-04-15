@@ -4,7 +4,7 @@
 #include <queue>
 #include <thread>
 
-namespace SubgraphCounting {
+namespace OrdRamNum {
 
 namespace {
 
@@ -65,4 +65,4 @@ ThreadPool g_pool;
 
 void pool_submit(std::function<void()> task) { g_pool.submit(std::move(task)); }
 
-} // namespace SubgraphCounting
+} // namespace OrdRamNum

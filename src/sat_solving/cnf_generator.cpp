@@ -1,36 +1,27 @@
-#include "../score_computation/generators.hpp"
-#include "../score_computation/state.hpp"
-#include "../score_computation/utils.hpp"
-
 #include "common_graphs.hpp"
+#include "generators.hpp"
+#include "states.hpp"
+#include "utils.hpp"
 
 #include <algorithm>
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <stdexcept>
 
-using namespace SubgraphCounting;
+using namespace OrdRamNum;
 
 int print_usage() {
-  std::cerr << R"(Usage: ./cnf_gen_main <outfile>
+  std::cerr << R"(Usage: ./cnf_generator <outfile>
     <big_graph_nodes>
-    ( ordered | cyclic )
-    <small_graph_1_nodes>
-    (
-      path | alternating_path | reverse_alternating_path |
-      cycle | star | nested_matching | complete
-    )
-    <small_graph_2_nodes>
-    (
-      path | alternating_path | reverse_alternating_path |
-      cycle | star | nested_matching | complete
-    )
+    ( ord | cyc )
+    <small_graph_1_nodes> ( pmon | palt | pralt | cmon | ssc | mnest | k | pqmon )
+    <small_graph_2_nodes> ( pmon | palt | pralt | cmon | ssc | mnest | k | pqmon )
 )";
   return 1;
 }
 
-AdjGraph get_from_args(int offs, char** argv) {
-  AdjGraph small;
+Graph get_from_args(int offs, char **argv) {
+  Graph small;
   int small_n = atoi(argv[offs]);
   std::string desc = argv[offs + 1];
   if (desc == "pmon") {
@@ -55,12 +46,12 @@ AdjGraph get_from_args(int offs, char** argv) {
   return small;
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
   std::string fname;
   int big_n;
   std::string problem_mode;
-  AdjGraph small_1;
-  AdjGraph small_2;
+  Graph small_1;
+  Graph small_2;
 
   try {
     if (argc != 8) {
@@ -71,7 +62,7 @@ int main(int argc, char** argv) {
     problem_mode = argv[3];
     small_1 = get_from_args(4, argv);
     small_2 = get_from_args(6, argv);
-  } catch (std::exception& e) {
+  } catch (std::exception &e) {
     std::cerr << "error: " << e.what() << '\n';
     return print_usage();
   }
@@ -79,21 +70,22 @@ int main(int argc, char** argv) {
   std::string content;
 
   if (problem_mode == "ord") {
-    content = solve_graph<IncreasingSequenceGenerator, CNFState>(
-      complete(big_n), small_1, 1);
-    content += solve_graph<IncreasingSequenceGenerator, CNFState>(
-      complete(big_n), small_2, -1);
+    content = solve_graph<Generators::Increasing, States::CNFWriter>(
+        complete(big_n), small_1, 1);
+    content += solve_graph<Generators::Increasing, States::CNFWriter>(
+        complete(big_n), small_2, -1);
   } else if (problem_mode == "cyc") {
-    content = solve_graph<CircularSequenceGenerator, CNFState>(
-      complete(big_n), small_1, 1);
-    content += solve_graph<CircularSequenceGenerator, CNFState>(
-      complete(big_n), small_2, -1);
+    content = solve_graph<Generators::Cyclic, States::CNFWriter>(
+        complete(big_n), small_1, 1);
+    content += solve_graph<Generators::Cyclic, States::CNFWriter>(
+        complete(big_n), small_2, -1);
   } else {
+    std::cerr << "unknown problem mode: " << problem_mode << '\n';
     return 1;
   }
 
   std::ofstream outf(fname);
   outf << "p cnf " << big_n * (big_n - 1) / 2 << ' '
-            << std::count(content.begin(), content.end(), '\n') << '\n';
+       << std::count(content.begin(), content.end(), '\n') << '\n';
   outf << content;
 }

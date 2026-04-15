@@ -7,7 +7,7 @@ from rlgt.agents import DeepCrossEntropyAgent, ExponentialRandomActionMechanism
 from rlgt.environments import LinearBuildEnvironment
 from rlgt.graphs import CompleteGraph, CycleGraph, Graph, GraphFormat, PathGraph, StarGraph
 
-from score_computation import RamseyScoreType, compute_ramsey_score
+from score_computation.ramsey_scores import RamseyScoreType, compute_ramsey_score
 
 
 all_graphs: Dict[str, Graph] = {

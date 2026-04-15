@@ -1,16 +1,16 @@
 #pragma once
 
-#include "graphs.hpp"
+#include "graph.hpp"
 
 #include <memory>
 #include <sstream>
 
-namespace SubgraphCounting {
+namespace OrdRamNum::States {
 
-class SubgraphStateSimple {
+class Subgraph {
   // Arguments
-  AdjGraph m_big;
-  AdjGraph m_small;
+  Graph m_big;
+  Graph m_small;
 
   // State
   uint8_t m_map[64];
@@ -19,8 +19,7 @@ class SubgraphStateSimple {
   uint64_t m_count = 0;
 
 public:
-  SubgraphStateSimple(AdjGraph big, AdjGraph small)
-      : m_big(big), m_small(small) {}
+  Subgraph(Graph big, Graph small) : m_big(big), m_small(small) {}
 
   bool push(uint8_t x) {
     auto y = m_len;
@@ -52,10 +51,10 @@ public:
   uint64_t get() const { return m_count; }
 };
 
-class SubgraphStateRequiredEdge {
+class SubgraphRequiredEdge {
   // Arguments
-  AdjGraph m_big;
-  AdjGraph m_small;
+  Graph m_big;
+  Graph m_small;
   uint8_t m_u; // Required edge vertex
   uint8_t m_v; // Required edge vertex
 
@@ -68,7 +67,7 @@ class SubgraphStateRequiredEdge {
   uint64_t m_count = 0;
 
 public:
-  SubgraphStateRequiredEdge(AdjGraph big, AdjGraph small, uint8_t u, uint8_t v)
+  SubgraphRequiredEdge(Graph big, Graph small, uint8_t u, uint8_t v)
       : m_big(big), m_small(small), m_u(u), m_v(v) {}
 
   bool push(uint8_t x) {
@@ -137,10 +136,10 @@ public:
   uint64_t get() const { return m_count; }
 };
 
-class CNFState {
+class CNFWriter {
   // Arguments
   int m_big_n;
-  AdjGraph m_small;
+  Graph m_small;
   int m_sign;
 
   // State
@@ -151,9 +150,9 @@ class CNFState {
 
 public:
   // First argument (big graph) is unused
-  CNFState(AdjGraph big, AdjGraph small, int sign)
+  CNFWriter(Graph big, Graph small, int sign)
       : m_big_n(big.n), m_small(small), m_sign(sign),
-        m_cnf(std::make_shared<std::ostringstream>()){}
+        m_cnf(std::make_shared<std::ostringstream>()) {}
 
   bool push(uint8_t x) {
     auto y = m_len;
@@ -166,7 +165,6 @@ public:
       // New graph, add constraint
 
       auto go = [&](int sign) {
-        int edge_idx = 0;
         for (uint8_t i = 0; i < m_small.n; i++) {
           for (uint8_t j = i + 1; j < m_small.n; j++) {
             int x = m_map[i];
@@ -192,7 +190,7 @@ public:
 
   void pop() { m_len--; }
 
-  std::string get() const { return std::move(m_cnf->str()); }
+  std::string get() const { return m_cnf->str(); }
 };
 
-} // namespace SubgraphCounting
+} // namespace OrdRamNum::States

@@ -2,11 +2,11 @@
 
 #include <cstdint>
 
-namespace SubgraphCounting {
+namespace OrdRamNum {
 
-struct AdjGraph {
+struct Graph {
   uint64_t adj[64] = {0};
   uint64_t n;
 };
 
-} // namespace SubgraphCounting
+} // namespace OrdRamNum

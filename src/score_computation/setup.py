@@ -4,8 +4,8 @@ from Cython.Build import cythonize
 import platform
 
 extra_flags = []
-if platform.system() == 'Windows':
-    extra_flags = ['/std:c++20']
+if platform.system() == "Windows":
+    extra_flags = ["/std:c++20"]
 
 extensions = [
     Extension(
@@ -13,8 +13,8 @@ extensions = [
         sources=["subgraph.pyx", "c_interface.cpp", "thread_pool.cpp"],
         libraries=[],
         library_dirs=[],
-        include_dirs=["."],
-        extra_compile_args=extra_flags
+        include_dirs=["../../include/"],
+        extra_compile_args=extra_flags,
     )
 ]
 

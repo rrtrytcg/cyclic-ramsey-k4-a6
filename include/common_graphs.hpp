@@ -1,13 +1,13 @@
 #pragma once
 
-#include "../score_computation/graphs.hpp"
+#include "graph.hpp"
 
-namespace SubgraphCounting {
+namespace OrdRamNum {
 
 // one node in the center and n-1 nodes arranged in a cycle
 // center node has label n-1
-inline AdjGraph wheel(uint8_t n) {
-  AdjGraph r;
+inline Graph wheel(uint8_t n) {
+  Graph r;
   r.n = n;
   // cycle (all except last)
   for (uint8_t i = 0; i < n - 2; i++) {
@@ -27,8 +27,8 @@ inline AdjGraph wheel(uint8_t n) {
 }
 
 // path 0, 1, 2, ..., n-1
-inline AdjGraph path(uint8_t n) {
-  AdjGraph r;
+inline Graph path(uint8_t n) {
+  Graph r;
   r.n = n;
   for (uint8_t i = 0; i < n - 1; i++) {
     r.adj[i] |= 1ull << (i + 1);
@@ -38,8 +38,8 @@ inline AdjGraph path(uint8_t n) {
 }
 
 // path 0, n-1, 1, n-2, ... (ends in the middle)
-inline AdjGraph alternating_path(uint8_t n) {
-  AdjGraph r;
+inline Graph alternating_path(uint8_t n) {
+  Graph r;
   r.n = n;
   for (uint8_t i = 0; i < n - 1; i++) {
     int x = (i + 1) / 2;
@@ -51,8 +51,8 @@ inline AdjGraph alternating_path(uint8_t n) {
 }
 
 // path n-1, 0, n-2, 1, ... (ends in the middle)
-inline AdjGraph reverse_alternating_path(uint8_t n) {
-  AdjGraph r;
+inline Graph reverse_alternating_path(uint8_t n) {
+  Graph r;
   r.n = n;
   for (uint8_t i = 0; i < n - 1; i++) {
     int x = i / 2;
@@ -64,21 +64,21 @@ inline AdjGraph reverse_alternating_path(uint8_t n) {
 }
 
 // cycle 0, 1, 2, ..., n-2, n-1, 0
-inline AdjGraph cycle(uint8_t n) {
-  AdjGraph r;
+inline Graph cycle(uint8_t n) {
+  Graph r;
   r.n = n;
   for (uint8_t i = 0; i < n - 1; i++) {
     r.adj[i] |= 1ull << (i + 1);
     r.adj[i + 1] |= 1ull << i;
   }
-  r.adj[n-1] |= 1;
+  r.adj[n - 1] |= 1;
   r.adj[0] |= 1ull << (n - 1);
   return r;
 }
 
 // node 0 connected to all others
-inline AdjGraph star(uint8_t n) {
-  AdjGraph r;
+inline Graph star(uint8_t n) {
+  Graph r;
   r.n = n;
   r.adj[0] = (1ull << n) - 2;
   for (uint8_t i = 1; i < n; i++) {
@@ -88,19 +88,19 @@ inline AdjGraph star(uint8_t n) {
 }
 
 // nested matching (n must be even)
-inline AdjGraph nested_matching(uint8_t n) {
-  AdjGraph r;
+inline Graph nested_matching(uint8_t n) {
+  Graph r;
   r.n = n;
   for (uint8_t i = 0; i < n / 2; i++) {
-    uint8_t j = n - 1 - i;
+    uint8_t j = n - i - 1;
     r.adj[i] |= 1ull << j;
     r.adj[j] |= 1ull << i;
   }
   return r;
 }
 
-inline AdjGraph complete(uint8_t n) {
-  AdjGraph r;
+inline Graph complete(uint8_t n) {
+  Graph r;
   r.n = n;
   for (uint8_t i = 0; i < n; i++) {
     r.adj[i] = (1ull << n) - 1 - (1ull << i);
@@ -109,8 +109,8 @@ inline AdjGraph complete(uint8_t n) {
   return r;
 }
 
-inline AdjGraph example_path(uint8_t n, uint8_t end) {
-  AdjGraph r;
+inline Graph example_path(uint8_t n, uint8_t end) {
+  Graph r;
   r.n = n;
   for (uint8_t i = 0; i < n - 1; i++) {
     if (i != end) {
@@ -126,4 +126,4 @@ inline AdjGraph example_path(uint8_t n, uint8_t end) {
   return r;
 }
 
-} // namespace SubgraphCounting
+} // namespace OrdRamNum
