@@ -2,9 +2,9 @@
 
 ./get_binaries.sh || exit 1
 
-type1="mnest"
-type2="mnest"
-mode="cyc"
+type1="ssc"
+type2="palt"
+mode="ord"
 
 maxtimegen="3m"
 maxtimekis="5m"
