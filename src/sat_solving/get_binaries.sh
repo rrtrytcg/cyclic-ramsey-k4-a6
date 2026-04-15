@@ -2,7 +2,7 @@
 
 if [[ ! -f cnf_generator ]]; then
     # Build cnf_generator from this repo
-    g++ -I../../include/ord_ram_num -O2 cnf_generator.cpp -o cnf_generator || exit 1
+    g++ -I../../include/ -O2 cnf_generator.cpp -o cnf_generator || exit 1
 fi
 
 if [[ ! -f kissat ]]; then
