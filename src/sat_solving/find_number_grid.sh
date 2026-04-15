@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-./get_binaries.sh
+./get_binaries.sh || exit 1
 
 type1="mnest"
 type2="mnest"
