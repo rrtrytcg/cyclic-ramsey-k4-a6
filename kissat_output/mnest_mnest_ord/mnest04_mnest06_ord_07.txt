@@ -7,7 +7,7 @@ c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
 c 
 c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
 c Apple clang version 17.0.0 (clang-1700.6.3.2) -W -Wall -O3 -DNDEBUG
-c Mon Mar 30 18:25:47 CEST 2026 Darwin Mac 24.6.0 arm64
+c Wed Apr 15 15:24:49 CEST 2026 Darwin Mac 24.6.0 arm64
 c
 c ---- [ parsing ] -----------------------------------------------------------
 c
@@ -38,11 +38,11 @@ s UNSATISFIABLE
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           0.00   24.14 %  preprocess
-c           0.00   16.48 %  probe
-c           0.00   13.03 %  congruence
-c           0.00   11.11 %  parse
-c           0.00    3.45 %  lucky
+c           0.00   28.15 %  preprocess
+c           0.00   18.52 %  probe
+c           0.00   14.81 %  congruence
+c           0.00   12.59 %  parse
+c           0.00    4.44 %  lucky
 c           0.00    0.00 %  search
 c           0.00    0.00 %  simplify
 c =============================================
@@ -53,7 +53,7 @@ c
 c conflicts:                                0                0.00 per second
 c congruent:                                6               43 %  variables
 c decisions:                                0                0.00 per conflict
-c propagations:                            52            38777    per second
+c propagations:                            52            49289    per second
 c switched:                                 0                0    interval
 c
 c ---- [ glue usage ] --------------------------------------------------------

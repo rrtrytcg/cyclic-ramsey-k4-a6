@@ -12,11 +12,11 @@ maxtimekis="2m"
 amax=${1}
 bmax=${2}
 
-for ((a=4; a<=amax; a+=2)); do
+for ((a=3; a<=amax; a++)); do
 	nomas=false
 	nomas2=0
 
-	for ((b=a; b<=bmax; b+=2)); do
+	for ((b=a; b<=bmax; b++)); do
 		echo "Processing a = $a, b = $b"
 		n=$(( $a > $b ? $a : $b ))
 

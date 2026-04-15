@@ -132,6 +132,8 @@ def parse_problem_folder(problem_folder: Path):
 
         opened_file.write(r"\backslashbox{$a$}{$b$}")
         for b in range(min_b, max_b + 1):
+            if problem_folder.name.split("_")[1] == "mnest" and b % 2 == 1:
+                continue
             opened_file.write(f" & ${b}$")
         opened_file.write(r"\\" + "\n")
         opened_file.write(r"\hline" + "\n")
