@@ -1,0 +1,87 @@
+c ---- [ banner ] ------------------------------------------------------------
+c
+c Kissat SAT Solver
+c 
+c Copyright (c) 2021-2024 Armin Biere University of Freiburg
+c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+c 
+c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
+c gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0 -W -Wall -O3 -DNDEBUG
+c Wed Apr 15 19:05:06 CEST 2026 Linux cluster-5 6.17.0-14-generic x86_64
+c
+c ---- [ parsing ] -----------------------------------------------------------
+c
+c opened and reading DIMACS file:
+c
+c   tmp.cnf
+c
+c parsed 'p cnf 351 43957485' header
+c closing input after reading 1896540933 bytes (2 GB)
+c finished parsing after 11.33 seconds
+c
+c ---- [ solving ] -----------------------------------------------------------
+c
+c seconds   switched rate     size/glue tier1 binary          remaining
+c          MB reductions conflicts size  tier2    irredundant
+c           level restarts redundant glue  trail          variables
+c
+c * 11.33 3013 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 43957485 351 100%
+c ( 15.31 3959 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 43957485 351 100%
+c . 15.31 3959 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 43957485 351 100%
+c f 28.63 2058 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   2 43936233 352 100%
+c ) 29.74 3417 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   2 43936233 352 100%
+c { 33.16 4182 0 0 0  0 0   0   0 0.0 0 0 2 6 0%   2 43936233 352 100%
+c i 100.03 4461 13 0 0  6 1 922 551 1.4 8 6 6 10 79%  10 43936232 351 100%
+c - 111.60 4669 13 0 1 11 1 1000 150 1.5 9 6 5 9 78%   3 43936231 351 100%
+c } 111.60 4669 13 1 1 11 1 1000 150 1.5 9 6 5 9 78%   3 43936231 351 100%
+c [ 111.60 4669 0 1 1 11 0 1000 150 0.0 0 0 2 6 0%   3 43936231 351 100%
+c B 112.44 4684 39 1 1 11 35 1001 151 1.2 6 5 2 6 72%   3 43936231 351 100%
+c caught signal 15 (SIGTERM)
+c
+c ---- [ profiling ] ---------------------------------------------------------
+c
+c          86.80   72.35 %  search
+c          78.44   65.38 %  focused
+c          14.43   12.03 %  preprocess
+c          14.43   12.03 %  probe
+c          11.33    9.44 %  parse
+c           8.36    6.97 %  stable
+c           7.41    6.17 %  lucky
+c           5.87    4.89 %  factor
+c           3.21    2.67 %  substitute
+c           3.10    2.58 %  sweep
+c           2.26    1.88 %  congruence
+c           0.10    0.08 %  reduce
+c           0.00    0.00 %  backbone
+c           0.00    0.00 %  simplify
+c =============================================
+c         119.96  100.00 %  total
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c conflicts:                             1036                8.64 per second
+c decisions:                             1368                1.32 per conflict
+c factored:                                 1                0 %  variables
+c iterations:                               1                0 %  variables
+c propagations:                         55579              463    per second
+c reductions:                               1             1036    interval
+c rephased:                                 1             1036    interval
+c restarts:                                11               94    interval
+c switched:                                 1             1036    interval
+c
+c ---- [ glue usage ] --------------------------------------------------------
+c
+c focused glue 5 used 199 clauses 18.21% accumulated 56.72% tier1
+c focused glue 6 used 147 clauses 13.45% accumulated 70.17%
+c focused glue 7 used 114 clauses 10.43% accumulated 80.60%
+c focused glue 8 used  66 clauses  6.04% accumulated 86.64%
+c focused glue 9 used  59 clauses  5.40% accumulated 92.04% tier2
+c
+c stable glue 7 used 14 clauses 35.90% accumulated 79.49% tier1
+c stable glue 8 used  6 clauses 15.38% accumulated 94.87% tier2
+c
+c ---- [ resources ] ---------------------------------------------------------
+c
+c maximum-resident-set-size:       5296001024 bytes       5051 MB
+c process-time:                             2m             119.96 seconds
+c raising signal 15 (SIGTERM)
