@@ -1,0 +1,90 @@
+c ---- [ banner ] ------------------------------------------------------------
+c
+c Kissat SAT Solver
+c 
+c Copyright (c) 2021-2024 Armin Biere University of Freiburg
+c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+c 
+c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
+c gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0 -W -Wall -O3 -DNDEBUG
+c Fri Apr 10 17:14:51 CEST 2026 Linux ereshkigal 6.8.0-60-generic x86_64
+c
+c ---- [ parsing ] -----------------------------------------------------------
+c
+c opened and reading DIMACS file:
+c
+c   tmp.cnf
+c
+c parsed 'p cnf 231 3005838' header
+c closing input after reading 92681718 bytes (88 MB)
+c finished parsing after 0.41 seconds
+c
+c ---- [ solving ] -----------------------------------------------------------
+c
+c seconds  switched rate     size/glue tier1 binary         remaining
+c         MB reductions conflicts size  tier2    irredundant
+c          level restarts redundant glue  trail         variables
+c
+c *  0.41 198 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 3005838 231 100%
+c (  0.51 266 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 3005838 231 100%
+c .  0.51 266 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 3005838 231 100%
+c f  2.89 147 0 0 0  0 0   0   0 0.0 0 0 0 0 0%  20 2953968 232 100%
+c )  2.94 228 0 0 0  0 0   0   0 0.0 0 0 0 0 0%  20 2953968 232 100%
+c lucky 1 units
+c l  3.08 281 0 0 0  0 0   0   0 0.0 0 0 0 0 0%  20 2953968 231 100%
+c {  3.08 281 0 0 0  0 0   0   0 0.0 0 0 2 6 0%  20 2953968 231 100%
+c i  3.26 292 25 0 0  0 1 127 101 1.4 9 7 6 9 66%  22 2953966 230 100%
+c i  3.26 292 25 0 0  0 1 128 101 1.4 9 7 6 9 65%  22 2953966 229 99%
+c i  3.88 306 12 0 0  0 1 468 319 1.5 8 5 5 7 66%  32 2953964 206 89%
+c i  3.94 308 11 0 0  0 1 502 332 1.5 7 5 5 7 66%  34 2953964 171 74%
+c i  3.99 311 11 0 0  0 1 526 336 1.5 7 5 5 7 66%  39 2953963 150 65%
+c i  4.03 315 11 0 0  0 1 541 339 1.5 7 5 5 7 66%  43 2953963 128 55%
+c i  4.04 315 11 0 0  0 1 544 339 1.5 7 5 5 7 66%  44 2953962 100 43%
+c }  4.04 318 11 0 0  0 1 546 339 1.5 7 5 5 7 66%  44 2953962 64 28%
+c 0  4.04 318 11 0 0  0 1 546 339 1.5 7 5 5 7 66%  44 2953962 64 28%
+c
+c ---- [ result ] ------------------------------------------------------------
+c
+s UNSATISFIABLE
+c
+c ---- [ profiling ] ---------------------------------------------------------
+c
+c           2.44   60.30 %  preprocess
+c           2.44   60.29 %  probe
+c           2.11   52.18 %  factor
+c           0.96   23.81 %  search
+c           0.96   23.81 %  focused
+c           0.41   10.16 %  parse
+c           0.23    5.73 %  lucky
+c           0.12    3.02 %  congruence
+c           0.10    2.60 %  substitute
+c           0.10    2.43 %  sweep
+c           0.00    0.05 %  backbone
+c           0.00    0.00 %  simplify
+c =============================================
+c           4.04  100.00 %  total
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c conflicts:                              546              135.12 per second
+c decisions:                              623                1.14 per conflict
+c factored:                                 1                0 %  variables
+c iterations:                               8                3 %  variables
+c propagations:                         22245             5505    per second
+c switched:                                 0                0    interval
+c
+c ---- [ glue usage ] --------------------------------------------------------
+c
+c focused glue 4 used 128 clauses 19.25% accumulated 52.48% tier1
+c focused glue 5 used 129 clauses 19.40% accumulated 71.88%
+c focused glue 6 used  81 clauses 12.18% accumulated 84.06%
+c focused glue 7 used  58 clauses  8.72% accumulated 92.78% tier2
+c
+c ---- [ resources ] ---------------------------------------------------------
+c
+c maximum-resident-set-size:        333225984 bytes        318 MB
+c process-time:                             4s               4.04 seconds
+c
+c ---- [ shutting down ] -----------------------------------------------------
+c
+c exit 20

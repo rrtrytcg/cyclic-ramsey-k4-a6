@@ -1,0 +1,82 @@
+c ---- [ banner ] ------------------------------------------------------------
+c
+c Kissat SAT Solver
+c 
+c Copyright (c) 2021-2024 Armin Biere University of Freiburg
+c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+c 
+c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
+c gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0 -W -Wall -O3 -DNDEBUG
+c Fri Apr 10 17:14:51 CEST 2026 Linux ereshkigal 6.8.0-60-generic x86_64
+c
+c ---- [ parsing ] -----------------------------------------------------------
+c
+c opened and reading DIMACS file:
+c
+c   tmp.cnf
+c
+c parsed 'p cnf 105 6890' header
+c closing input after reading 94612 bytes (92 KB)
+c finished parsing after 0.00 seconds
+c
+c ---- [ solving ] -----------------------------------------------------------
+c
+c seconds switched rate     size/glue tier1 binary      remaining
+c        MB reductions conflicts size  tier2  irredundant
+c         level restarts redundant glue  trail      variables
+c
+c *  0.00  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 455 6435 105 100%
+c (  0.00  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 455 6435 105 100%
+c .  0.00  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 455 6435 105 100%
+c f  0.06  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 379 432 200 190%
+c )  0.06  4 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 379 432 200 190%
+c {  0.06  4 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 379 432 200 190%
+c i  0.06  4 2 0 0  0 1   8   0 1.8 2 1 2 6 67% 383 432 199 190%
+c i  0.06  4 3 0 0  0 1  15   3 1.8 2 1 2 6 64% 385 432 170 162%
+c i  0.06  4 2 0 0  0 1  22   4 1.8 2 1 2 6 60% 389 432 134 128%
+c i  0.06  4 2 0 0  0 1  23   4 1.8 2 1 2 6 59% 389 432 133 127%
+c }  0.06  4 2 0 0  0 1  25   4 1.8 2 1 2 6 58% 389 432 30 29%
+c 0  0.06  4 2 0 0  0 1  25   4 1.8 2 1 2 6 58% 389 432 30 29%
+c
+c ---- [ result ] ------------------------------------------------------------
+c
+s UNSATISFIABLE
+c
+c ---- [ profiling ] ---------------------------------------------------------
+c
+c           0.05   95.77 %  preprocess
+c           0.05   95.70 %  probe
+c           0.04   71.23 %  factor
+c           0.01   22.29 %  sweep
+c           0.00    2.64 %  parse
+c           0.00    1.60 %  congruence
+c           0.00    1.05 %  lucky
+c           0.00    0.46 %  substitute
+c           0.00    0.31 %  search
+c           0.00    0.31 %  focused
+c           0.00    0.08 %  backbone
+c           0.00    0.00 %  simplify
+c =============================================
+c           0.06  100.00 %  total
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c conflicts:                               25              441.32 per second
+c decisions:                               27                1.08 per conflict
+c factored:                                95               90 %  variables
+c iterations:                               5                5 %  variables
+c propagations:                          3168            55924    per second
+c switched:                                 0                0    interval
+c
+c ---- [ glue usage ] --------------------------------------------------------
+c
+c focused glue 2 used 7 clauses 87.50% accumulated 87.50% tier1 tier2
+c
+c ---- [ resources ] ---------------------------------------------------------
+c
+c maximum-resident-set-size:          4653056 bytes          4 MB
+c process-time:                                              0.06 seconds
+c
+c ---- [ shutting down ] -----------------------------------------------------
+c
+c exit 20
