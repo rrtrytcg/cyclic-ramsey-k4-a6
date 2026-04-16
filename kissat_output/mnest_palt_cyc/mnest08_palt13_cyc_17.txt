@@ -6,8 +6,8 @@ c Copyright (c) 2021-2024 Armin Biere University of Freiburg
 c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
 c 
 c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
-c gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0 -W -Wall -O3 -DNDEBUG
-c Wed Apr 15 16:07:08 EEST 2026 Linux cluster-4 6.17.0-14-generic x86_64
+c Apple clang version 17.0.0 (clang-1700.6.3.2) -W -Wall -O3 -DNDEBUG
+c Wed Apr 15 15:24:49 CEST 2026 Darwin Mac 24.6.0 arm64
 c
 c ---- [ parsing ] -----------------------------------------------------------
 c
@@ -17,7 +17,7 @@ c   tmp.cnf
 c
 c parsed 'p cnf 136 225420' header
 c closing input after reading 4526017 bytes (4 MB)
-c finished parsing after 0.04 seconds
+c finished parsing after 0.02 seconds
 c
 c ---- [ solving ] -----------------------------------------------------------
 c
@@ -25,14 +25,14 @@ c seconds switched rate     size/glue tier1 binary        remaining
 c        MB reductions conflicts size  tier2   irredundant
 c         level restarts redundant glue  trail        variables
 c
-c *  0.04 15 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 225420 136 100%
-c (  0.05 20 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 225420 136 100%
-c .  0.05 20 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 225420 136 100%
-c f  2.65 22 0 0 0  0 0   0   0 0.0 0 0 0 0 0%  12 191100 138 101%
-c )  2.66 22 0 0 0  0 0   0   0 0.0 0 0 0 0 0%  12 191100 138 101%
-c {  2.66 22 0 0 0  0 0   0   0 0.0 0 0 2 6 0%  12 191100 138 101%
-c }  2.68 23 33 0 0  3 2 293 270 1.9 27 14 12 26 76%  12 191100 138 101%
-c 1  2.68 23 33 0 0  3 2 293 270 1.9 27 14 12 26 76%  12 191100 138 101%
+c *  0.02 25 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 225420 136 100%
+c (  0.02 35 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 225420 136 100%
+c .  0.02 35 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 225420 136 100%
+c f  1.29 43 0 0 0  0 0   0   0 0.0 0 0 0 0 0%  12 191100 138 101%
+c )  1.29 49 0 0 0  0 0   0   0 0.0 0 0 0 0 0%  12 191100 138 101%
+c {  1.29 50 0 0 0  0 0   0   0 0.0 0 0 2 6 0%  12 191100 138 101%
+c }  1.30 51 33 0 0  3 2 293 270 1.9 27 14 12 26 76%  12 191100 138 101%
+c 1  1.30 51 33 0 0  3 2 293 270 1.9 27 14 12 26 76%  12 191100 138 101%
 c
 c ---- [ result ] ------------------------------------------------------------
 c
@@ -47,27 +47,27 @@ v 130 -131 -132 -133 134 -135 136 0
 c
 c ---- [ profiling ] ---------------------------------------------------------
 c
-c           2.60   97.10 %  preprocess
-c           2.60   97.10 %  probe
-c           2.57   95.83 %  factor
-c           0.04    1.54 %  parse
-c           0.02    0.78 %  search
-c           0.02    0.78 %  focused
-c           0.02    0.65 %  congruence
-c           0.02    0.56 %  lucky
-c           0.01    0.36 %  substitute
-c           0.01    0.24 %  sweep
+c           1.26   97.01 %  preprocess
+c           1.26   97.01 %  probe
+c           1.25   95.80 %  factor
+c           0.02    1.56 %  parse
+c           0.01    0.90 %  search
+c           0.01    0.90 %  focused
+c           0.01    0.63 %  congruence
+c           0.01    0.52 %  lucky
+c           0.00    0.33 %  sweep
+c           0.00    0.24 %  substitute
 c           0.00    0.01 %  backbone
 c           0.00    0.00 %  simplify
 c =============================================
-c           2.68  100.00 %  total
+c           1.30  100.00 %  total
 c
 c ---- [ statistics ] --------------------------------------------------------
 c
-c conflicts:                              293              109.23 per second
+c conflicts:                              293              225.01 per second
 c decisions:                              538                1.84 per conflict
 c factored:                                 2                1 %  variables
-c propagations:                          5387             2008    per second
+c propagations:                          5387             4137    per second
 c restarts:                                 3               98    interval
 c switched:                                 0                0    interval
 c
@@ -81,8 +81,8 @@ c focused glue 23    used   3 clauses  0.81% accumulated 89.97% tier2
 c
 c ---- [ resources ] ---------------------------------------------------------
 c
-c maximum-resident-set-size:         23965696 bytes         23 MB
-c process-time:                             3s               2.68 seconds
+c maximum-resident-set-size:      54274293760 bytes      51760 MB
+c process-time:                             1s               1.30 seconds
 c
 c ---- [ shutting down ] -----------------------------------------------------
 c
