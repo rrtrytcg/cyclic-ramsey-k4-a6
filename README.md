@@ -68,7 +68,7 @@ poetry run python src/sat_solving/cnf_generator.py
 poetry run python src/rlgt_trainer.py
 ```
 
-On the other hand, the `Python` script [`src/sat_solving/kissat_output_parser.py`](./src/sat_solving/kissat_output_parser.py) depends on `SageMath` and should therefore be run as follows:
+The `Python` script [`src/sat_solving/kissat_output_parser.py`](./src/sat_solving/kissat_output_parser.py) should also be run from the root folder, but since it depends on `SageMath`, it should be run as follows:
 ```
 sage src/sat_solving/kissat_output_parser.py
 ```
