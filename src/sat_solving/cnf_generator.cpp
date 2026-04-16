@@ -14,8 +14,8 @@ int print_usage() {
   std::cerr << R"(Usage: ./cnf_generator <outfile>
     <big_graph_nodes>
     ( ord | cyc )
-    <small_graph_1_nodes> ( pmon | palt | pralt | cmon | ssc | mnest | k | pqmon )
-    <small_graph_2_nodes> ( pmon | palt | pralt | cmon | ssc | mnest | k | pqmon )
+    <small_graph_1_nodes> ( pmon | palt | pralt | cmon | ssc | mnest | k )
+    <small_graph_2_nodes> ( pmon | palt | pralt | cmon | ssc | mnest | k )
 )";
   return 1;
 }

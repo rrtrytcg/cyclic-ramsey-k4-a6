@@ -14,7 +14,7 @@ class MonotonePath(Graph):
         edges = []
         for i in range(order - 1):
             edges.append((i, i + 1))
-        
+
         super().__init__(order, edges)
 
 
@@ -30,7 +30,7 @@ class AlternatingPath(Graph):
 
             current_vertex = next_vertex
             vertex_sum = 2 * order - 1 - vertex_sum
-        
+
         super().__init__(order, edges)
 
 
@@ -55,7 +55,7 @@ class MonotoneCycle(Graph):
         edges = []
         for i in range(order - 1):
             edges.append((i, i + 1))
-        
+
         edges.append((order - 1, 0))
 
         super().__init__(order, edges)
@@ -66,7 +66,7 @@ class StartCentralStar(Graph):
         edges = []
         for i in range(1, order):
             edges.append((0, i))
-        
+
         super().__init__(order, edges)
 
 
@@ -87,7 +87,7 @@ class CompleteGraph(Graph):
         for i in range(order - 1):
             for j in range(i + 1, order):
                 edges.append((i, j))
-        
+
         super().__init__(order, edges)
 
 
@@ -101,7 +101,7 @@ def generate_sat_problem(
     variables_num = order * (order - 1) // 2
     clauses_num = 0
     all_clauses = []
-    
+
     for sequence_basis in combinations(range(order), pattern_1.order):
         sequences = [sequence_basis]
 
@@ -114,24 +114,24 @@ def generate_sat_problem(
                 for sequence in sequences:
                     rotated_sequence = sequence[i:] + sequence[:i]
                     additional_sequences.append(rotated_sequence)
-            
+
             sequences += additional_sequences
 
         for sequence in sequences:
             clause = ""
 
-            for (u, v) in pattern_1.edges:
+            for u, v in pattern_1.edges:
                 smaller = min(sequence[u], sequence[v])
                 bigger = max(sequence[u], sequence[v])
-                
+
                 edge_index = smaller * (2 * order - 1 - smaller) // 2 + (bigger - smaller)
 
                 clause += f"{edge_index} "
-       
+
             clause += "0"
             all_clauses.append(clause)
             clauses_num += 1
-    
+
     for sequence_basis in combinations(range(order), pattern_2.order):
         sequences = [sequence_basis]
 
@@ -144,20 +144,20 @@ def generate_sat_problem(
                 for sequence in sequences:
                     rotated_sequence = sequence[i:] + sequence[:i]
                     additional_sequences.append(rotated_sequence)
-            
+
             sequences += additional_sequences
 
         for sequence in sequences:
             clause = ""
 
-            for (u, v) in pattern_2.edges:
+            for u, v in pattern_2.edges:
                 smaller = min(sequence[u], sequence[v])
                 bigger = max(sequence[u], sequence[v])
 
                 edge_index = smaller * (2 * order - 1 - smaller) // 2 + (bigger - smaller)
 
                 clause += f"-{edge_index} "
-       
+
             clause += "0"
             all_clauses.append(clause)
             clauses_num += 1

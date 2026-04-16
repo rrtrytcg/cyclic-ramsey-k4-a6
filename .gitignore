@@ -215,3 +215,6 @@ cnf_generator
 
 # Visual Studio Code
 .vscode
+
+# SAT configuration file
+tmp.cnf

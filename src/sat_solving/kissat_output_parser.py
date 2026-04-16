@@ -121,7 +121,7 @@ def parse_problem_folder(problem_folder: Path):
         opened_file.write(r"\begin{table}[H]" + "\n")
         opened_file.write(r"\centering" + "\n")
         opened_file.write(r"\footnotesize" + "\n")
-        
+
         if problem_folder.name.split("_")[1] != "mnest":
             r_string = "r" * (max_b - min_b + 1)
         else:

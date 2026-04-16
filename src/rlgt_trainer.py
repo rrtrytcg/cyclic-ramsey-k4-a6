@@ -1,55 +1,16 @@
-from typing import Dict, List
+from typing import List
 
 import numpy as np
 import torch.nn as nn
 import torch.optim as optim
 from rlgt.agents import DeepCrossEntropyAgent, ExponentialRandomActionMechanism
 from rlgt.environments import LinearBuildEnvironment
-from rlgt.graphs import CompleteGraph, CycleGraph, Graph, GraphFormat, PathGraph, StarGraph
+from rlgt.graphs import Graph
 
 from score_computation.ramsey_scores import RamseyScoreType, compute_ramsey_score
 
 
-all_graphs: Dict[str, Graph] = {
-    "k3": CompleteGraph({GraphFormat.BITMASK_OUT}, 3),
-    "k4": CompleteGraph({GraphFormat.BITMASK_OUT}, 4),
-    "k5": CompleteGraph({GraphFormat.BITMASK_OUT}, 5),
-    "k6": CompleteGraph({GraphFormat.BITMASK_OUT}, 6),
-    "k7": CompleteGraph({GraphFormat.BITMASK_OUT}, 7),
-    "k8": CompleteGraph({GraphFormat.BITMASK_OUT}, 8),
-    "p3m": PathGraph({GraphFormat.BITMASK_OUT}, 3),
-    "p4m": PathGraph({GraphFormat.BITMASK_OUT}, 4),
-    "p5m": PathGraph({GraphFormat.BITMASK_OUT}, 5),
-    "p6m": PathGraph({GraphFormat.BITMASK_OUT}, 6),
-    "p7m": PathGraph({GraphFormat.BITMASK_OUT}, 7),
-    "p8m": PathGraph({GraphFormat.BITMASK_OUT}, 8),
-    "p3a": Graph.from_bitmask(np.array([[4, 4, 3]], dtype=np.uint64)),
-    "p4a": Graph.from_bitmask(np.array([[8, 12, 2, 3]], dtype=np.uint64)),
-    "p5a": Graph.from_bitmask(np.array([[16, 24, 8, 6, 3]], dtype=np.uint64)),
-    "p6a": Graph.from_bitmask(np.array([[32, 48, 24, 4, 6, 3]], dtype=np.uint64)),
-    "p7a": Graph.from_bitmask(np.array([[64, 96, 48, 16, 12, 6, 3]], dtype=np.uint64)),
-    "p8a": Graph.from_bitmask(np.array([[128, 192, 96, 48, 8, 12, 6, 3]], dtype=np.uint64)),
-    "p13a": Graph.from_bitmask(np.array([[4096, 6144, 3072, 1536, 768, 384, 128, 96, 48, 24, 12, 6, 3]], dtype=np.uint64)),
-    "c3m": CycleGraph({GraphFormat.BITMASK_OUT}, 3),
-    "c4m": CycleGraph({GraphFormat.BITMASK_OUT}, 4),
-    "c5m": CycleGraph({GraphFormat.BITMASK_OUT}, 5),
-    "c6m": CycleGraph({GraphFormat.BITMASK_OUT}, 6),
-    "c7m": CycleGraph({GraphFormat.BITMASK_OUT}, 7),
-    "c8m": CycleGraph({GraphFormat.BITMASK_OUT}, 8),
-    "c4b": Graph.from_bitmask(np.array([[12, 12, 3, 3]], dtype=np.uint64)),
-    "c4c": Graph.from_bitmask(np.array([[6, 9, 9, 6]], dtype=np.uint64)),
-    "s3": StarGraph({GraphFormat.BITMASK_OUT}, 3),
-    "s4": StarGraph({GraphFormat.BITMASK_OUT}, 4),
-    "s5": StarGraph({GraphFormat.BITMASK_OUT}, 5),
-    "s6": StarGraph({GraphFormat.BITMASK_OUT}, 6),
-    "s7": StarGraph({GraphFormat.BITMASK_OUT}, 7),
-    "s8": StarGraph({GraphFormat.BITMASK_OUT}, 8),
-}
-
-
-def train(graph_order: int, pattern_graph_list: List[str], ramsey_score_type: RamseyScoreType):
-    pattern_graph_list_graphs = list(map(lambda item: all_graphs[item], pattern_graph_list))
-
+def train(graph_order: int, pattern_graph_list: List[Graph], ramsey_score_type: RamseyScoreType):
     policy_network = nn.Sequential(
         nn.Linear(graph_order * (graph_order - 1), 72),
         nn.ReLU(),
@@ -64,7 +25,7 @@ def train(graph_order: int, pattern_graph_list: List[str], ramsey_score_type: Ra
         environment=LinearBuildEnvironment(
             graph_invariant=lambda input_graph_batch: -compute_ramsey_score(
                 input_graph_batch=input_graph_batch,
-                pattern_graph_list=pattern_graph_list_graphs,
+                pattern_graph_list=pattern_graph_list,
                 ramsey_score_type=ramsey_score_type,
             ),
             graph_order=graph_order,
@@ -87,14 +48,8 @@ def train(graph_order: int, pattern_graph_list: List[str], ramsey_score_type: Ra
         print(f"Learning iterations: {agent.step_count}. Best score: {agent.best_score:.3f}.")
 
         if agent.best_score > -0.5:
-            solution = agent.best_graph
             print(f"Success! The following graph is a solution:")
-            print(solution.adjacency_matrix_colors)
-
-            output_file_name = "_".join(pattern_graph_list) + f"__{graph_order:02}.txt"
-            with open(f"lower_bounds/{output_file_name}", "a") as opened_file:
-                output_bitmask = " ".join([str(item) for item in solution.bitmask_out[-1]])
-                opened_file.write(output_bitmask + "\n")
+            print(agent.best_graph.adjacency_matrix_colors)
 
             break
 
@@ -104,8 +59,55 @@ def train(graph_order: int, pattern_graph_list: List[str], ramsey_score_type: Ra
 
 
 if __name__ == "__main__":
+    palt_06 = Graph.from_bitmask(np.array([[32, 48, 24, 4, 6, 3]], dtype=np.uint64))
+    palt_07 = Graph.from_bitmask(np.array([[64, 96, 48, 16, 12, 6, 3]], dtype=np.uint64))
+    palt_08 = Graph.from_bitmask(np.array([[128, 192, 96, 48, 8, 12, 6, 3]], dtype=np.uint64))
+
+    # This works.
     train(
-        graph_order=25,
-        pattern_graph_list=["p13a", "p13a"],
+        graph_order=11,
+        pattern_graph_list=[palt_06, palt_06],
         ramsey_score_type=RamseyScoreType.ORDERED,
     )
+
+    # This works.
+    # train(
+    #     graph_order=12,
+    #     pattern_graph_list=[palt_06, palt_07],
+    #     ramsey_score_type=RamseyScoreType.ORDERED,
+    # )
+
+    # This works.
+    # train(
+    #     graph_order=13,
+    #     pattern_graph_list=[palt_06, palt_08],
+    #     ramsey_score_type=RamseyScoreType.ORDERED,
+    # )
+
+    # This works.
+    # train(
+    #     graph_order=13,
+    #     pattern_graph_list=[palt_07, palt_07],
+    #     ramsey_score_type=RamseyScoreType.ORDERED,
+    # )
+
+    # This does not work.
+    # train(
+    #     graph_order=13,
+    #     pattern_graph_list=[palt_06, palt_07],
+    #     ramsey_score_type=RamseyScoreType.ORDERED,
+    # )
+
+    # This does not work.
+    # train(
+    #     graph_order=14,
+    #     pattern_graph_list=[palt_06, palt_08],
+    #     ramsey_score_type=RamseyScoreType.ORDERED,
+    # )
+
+    # This does not work.
+    # train(
+    #     graph_order=14,
+    #     pattern_graph_list=[palt_07, palt_07],
+    #     ramsey_score_type=RamseyScoreType.ORDERED,
+    # )
