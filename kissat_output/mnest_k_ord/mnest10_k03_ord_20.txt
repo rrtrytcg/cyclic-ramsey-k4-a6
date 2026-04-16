@@ -1,0 +1,150 @@
+c ---- [ banner ] ------------------------------------------------------------
+c
+c Kissat SAT Solver
+c 
+c Copyright (c) 2021-2024 Armin Biere University of Freiburg
+c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+c 
+c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
+c gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0 -W -Wall -O3 -DNDEBUG
+c Wed Apr 15 20:10:47 EEST 2026 Linux cluster-4 6.17.0-14-generic x86_64
+c
+c ---- [ parsing ] -----------------------------------------------------------
+c
+c opened and reading DIMACS file:
+c
+c   tmp.cnf
+c
+c parsed 'p cnf 190 185896' header
+c closing input after reading 3528817 bytes (3 MB)
+c finished parsing after 0.04 seconds
+c
+c ---- [ solving ] -----------------------------------------------------------
+c
+c seconds switched rate     size/glue tier1 binary        remaining
+c        MB reductions conflicts size  tier2   irredundant
+c         level restarts redundant glue  trail        variables
+c
+c *  0.04 13 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 185896 190 100%
+c (  0.05 17 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 185896 190 100%
+c .  0.05 17 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   0 185896 190 100%
+c f  2.58 28 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   3 160156 191 101%
+c )  2.58 28 0 0 0  0 0   0   0 0.0 0 0 0 0 0%   3 160156 191 101%
+c {  2.59 29 0 0 0  0 0   0   0 0.0 0 0 2 6 0%   3 160156 191 101%
+c i  2.62 29 7 0 0 22 1 623 415 1.5 6 4 4 6 31%  11 160156 185 97%
+c -  2.63 29 8 0 1 136 2 1000 280 1.5 7 5 4 6 30%   1 160153 185 97%
+c }  2.63 29 8 1 1 136 2 1000 280 1.5 7 5 4 6 30%   1 160153 185 97%
+c [  2.63 29 0 1 1 136 0 1000 280 0.0 0 0 2 6 0%   1 160153 185 97%
+c B  2.63 21 21 1 1 136 13 1004 281 1.2 7 6 2 6 26%   1 160153 185 97%
+c i  2.64 24 7 1 1 136 2 1294 480 1.5 6 4 3 6 30%   8 160153 183 96%
+c -  2.67 26 13 1 2 136 1 2000 608 1.4 10 7 4 10 42%   0 160153 183 96%
+c W  2.68 24 13 1 2 136 1 2006 612 1.4 10 7 4 10 42%   0 87030 183 96%
+c ]  2.70 24 13 2 2 137 1 2392 945 1.4 10 7 4 10 43%   0 87030 183 96%
+c {  2.70 24 8 2 2 137 2 2392 945 1.5 7 5 4 6 30%   0 87030 183 96%
+c u  2.71 24 8 2 2 172 2 2519 1037 1.5 7 5 4 6 31%  62 86968 183 96%
+c v  2.72 24 8 2 2 172 2 2519 1034 1.5 7 5 4 6 31%  62 86968 183 96%
+c w  2.72 24 8 2 2 172 2 2519 1033 1.5 7 5 4 6 31%  62 86968 183 96%
+c }  2.79 24 9 3 2 292 2 3392 1744 1.5 7 5 4 6 34%  62 86968 183 96%
+c
+c seconds  switched  rate       size/glue tier1    binary       remaining
+c        MB reductions conflicts      size  tier2     irredundant
+c         level restarts   redundant    glue    trail       variables
+c
+c [  2.79 24 13 3 2 292 1 3392 1744 1.4 10 7 4 10 43%  62 86968 183 96%
+c -  2.79 24 13 3 3 292 1 3414 1701 1.4 10 7 4 10 43%  62 86968 183 96%
+c I  2.82 24 12 3 3 292 1 4265 2443 1.5 10 7 4 10 43%  62 86968 183 96%
+c ]  2.84 25 13 4 3 293 1 5031 3132 1.5 11 7 4 9 46%  62 86968 183 96%
+c {  2.84 25 9 4 3 293 2 5031 3132 1.5 7 5 4 6 34%  62 86968 183 96%
+c -  2.85 25 9 4 4 335 2 5146 2872 1.5 7 5 4 7 34%  62 86968 183 96%
+c i  2.86 25 9 4 4 377 2 5721 3270 1.5 7 5 4 7 34%  68 86967 181 95%
+c i  2.91 25 9 4 4 533 2 6814 4128 1.5 7 5 4 7 36%  78 86967 178 94%
+c -  2.92 25 9 4 5 569 2 7148 2824 1.5 7 5 4 6 36%  57 86965 178 94%
+c i  2.93 25 9 4 5 569 2 7362 2969 1.5 7 5 4 6 36%  63 86965 175 92%
+c }  2.93 25 9 5 5 573 2 7384 2990 1.5 7 5 4 6 36%  63 86965 175 92%
+c [  2.93 25 13 5 5 573 1 7384 2990 1.5 11 7 4 9 46%  63 86965 175 92%
+c u  2.97 25 13 5 5 573 1 7723 2893 1.5 11 7 4 9 45%  93 61114 175 92%
+c v  2.98 25 13 5 5 573 1 7723 2878 1.5 11 7 4 9 45%  93 61114 175 92%
+c w  2.99 25 13 5 5 573 1 7723 2871 1.5 11 7 4 9 45%  93 61114 175 92%
+c B  3.03 25 13 5 5 573 1 8037 3134 1.5 11 7 4 9 45%  93 61114 175 92%
+c -  3.08 25 12 5 6 574 1 9388 3496 1.5 10 6 4 8 44%  96 61114 175 92%
+c i  3.08 25 12 5 6 574 1 9435 3515 1.5 10 6 4 8 43% 100 61114 174 92%
+c ]  3.10 25 11 6 6 575 1 10143 3913 1.5 10 6 4 8 43% 101 61114 174 92%
+c {  3.10 25 9 6 6 575 2 10143 3913 1.5 7 5 4 6 36% 101 61114 174 92%
+c
+c seconds switched  rate        size/glue tier1  binary       remaining
+c        MB reductions conflicts     size  tier2    irredundant
+c         level restarts   redundant   glue   trail       variables
+c
+c o  3.10 25 9 6 6 581 2 10158 3927 1.5 7 5 4 6 36% 101 61114 174 92%
+c i  3.10 25 9 6 6 583 2 10264 3971 1.5 7 5 4 6 36% 106 61114 172 91%
+c i  3.11 25 9 6 6 583 2 10426 4049 1.5 7 5 4 6 36% 111 61114 171 90%
+c i  3.12 25 9 6 6 583 2 10694 4195 1.5 7 5 4 6 36% 116 61114 169 89%
+c i  3.12 25 9 6 6 583 2 10725 4209 1.5 7 5 4 6 35% 118 61114 168 88%
+c i  3.12 25 9 6 6 583 2 10781 4229 1.5 7 5 4 6 35% 123 61114 161 85%
+c i  3.12 25 9 6 6 583 2 10785 4228 1.5 7 5 4 6 35% 125 61114 158 83%
+c i  3.12 25 9 6 6 583 2 10788 4228 1.5 7 5 4 6 35% 126 61113 156 82%
+c }  3.12 25 9 6 6 583 2 10790 4228 1.5 7 5 4 6 35% 126 61113 145 76%
+c 0  3.12 25 9 6 6 583 2 10790 4228 1.5 7 5 4 6 35% 126 61113 145 76%
+c
+c ---- [ result ] ------------------------------------------------------------
+c
+s UNSATISFIABLE
+c
+c ---- [ profiling ] ---------------------------------------------------------
+c
+c           2.64   84.67 %  probe
+c           2.53   81.17 %  preprocess
+c           2.49   79.77 %  factor
+c           0.41   13.23 %  search
+c           0.21    6.68 %  focused
+c           0.20    6.55 %  stable
+c           0.12    3.75 %  simplify
+c           0.05    1.54 %  vivify
+c           0.05    1.48 %  congruence
+c           0.04    1.22 %  parse
+c           0.03    1.05 %  sweep
+c           0.02    0.79 %  substitute
+c           0.02    0.63 %  lucky
+c           0.01    0.25 %  walking
+c           0.00    0.10 %  reduce
+c           0.00    0.02 %  transitive
+c           0.00    0.01 %  backbone
+c =============================================
+c           3.12  100.00 %  total
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c conflicts:                            10790             3460.24 per second
+c decisions:                            17485                1.62 per conflict
+c factored:                                 1                1 %  variables
+c iterations:                              14                7 %  variables
+c propagations:                        291968            93631    per second
+c reductions:                               6             1798    interval
+c reordered:                                1            10790    interval
+c rephased:                                 4             2698    interval
+c restarts:                               583               19    interval
+c switched:                                 6             1798    interval
+c vivified:                               288               57 %  checks
+c walks:                                    1            10790    interval
+c
+c ---- [ glue usage ] --------------------------------------------------------
+c
+c focused glue 3 used 1987 clauses 27.05% accumulated 57.81% tier1
+c focused glue 4 used 1484 clauses 20.20% accumulated 78.01%
+c focused glue 5 used  672 clauses  9.15% accumulated 87.16%
+c focused glue 6 used  428 clauses  5.83% accumulated 92.99% tier2
+c
+c stable glue 3   used 3244 clauses 23.45% accumulated 50.35% tier1
+c stable glue 4   used 2293 clauses 16.57% accumulated 66.92%
+c stable glue 5-6 used 2195 clauses 15.87% accumulated 82.79%
+c stable glue 7   used  710 clauses  5.13% accumulated 87.92%
+c stable glue 8   used  550 clauses  3.98% accumulated 91.90% tier2
+c
+c ---- [ resources ] ---------------------------------------------------------
+c
+c maximum-resident-set-size:         30068736 bytes         29 MB
+c process-time:                             3s               3.12 seconds
+c
+c ---- [ shutting down ] -----------------------------------------------------
+c
+c exit 20
