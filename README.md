@@ -2,7 +2,7 @@
 
 This is a GitHub repository containing the source code together with some supplementary material for the paper:
 
-- N. Bašić, I. Damnjanović, D. Stevanović and I. Stošić, Some results on small ordered and cyclic Ramsey numbers, 2026, #TODO.
+- N. Bašić, I. Damnjanović, D. Stevanović and I. Stošić, Some results on small ordered and cyclic Ramsey numbers, 2026, [`arXiv:2604.16188`](https://arxiv.org/abs/2604.16188).
 
 ## Repository Structure
 
@@ -86,4 +86,4 @@ We mention that the Ramsey score computation may not work on MacOS.
 
 If you use this code in your research, please cite the associated paper:
 
-- N. Bašić, I. Damnjanović, D. Stevanović and I. Stošić, Some results on small ordered and cyclic Ramsey numbers, 2026, #TODO.
+- N. Bašić, I. Damnjanović, D. Stevanović and I. Stošić, Some results on small ordered and cyclic Ramsey numbers, 2026, [`arXiv:2604.16188`](https://arxiv.org/abs/2604.16188).
