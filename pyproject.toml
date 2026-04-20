@@ -1,7 +1,7 @@
 [project]
 name = "ord-ram-num"
 version = "1.0.0"
-description = "This project contains the source code together with some supplementary material for the research paper: N. Bašić, I. Damnjanović, D. Stevanović and I. Stošić, Some results on small ordered and cyclic Ramsey numbers, 2026, #TODO."
+description = "This project contains the source code together with some supplementary material for the research paper: N. Bašić, I. Damnjanović, D. Stevanović and I. Stošić, Some results on small ordered and cyclic Ramsey numbers, 2026, arXiv:2604.16188."
 authors = [ { name = "Nino Bašić" }, { name = "Ivan Damnjanović" }, { name = "Dragan Stevanović" }, { name = "Ivan Stošić" } ]
 readme = "README.md"
 requires-python = ">=3.11,<3.14"
