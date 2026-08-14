@@ -1,0 +1,27 @@
+{
+  "title": "Certified artifacts for R_cyc(K4, P6^alt) = 16",
+  "description": "Independent encoders, a combined DIMACS instance, an ASCII DRAT certificate, checker output, and a short manuscript establishing the exact cyclic Ramsey number R_cyc(K4, P6^alt) = 16. The certificate proves that every valid 15-vertex blue graph is three disjoint K5 components. The project used GPT-5.6-SOL and Qwen3.8max as disclosed in the manuscript.",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "Menet, Julien"
+    }
+  ],
+  "license": "mit-license",
+  "keywords": [
+    "cyclic Ramsey numbers",
+    "alternating paths",
+    "SAT",
+    "DRAT",
+    "computer-assisted proof"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://arxiv.org/abs/2604.16188",
+      "relation": "isDerivedFrom",
+      "scheme": "url"
+    }
+  ],
+  "version": "1.0.0-rc1"
+}
+

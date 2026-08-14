@@ -1,0 +1,17 @@
+artifacts/cases/
+artifacts/logs/
+artifacts/models/
+artifacts/proofs/
+artifacts/rejected/
+artifacts/results*.json
+artifacts/base/combined_induced_p3.cnf
+artifacts/base/kissat/
+artifacts/external_91_cadical.checkpoint.jsonl
+!artifacts/logs/
+artifacts/logs/*
+!artifacts/logs/proof_checks/
+artifacts/logs/proof_checks/*
+!artifacts/logs/proof_checks/combined_ascii_drat_trim.log
+!artifacts/results_91_portfolio.json
+paper/main.log
+paper/render/

@@ -1,0 +1,139 @@
+{
+  "files": [
+    {
+      "bytes": 2591,
+      "path": "src/sat_solving/cnf_generator.cpp",
+      "sha256": "588489314a308417a2cc87f19b69a074e57d053a491303c84d65b21957f4a430"
+    },
+    {
+      "bytes": 4091,
+      "path": "include/generators.hpp",
+      "sha256": "dd2c6f6d50d770d00b560abe884c9dc8137b56554f6bede8d5b52447c332488d"
+    },
+    {
+      "bytes": 4848,
+      "path": "cyclic-a6-check/README.md",
+      "sha256": "22a76b92cc3d26aff3c8ad211c7d823883d59246fcd1d8f83b562842a79fa5eb"
+    },
+    {
+      "bytes": 631,
+      "path": "cyclic-a6-check/CITATION.cff",
+      "sha256": "09ed4cba14beda83aba0d4d3c2314c01946c466fe10dd7ec611f3d6022ce0dfc"
+    },
+    {
+      "bytes": 870,
+      "path": "cyclic-a6-check/.zenodo.json",
+      "sha256": "6149162e8bbedc383f86637bd77397c3a98f1f047a06e9894dd9ff4aba9f1037"
+    },
+    {
+      "bytes": 1744,
+      "path": "cyclic-a6-check/RELEASE_CHECKLIST.md",
+      "sha256": "f8358f91207074fababd39f296984376ebd38d43b2a195f8f4cb2a6e721df07e"
+    },
+    {
+      "bytes": 2391,
+      "path": "cyclic-a6-check/verify.ps1",
+      "sha256": "fb0e71f80963e33f1652f938e75e6cf11e8a7bd97f4d912fd4ddc3e55e7d9828"
+    },
+    {
+      "bytes": 6954,
+      "path": "cyclic-a6-check/cyclic_a6.py",
+      "sha256": "98f7e40f51774a28ce761e36b6ca7f583cdfbbf184d876593fc92220b782569f"
+    },
+    {
+      "bytes": 705,
+      "path": "cyclic-a6-check/independent_encoder.py",
+      "sha256": "75679b878d13976d820820710e5cc7ebcd7978c019b0287a110bd6e445e8f42b"
+    },
+    {
+      "bytes": 2102,
+      "path": "cyclic-a6-check/combined_encoder.py",
+      "sha256": "73be19ed134616b610a234dde308bbd7b63c6560ff26f8d60510630b87e06917"
+    },
+    {
+      "bytes": 2605,
+      "path": "cyclic-a6-check/audit_combined.py",
+      "sha256": "576e4fd3503f8f53769e48f508dcb2f2bf22b8d7853539e734f944021cd79f5c"
+    },
+    {
+      "bytes": 2556,
+      "path": "cyclic-a6-check/test_pipeline.py",
+      "sha256": "ed752bfe29ec9c91e371f4e8df579f5f4b85e9a78a7567bd970a925115531e39"
+    },
+    {
+      "bytes": 8555,
+      "path": "cyclic-a6-check/paper/main.tex",
+      "sha256": "3305ae0f240d8e38c82b89a052d160f0915e941df8302296c4cf08c8c0db8dcd"
+    },
+    {
+      "bytes": 63941,
+      "path": "cyclic-a6-check/paper/main.pdf",
+      "sha256": "987f581c192a0324e20d262a0d09d00831c82a3027146b7c49552faefafea2f3"
+    },
+    {
+      "bytes": 800141,
+      "path": "cyclic-a6-check/artifacts/base/authors_base_raw.cnf",
+      "sha256": "5e6f2c09878abef543c7da1222a266acb690cfd63bdb7365551f52e6b7fddbe8"
+    },
+    {
+      "bytes": 764650,
+      "path": "cyclic-a6-check/artifacts/base/independent_base_raw.cnf",
+      "sha256": "4a3a2f54695f5a8571d455eeaddd86ea5d6790c15d3d37c4ea119115265c8f1d"
+    },
+    {
+      "bytes": 981946,
+      "path": "cyclic-a6-check/artifacts/base/combined_selectors_first_exactly_one.cnf",
+      "sha256": "f59fda6c63246901b7d43f35bcca4adcbb61efff0f09cfce9b44d5b1cdd9da03"
+    },
+    {
+      "bytes": 39951,
+      "path": "cyclic-a6-check/artifacts/results_91_portfolio.json",
+      "sha256": "7fe7bbd9744105ea9f9dced36866297f836924eb1cba400f962cd03ba3cf496f"
+    },
+    {
+      "bytes": 415,
+      "path": "cyclic-a6-check/artifacts/combined_audit.json",
+      "sha256": "15d44b74a18440b3c7ccf620f1761bea991dd14712bac5a605d61c4e860c514a"
+    },
+    {
+      "bytes": 817727304,
+      "path": "cyclic-a6-check/artifacts/proofs/combined_selectors_first_exactly_one.ascii.drat",
+      "sha256": "38a4f3ffabca676a8e1f77d090db8fadaa92d8328ee4061bf5cc55fbfc877d78"
+    },
+    {
+      "bytes": 417,
+      "path": "cyclic-a6-check/artifacts/logs/proof_checks/combined_ascii_drat_trim.log",
+      "sha256": "ba4f644246ef538f92745866bb366fd105086d3d24c400de6513af71d4a2c887"
+    },
+    {
+      "bytes": 2884,
+      "path": "kissat_output/k_palt_cyc/k04_palt06_cyc_15.txt",
+      "sha256": "4db621e97ba96a71573271496df5e29cd83a26a93792abd20b6e0761c51585e1"
+    },
+    {
+      "bytes": 19,
+      "path": "parsed_graphs/k_palt_cyc/k04_palt06_cyc_15.g6",
+      "sha256": "72fb89577dfcdb95518403a9b6e284cf5f6c4b71b710f559b6e649e654d87b3d"
+    },
+    {
+      "bytes": 626176,
+      "path": ".local-tools/kissat-4.0.4-win64.exe",
+      "sha256": "05bb879876333216ccfd707a76540a4c49ec97ae0aadcdb3c6725da45f90c5dc"
+    },
+    {
+      "bytes": 215552,
+      "path": ".local-tools/drat-trim.exe",
+      "sha256": "870d6050492744a35354da07e7b2efab5d5caabe41c08597dc39927ef6a78e45"
+    },
+    {
+      "bytes": 846848,
+      "path": ".local-tools/authors-cnf-generator.exe",
+      "sha256": "d5bcf08820d164b060d1102fb8c15177c322280fb180f8441f7939b641d0d932"
+    }
+  ],
+  "release_date": "2026-08-14",
+  "release_version": "1.0.0-rc1",
+  "schema_version": 2,
+  "upstream_commit": "8ce4e0ab01f1321cb9555703cd8def4d7a1c8511",
+  "upstream_repository": "https://github.com/Ivan-Damnjanovic/ord-ram-num"
+}

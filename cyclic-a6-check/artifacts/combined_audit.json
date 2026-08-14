@@ -1,0 +1,13 @@
+{
+  "actual_only": 0,
+  "actual_raw_clauses": 39859,
+  "at_least_one_clauses": 1,
+  "at_most_one_clauses": 4095,
+  "base_clauses": 35490,
+  "canonical_multiset_equal": true,
+  "cnf": "C:\\Games\\cyclic_ramsey\\cyclic-a6-check\\artifacts\\base\\combined_selectors_first_exactly_one.cnf",
+  "expected_only": 0,
+  "expected_raw_clauses": 39859,
+  "selector_implication_clauses": 273,
+  "variables": 196
+}

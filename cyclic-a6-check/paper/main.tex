@@ -1,0 +1,205 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\Rcyc}{R_{\mathrm{cyc}}}
+\newcommand{\A}{P_6^{\mathrm{alt}}}
+
+\title{A Certified Computation of the Cyclic Ramsey Number
+\texorpdfstring{$R_{\mathrm{cyc}}(K_4,P_6^{\mathrm{alt}})$}{Rcyc(K4,P6alt)}}
+\author{Julien Menet}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We prove the exact cyclic Ramsey number
+\[
+   \Rcyc(K_4,P_6^{\mathrm{alt}})=16.
+\]
+The only computer-assisted step classifies the extremal colorings on 15
+vertices.  A SAT instance asserting the existence of an induced blue
+three-vertex path in a coloring with no red $K_4$ and no blue cyclic
+$P_6^{\mathrm{alt}}$ is unsatisfiable.  Its ASCII DRAT certificate was checked
+independently by \texttt{drat-trim}.  It follows that every extremal blue graph
+is $K_5\mathbin{\dot\cup}K_5\mathbin{\dot\cup}K_5$.  A short deletion argument
+then proves the upper bound on 16 vertices.  We provide independent encoders,
+validators, hashes, and a complete proof certificate.
+\end{abstract}
+
+\section{Introduction}
+
+Ba\v{s}i\'c, Damnjanovi\'c, Stevanovi\'c, and Sto\v{s}i\'c introduced and
+systematically studied cyclic Ramsey numbers for ordered graphs
+\cite{basic-et-al}.  Their Conjecture~4.23 predicts
+\[
+ \Rcyc(K_a,P_b^{\mathrm{alt}})=1+(a-1)(b-1).
+\]
+The case $(a,b)=(4,6)$ therefore predicts the value 16.  The lower bound is
+given by the familiar coloring whose blue graph is three disjoint copies of
+$K_5$.  The purpose of this note is to certify the matching upper bound.
+
+The alternating path $P_6^{\mathrm{alt}}$ has vertices $0,1,\ldots,5$ and,
+in path order, is
+\[
+ 0,5,1,4,2,3.
+\]
+A cyclic copy preserves the orientation of the cyclic vertex order: cyclic
+rotations are allowed, while reflections are not.  All computations below use
+this convention.
+
+\section{Reduction to a finite classification}
+
+We regard the blue edges as a graph $B$; nonedges of $B$ are red.
+
+\begin{lemma}\label{lem:p3free}
+If a graph has no induced $P_3$, then each of its connected components is a
+clique.
+\end{lemma}
+
+\begin{proof}
+If a connected component were not complete, choose two nonadjacent vertices
+at minimum distance.  The first three vertices of a shortest path between
+them induce a $P_3$.
+\end{proof}
+
+\begin{proposition}[Certified classification]\label{prop:classification}
+Let the vertices $0,\ldots,14$ carry their natural cyclic order.  If a
+red--blue coloring has neither a red $K_4$ nor a blue cyclic $\A$, then its
+blue graph is
+\[
+ K_5\mathbin{\dot\cup}K_5\mathbin{\dot\cup}K_5.
+\]
+\end{proposition}
+
+\begin{proof}
+The computer-assisted part proves that the blue graph has no induced $P_3$;
+the encoding and certificate are described in Section~\ref{sec:certificate}.
+By Lemma~\ref{lem:p3free}, the blue graph is a disjoint union of cliques.
+There are at most three components, since one vertex from each of four
+components would form a red $K_4$.  Every component has order at most five,
+since a blue $K_6$ contains a cyclic $P_6^{\mathrm{alt}}$ in every cyclic
+ordering.  Fifteen vertices distributed among at most three components of
+order at most five must therefore form exactly three copies of $K_5$.
+\end{proof}
+
+\section{The Ramsey number}
+
+\begin{theorem}
+\[
+ \Rcyc(K_4,P_6^{\mathrm{alt}})=16.
+\]
+\end{theorem}
+
+\begin{proof}
+For the lower bound, color the edges within each of three five-vertex parts
+blue and all edges between parts red.  A blue connected subgraph has at most
+five vertices, and a red clique has at most one vertex in each part.  Thus this
+15-vertex coloring contains neither a blue cyclic $P_6^{\mathrm{alt}}$ nor a
+red $K_4$.
+
+For the upper bound, suppose that a valid coloring on 16 cyclically ordered
+vertices exists and delete any vertex $x$.  Proposition~\ref{prop:classification}
+partitions the remaining vertices into three blue cliques $A,B,C$, each of
+order five, with every edge between distinct parts red.  If $x$ had a red
+neighbor $a\in A$, $b\in B$, and $c\in C$, then $\{x,a,b,c\}$ would be a red
+$K_4$.  Hence $x$ is blue-complete to at least one part.  That part together
+with $x$ is a blue $K_6$, which contains a cyclic $P_6^{\mathrm{alt}}$.  This
+contradiction proves the upper bound.
+\end{proof}
+
+\section{Encoding and certification}\label{sec:certificate}
+
+For each unordered edge $ij$ of $K_{15}$, let $x_{ij}$ be true exactly when
+$ij$ is blue.  There are 105 edge variables.  For every four-set we add the
+clause
+\[
+ \bigvee_{ij\in E(K_4)}x_{ij},
+\]
+which excludes an all-red $K_4$.  For every orientation-preserving cyclic
+embedding of $P_6^{\mathrm{alt}}$, we add
+\[
+ \bigvee_{ij\in E(P_6^{\mathrm{alt}})}\neg x_{ij},
+\]
+which excludes an all-blue copy.  Reflected embeddings are not added.
+
+If a non-cluster blue graph exists, it contains an induced blue $P_3$.  Its
+unique center may be moved to vertex 0 by a cyclic rotation.  Its endpoints
+are an unordered pair $\{u,w\}\subseteq\{1,\ldots,14\}$, giving 91 cases.
+For each pair introduce a selector $s_{uw}$.  Exactly one selector is true,
+and the implication clauses
+\[
+ s_{uw}\Longrightarrow
+   (x_{0u}\wedge x_{0w}\wedge\neg x_{uw})
+\]
+force its induced blue $P_3$.  Requiring exactly one selector merely chooses
+a witness; it does not assert that the graph has only one induced $P_3$.
+
+The resulting DIMACS instance has 196 variables and 39,859 clauses: 35,490
+clauses from the base encoding, 273 selector implications, one at-least-one
+selector clause, and 4,095 pairwise at-most-one clauses.  Kissat reports the
+instance UNSAT and emits an ASCII DRAT proof.  The proof was checked with an
+independently built \texttt{drat-trim}; the checker reports \texttt{s VERIFIED},
+with 19,912 input clauses in the core, 3,427,067 proof lemmas in the core, and
+123,107,659 resolution steps.
+
+As an encoder check, we generated the base formula independently from the
+definitions and compared it with the unmodified generator from the authors'
+supplementary repository \cite{ord-ram-num}.  After canonicalization, both the
+clause sets and duplicate multiplicities agree.  Both encoders produce 105
+variables, 35,490 raw clauses, and 16,380 distinct clauses.  We also solved the
+91 selected cases individually; every case was UNSAT.  This second run is a
+diagnostic cross-check, while the single DRAT certificate is the formal
+computational evidence for Proposition~\ref{prop:classification}.
+
+\section{Reproducibility}
+
+The proof package contains the independent encoder, the combined-CNF
+reconstructor, model validators, unit tests, SHA-256 hashes, solver metadata,
+the DIMACS instance, the ASCII DRAT proof, and the complete checker log.  The
+principal hashes are
+\begin{align*}
+\text{CNF: }&\quad
+\texttt{f59fda6c63246901b7d43f35bcca4adcbb61efff0f09cfce9b44d5b1cdd9da03},\\
+\text{DRAT: }&\quad
+\texttt{38a4f3ffabca676a8e1f77d090db8fadaa92d8328ee4061bf5cc55fbfc877d78}.
+\end{align*}
+The verification script first audits the encodings and hashes, and can then
+rerun \texttt{drat-trim} on the 817,727,304-byte proof.  Software versions and
+all remaining artifact hashes are recorded in the machine-readable manifest.
+
+\paragraph{AI use and contribution statement.}
+This project began from Julien Menet's suggestion: ``Hmm, just had a quick
+look---maybe greedy partitioning, and we could try to remove middle labels to
+reduce the structure size?''  GPT-5.6-SOL and Qwen3.8max, using inference
+tokens provided by Menet, performed most of the subsequent exploratory
+reasoning, software implementation, computation, verification engineering,
+and initial drafting.  Menet selected the research direction, reviewed the
+result, and takes responsibility for the mathematical claims, the released
+artifacts, and the final manuscript.  The AI systems are acknowledged as
+tools and are not listed as authors.
+
+\begin{thebibliography}{9}
+
+\bibitem{basic-et-al}
+N.~Ba\v{s}i\'c, I.~Damnjanovi\'c, D.~Stevanovi\'c, and I.~Sto\v{s}i\'c,
+\newblock \emph{Some results on small ordered and cyclic Ramsey numbers},
+\newblock arXiv:2604.16188 (2026),
+\newblock \url{https://arxiv.org/abs/2604.16188}.
+
+\bibitem{ord-ram-num}
+I.~Damnjanovi\'c,
+\newblock \emph{Supplementary code for ordered and cyclic Ramsey numbers},
+\newblock GitHub repository, commit
+\texttt{8ce4e0ab01f1321cb9555703cd8def4d7a1c8511},
+\newblock \url{https://github.com/Ivan-Damnjanovic/ord-ram-num}.
+
+\end{thebibliography}
+
+\end{document}
