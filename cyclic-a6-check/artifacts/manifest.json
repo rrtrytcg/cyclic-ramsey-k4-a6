@@ -16,19 +16,19 @@
       "sha256": "22a76b92cc3d26aff3c8ad211c7d823883d59246fcd1d8f83b562842a79fa5eb"
     },
     {
-      "bytes": 631,
+      "bytes": 630,
       "path": "cyclic-a6-check/CITATION.cff",
-      "sha256": "09ed4cba14beda83aba0d4d3c2314c01946c466fe10dd7ec611f3d6022ce0dfc"
+      "sha256": "ab0b8462111f2ef5af5545a188869154dd62903ee9f0b73c1f50cbe123c1a769"
     },
     {
-      "bytes": 870,
+      "bytes": 869,
       "path": "cyclic-a6-check/.zenodo.json",
-      "sha256": "6149162e8bbedc383f86637bd77397c3a98f1f047a06e9894dd9ff4aba9f1037"
+      "sha256": "6c42a5abf7835800c857cedd42723c27cb58dfe50feca7ddb9fdecd9d3fa187a"
     },
     {
-      "bytes": 1744,
+      "bytes": 1743,
       "path": "cyclic-a6-check/RELEASE_CHECKLIST.md",
-      "sha256": "f8358f91207074fababd39f296984376ebd38d43b2a195f8f4cb2a6e721df07e"
+      "sha256": "b5bcb81f1111300da62fb787d6d9c94dd62129e79611c34c2d65e068946d71ea"
     },
     {
       "bytes": 2391,
@@ -61,14 +61,14 @@
       "sha256": "ed752bfe29ec9c91e371f4e8df579f5f4b85e9a78a7567bd970a925115531e39"
     },
     {
-      "bytes": 8555,
+      "bytes": 8853,
       "path": "cyclic-a6-check/paper/main.tex",
-      "sha256": "3305ae0f240d8e38c82b89a052d160f0915e941df8302296c4cf08c8c0db8dcd"
+      "sha256": "bc7d076a35f7010ced04d005a556971792e2c1b66aac11f443e73f4a9e67d6fe"
     },
     {
-      "bytes": 63941,
+      "bytes": 63878,
       "path": "cyclic-a6-check/paper/main.pdf",
-      "sha256": "987f581c192a0324e20d262a0d09d00831c82a3027146b7c49552faefafea2f3"
+      "sha256": "0af91ce7b918f605cd0403d23c12af2a4aea2803ebf1ec4d0939be19ae89685c"
     },
     {
       "bytes": 800141,
@@ -132,7 +132,7 @@
     }
   ],
   "release_date": "2026-08-14",
-  "release_version": "1.0.0-rc1",
+  "release_version": "1.0.0-rc2",
   "schema_version": 2,
   "upstream_commit": "8ce4e0ab01f1321cb9555703cd8def4d7a1c8511",
   "upstream_repository": "https://github.com/Ivan-Damnjanovic/ord-ram-num"

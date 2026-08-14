@@ -174,16 +174,21 @@ The verification script first audits the encodings and hashes, and can then
 rerun \texttt{drat-trim} on the 817,727,304-byte proof.  Software versions and
 all remaining artifact hashes are recorded in the machine-readable manifest.
 
-\paragraph{AI use and contribution statement.}
-This project began from Julien Menet's suggestion: ``Hmm, just had a quick
-look---maybe greedy partitioning, and we could try to remove middle labels to
-reduce the structure size?''  GPT-5.6-SOL and Qwen3.8max, using inference
-tokens provided by Menet, performed most of the subsequent exploratory
-reasoning, software implementation, computation, verification engineering,
-and initial drafting.  Menet selected the research direction, reviewed the
-result, and takes responsibility for the mathematical claims, the released
-artifacts, and the final manuscript.  The AI systems are acknowledged as
-tools and are not listed as authors.
+\subsection*{AI contribution and provenance statement}
+
+The initial structural direction---greedy partitioning and deletion of middle
+labels---was proposed by Julien Menet.  GPT-5.6-SOL and Qwen3.8max subsequently
+made substantial intellectual and technical contributions, including
+development and refinement of the structural reductions, formulation of the
+finite classification problem, SAT-encoding design, software implementation,
+solver and certificate engineering, computational experiments, adversarial
+verification, and initial manuscript drafting.  Menet directed the project,
+selected and evaluated research directions, reviewed the mathematical
+arguments and computational evidence, approved the final manuscript, and
+accepts responsibility for all claims and released artifacts.  The AI systems
+are credited as non-author research contributors because current scholarly
+authorship conventions require a human author capable of assuming
+responsibility for the work.
 
 \begin{thebibliography}{9}
 

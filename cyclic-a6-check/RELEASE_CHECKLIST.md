@@ -1,6 +1,6 @@
 # Publication release checklist
 
-## Review candidate `v1.0.0-rc1`
+## Review candidate `v1.0.0-rc2`
 
 - [x] Authors' unmodified generator cross-checked against an independent encoder.
 - [x] Archived 15-vertex witness independently validated as `3K5`.
@@ -30,4 +30,3 @@
 
 Published tags and Zenodo file sets must never be rewritten. Corrections after
 publication receive a new semantic version and a new Zenodo version DOI.
-
