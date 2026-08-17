@@ -10,19 +10,19 @@
 - [x] Manifest generated with artifact and tool hashes.
 - [x] Manuscript compiled and visually inspected.
 - [x] AI contribution statement included.
-- [ ] Create an isolated private GitHub repository for the review candidate.
-- [ ] Send the frozen manuscript privately to the April-paper corresponding author.
-- [ ] Record the review deadline and incorporate only substantive corrections.
+- [x] Create an isolated private GitHub repository for the review candidate.
+- [x] Send the frozen manuscript privately to the April-paper corresponding author.
+- [x] Record the review deadline and incorporate only substantive corrections.
 
 ## Final release `v1.0.0`
 
-- [ ] Re-run `verify.ps1 -FullProof` after the last correction.
-- [ ] Compile and visually inspect the final PDF.
-- [ ] Regenerate `artifacts/manifest.json` and release checksums.
+- [x] Re-run `verify.ps1 -FullProof` after the last correction.
+- [x] Compile and visually inspect the final PDF.
+- [x] Regenerate `artifacts/manifest.json` and release checksums.
 - [ ] Commit and create an immutable annotated `v1.0.0` tag.
 - [ ] Create the GitHub release with source, paper, manifest, CNF, and checker log.
-- [ ] Upload the full DRAT package to a Zenodo draft and reserve its DOI.
-- [ ] Add the reserved Zenodo DOI to the manuscript and repository README.
+- [x] Upload the full DRAT package to a Zenodo draft and reserve its DOI.
+- [x] Add the reserved Zenodo DOI to the manuscript and repository README.
 - [ ] Publish the Zenodo record and verify every download and checksum.
 - [ ] Submit the LaTeX source package to arXiv and approve its compiled preview.
 - [ ] Add the arXiv identifier to GitHub and Zenodo metadata.

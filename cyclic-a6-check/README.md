@@ -1,5 +1,9 @@
 # A certified computation of `R_cyc(K4, P6^alt) = 16`
 
+Final release: **v1.0.0**. The archival certificate package is preserved on
+[Zenodo](https://doi.org/10.5281/zenodo.21934069), and the source and smaller
+artifacts are released from the companion [GitHub repository](https://github.com/rrtrytcg/cyclic-ramsey-k4-a6).
+
 This directory contains a reproducible computer-assisted proof that
 
 \[
@@ -51,6 +55,8 @@ are quarantined under `artifacts/rejected/`.
 `drat-trim` found an empty clause and verified the proof using 123,107,659
 resolution steps. The complete file inventory and hashes are in
 `artifacts/manifest.json`.
+
+The release DOI is [10.5281/zenodo.21934069](https://doi.org/10.5281/zenodo.21934069).
 
 The proof is intentionally ignored by Git because it is about 818 MB. It is
 present in this working copy and should be deposited as a release asset or in

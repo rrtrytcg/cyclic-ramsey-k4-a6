@@ -11,24 +11,24 @@
       "sha256": "dd2c6f6d50d770d00b560abe884c9dc8137b56554f6bede8d5b52447c332488d"
     },
     {
-      "bytes": 4848,
+      "bytes": 5203,
       "path": "cyclic-a6-check/README.md",
-      "sha256": "22a76b92cc3d26aff3c8ad211c7d823883d59246fcd1d8f83b562842a79fa5eb"
+      "sha256": "11dee722e5e6d7c447004928082ba81d4356c1b56d2e5e3e0a79db14197e33e6"
     },
     {
-      "bytes": 630,
+      "bytes": 626,
       "path": "cyclic-a6-check/CITATION.cff",
-      "sha256": "ab0b8462111f2ef5af5545a188869154dd62903ee9f0b73c1f50cbe123c1a769"
+      "sha256": "a28af4ed492807d1b73b23563e28ef324aa69c85cb5871bb400da0478d8b73ee"
     },
     {
-      "bytes": 869,
+      "bytes": 865,
       "path": "cyclic-a6-check/.zenodo.json",
-      "sha256": "6c42a5abf7835800c857cedd42723c27cb58dfe50feca7ddb9fdecd9d3fa187a"
+      "sha256": "e9e29d0cd1dd057d9b7757882288f4fb8bd040f6fe4658cbe1bb219c85d7f91f"
     },
     {
       "bytes": 1743,
       "path": "cyclic-a6-check/RELEASE_CHECKLIST.md",
-      "sha256": "b5bcb81f1111300da62fb787d6d9c94dd62129e79611c34c2d65e068946d71ea"
+      "sha256": "e219ddc95e1bc3353b9f1d94aa14f927b0934f4267c1298f418af60e87e959f8"
     },
     {
       "bytes": 2391,
@@ -61,14 +61,14 @@
       "sha256": "ed752bfe29ec9c91e371f4e8df579f5f4b85e9a78a7567bd970a925115531e39"
     },
     {
-      "bytes": 8853,
+      "bytes": 9062,
       "path": "cyclic-a6-check/paper/main.tex",
-      "sha256": "bc7d076a35f7010ced04d005a556971792e2c1b66aac11f443e73f4a9e67d6fe"
+      "sha256": "1f4b2099cc77f8f6648b0ad4caaf9d9c8d86ea895a4121d4d814197c7f4edd35"
     },
     {
-      "bytes": 63878,
+      "bytes": 64554,
       "path": "cyclic-a6-check/paper/main.pdf",
-      "sha256": "0af91ce7b918f605cd0403d23c12af2a4aea2803ebf1ec4d0939be19ae89685c"
+      "sha256": "7d7eae4395735d29455cfa5c028920d84ece8e0f3149b67b97986303fbdfd278"
     },
     {
       "bytes": 800141,
@@ -131,8 +131,8 @@
       "sha256": "d5bcf08820d164b060d1102fb8c15177c322280fb180f8441f7939b641d0d932"
     }
   ],
-  "release_date": "2026-08-14",
-  "release_version": "1.0.0-rc2",
+  "release_date": "2026-08-17",
+  "release_version": "1.0.0",
   "schema_version": 2,
   "upstream_commit": "8ce4e0ab01f1321cb9555703cd8def4d7a1c8511",
   "upstream_repository": "https://github.com/Ivan-Damnjanovic/ord-ram-num"

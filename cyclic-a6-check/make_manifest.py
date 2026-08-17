@@ -59,8 +59,8 @@ def main() -> None:
         raise SystemExit("missing manifest inputs:\n" + "\n".join(missing))
     manifest = {
         "schema_version": 2,
-        "release_version": "1.0.0-rc2",
-        "release_date": "2026-08-14",
+        "release_version": "1.0.0",
+        "release_date": "2026-08-17",
         "upstream_repository": "https://github.com/Ivan-Damnjanovic/ord-ram-num",
         "upstream_commit": "8ce4e0ab01f1321cb9555703cd8def4d7a1c8511",
         "files": [file_record(path, root) for path in paths],
