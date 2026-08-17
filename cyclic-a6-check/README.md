@@ -3,6 +3,9 @@
 Final release: **v1.0.0**. The archival certificate package is preserved on
 [Zenodo](https://doi.org/10.5281/zenodo.21934069), and the source and smaller
 artifacts are released from the companion [GitHub repository](https://github.com/rrtrytcg/cyclic-ramsey-k4-a6).
+The manuscript preprint is also deposited in HAL as
+[hal-05718992v1](https://hal.science/hal-05718992v1) (currently awaiting
+moderation).
 
 This directory contains a reproducible computer-assisted proof that
 

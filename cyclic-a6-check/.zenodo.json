@@ -20,6 +20,11 @@
       "identifier": "https://arxiv.org/abs/2604.16188",
       "relation": "isDerivedFrom",
       "scheme": "url"
+    },
+    {
+      "identifier": "https://hal.science/hal-05718992v1",
+      "relation": "isSupplementTo",
+      "scheme": "url"
     }
   ],
   "version": "1.0.0"
